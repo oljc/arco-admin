@@ -1,0 +1,128 @@
+{
+  "name": "arco-admin",
+  "description": "Arco Design Pro for Vue",
+  "type": "module",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "LIjiAngChen8",
+    "email": "spacecode@foxmail.com"
+  },
+  "scripts": {
+    "dev": "vite",
+    "serve": "pnpm dev",
+    "build": "rimraf dist && vite build",
+    "build:staging": "rimraf dist && vite build --mode staging",
+    "preview": "vite preview",
+    "preview:build": "pnpm build && vite preview",
+    "type:check": "tsc --noEmit && vue-tsc --noEmit --skipLibCheck",
+    "eslint": "eslint --cache --max-warnings 0 \"{src,mock,config}/**/*.{vue,js,ts,tsx}\"",
+    "eslint:fix": "eslint --cache --max-warnings 0 \"{src,mock,config}/**/*.{vue,js,ts,tsx}\" --fix",
+    "stylelint": "stylelint \"**/*.{html,vue,css,less}\" --cache",
+    "stylelint:fix": "stylelint \"**/*.{html,vue,css,less}\" --cache --fix",
+    "prettier": "prettier --check \"src/**/*.{js,ts,json,tsx,css,scss,vue,html,md}\"",
+    "prettier:fix": "prettier --write  \"src/**/*.{js,ts,json,tsx,css,scss,vue,html,md}\"",
+    "lint": "pnpm eslint && pnpm stylelint && pnpm prettier",
+    "lint:fix": "pnpm eslint:fix && pnpm stylelint:fix && pnpm prettier:fix",
+    "lint-staged": "npx lint-staged",
+    "clean:cache": "rimraf .eslintcache && rimraf node_modules && pnpm install",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "arco-design-vue",
+    "arco-admin",
+    "typescript",
+    "pinia",
+    "vue3",
+    "vite",
+    "esm"
+  ],
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.vue": [
+      "stylelint --fix",
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{html,less,css}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@arco-design/web-vue": "^2.53.3",
+    "@vueuse/core": "^10.6.1",
+    "axios": "^1.6.2",
+    "dayjs": "^1.11.10",
+    "echarts": "^5.4.3",
+    "lodash": "^4.17.21",
+    "mitt": "^3.0.0",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.1.7",
+    "query-string": "^8.1.0",
+    "sortablejs": "^1.15.0",
+    "vue": "^3.3.9",
+    "vue-echarts": "^6.6.1",
+    "vue-i18n": "^9.8.0",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@arco-plugins/vite-vue": "^1.4.5",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@eslint/js": "^8.53.0",
+    "@intlify/unplugin-vue-i18n": "1.5.0",
+    "@types/lodash": "^4.14.202",
+    "@types/mockjs": "^1.0.10",
+    "@types/nprogress": "^0.2.3",
+    "@types/sortablejs": "^1.15.7",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-define-config": "^1.24.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-vue": "^9.18.1",
+    "husky": "^8.0.3",
+    "less": "^4.2.0",
+    "lint-staged": "^15.1.0",
+    "mockjs": "^1.1.0",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^3.1.0",
+    "rimraf": "5.0.5",
+    "rollup-plugin-visualizer": "^5.9.3",
+    "stylelint": "^15.11.0",
+    "stylelint-config-recess-order": "^4.4.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard-less": "^2.0.0",
+    "stylelint-prettier": "^4.1.0",
+    "typescript": "^5.3.2",
+    "unplugin-auto-import": "^0.17.1",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^5.0.2",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-remove-console": "^2.1.1",
+    "vite-svg-loader": "^5.1.0",
+    "vue-eslint-parser": "^9.3.2",
+    "vue-tsc": "^1.8.22"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0",
+    "pnpm": ">=8.6.10"
+  },
+  "packageManager": "pnpm@8.11.0"
+}
