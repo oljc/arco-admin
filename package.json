@@ -1,6 +1,5 @@
 {
   "name": "arco-admin",
-  "description": "Arco Design Pro for Vue",
   "type": "module",
   "private": true,
   "version": "0.0.1",
