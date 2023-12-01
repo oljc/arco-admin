@@ -22,9 +22,7 @@ export function pluginsList(): PluginOption[] {
     }),
     Components({
       extensions: ['vue'],
-      resolvers: [
-        ArcoResolver()
-      ]
+      resolvers: [ArcoResolver()],
     }),
     VueI18nPlugin({
       runtimeOnly: true,
