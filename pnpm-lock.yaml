@@ -61,6 +61,9 @@ devDependencies:
   '@commitlint/config-conventional':
     specifier: ^18.4.3
     version: 18.4.3
+  '@commitlint/types':
+    specifier: ^18.4.3
+    version: 18.4.3
   '@eslint/js':
     specifier: ^8.53.0
     version: 8.54.0
