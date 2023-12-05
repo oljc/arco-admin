@@ -42,12 +42,11 @@ pnpm run dev
 
 ## 推荐工具
 
-
+[![趋势图](https://starchart.cc/LIjiAngChen8/arco-admin.svg)](https://starchart.cc/LIjiAngChen8/arco-admin)
 ## 贡献🎉
 欢迎任何形式的贡献，我们将会认真对待每一份参与。<br/>
-<a href="https://github.com/LIjiAngChen8/datepicker-pro-vue/graphs/contributors"><img src="https://contrib.rocks/image?repo=LIjiAngChen8/datepicker-pro-vue" />
+<a href="https://github.com/LIjiAngChen8/arco-admin/graphs/contributors"><img src="https://contrib.rocks/image?repo=LIjiAngChen8/arco-admin" />
 </a><br/>
-
 
 # License
 本项目遵循 [MIT 协议](./LICENSE)许可证。
