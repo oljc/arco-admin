@@ -6,6 +6,8 @@
   <a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
 </p>
 
+*<p align="center">📌项目还在快速开发中敬请期待，目前可当启动模板使用👈🏻</p>*
+
 ## 特性
 + ⚡️ 新版极速响应的 [Vite 5](https://cn.vitejs.dev) 前端构建工具。
 + 👍🏻 [Vue 3](https://cn.vuejs.org) + 官方首推的 [Vue Router](https://router.vuejs.org/zh) + [Pinia](https://pinia.vuejs.org/zh)管理器。
@@ -26,6 +28,12 @@
 + **提交规范：**  [Husky](https://typicode.github.io/husky/#/) + [Lint-Staged](https://github.com/okonet/lint-staged) + [Commitlint](https://commitlint.js.org)<br/>
   *提交代码时通过预设的代码风格检查、格式化和消息校验确保每次提交的代码质量和风格保持一致*
 
+## 浏览器支持
+
+| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" /><br/>Edge | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /><br/>Firefox | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /><br/>Chrome | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /><br/>Safari | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" /><br/>Samsung | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" /><br/>Opera | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" /><br/>Electron |
+| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Edge >=16| >= 31 | >= 49| >= 31| last 2 versions| >= 36 | last 2 versions
+
 ## 使用
 1. 克隆此仓库
 ```bash
@@ -40,13 +48,20 @@ pnpm i
 pnpm run dev
 ```
 
-## 推荐工具
+## VsCode 扩展推荐
 
-[![趋势图](https://starchart.cc/LIjiAngChen8/arco-admin.svg)](https://starchart.cc/LIjiAngChen8/arco-admin)
-## 贡献🎉
-欢迎任何形式的贡献，我们将会认真对待每一份参与。<br/>
+| [<img src="https://vue.gallerycdn.vsassets.io/extensions/vue/volar/1.8.24/1701250883040/Microsoft.VisualStudio.Services.Icons.Default" width="24px" height="24px" /><br>Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) | [<img src="https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/2.4.2/1687441427519/Microsoft.VisualStudio.Services.Icons.Default" width="24px" height="24px" /><br>ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) |[<img src="https://esbenp.gallerycdn.vsassets.io/extensions/esbenp/prettier-vscode/10.1.0/1690819498575/Microsoft.VisualStudio.Services.Icons.Default" width="24px" height="24px" /><br>Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) |[<img src="https://lokalise.gallerycdn.vsassets.io/extensions/lokalise/i18n-ally/2.12.0/1695476646920/Microsoft.VisualStudio.Services.Icons.Default" width="24px" height="24px" /><br>i18n Ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) |[<img src="https://stylelint.gallerycdn.vsassets.io/extensions/stylelint/vscode-stylelint/1.3.0/1698920117910/Microsoft.VisualStudio.Services.Icons.Default" width="25px" height="25px" /><br>Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)|[<img src="https://editorconfig.gallerycdn.vsassets.io/extensions/editorconfig/editorconfig/0.16.4/1607315835386/Microsoft.VisualStudio.Services.Icons.Default" width="25px" height="25px" /><br>EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)|[<img src="https://antfu.gallerycdn.vsassets.io/extensions/antfu/vite/0.2.5/1622972526798/Microsoft.VisualStudio.Services.Icons.Default" width="25px" height="25px" /><br>Vite](https://marketplace.visualstudio.com/items?itemName=antfu.vite)|
+| --- | --- | --- | ---| --- | --- | --- |
+
+## 贡献
+欢迎任何形式的贡献，我们将会认真对待每一份参与。<br/><br/>
+
 <a href="https://github.com/LIjiAngChen8/arco-admin/graphs/contributors"><img src="https://contrib.rocks/image?repo=LIjiAngChen8/arco-admin" />
 </a><br/>
+
+## Star 趋势图
+
+[![趋势图](https://starchart.cc/LIjiAngChen8/arco-admin.svg)](https://starchart.cc/LIjiAngChen8/arco-admin)
 
 # License
 本项目遵循 [MIT 协议](./LICENSE)许可证。
