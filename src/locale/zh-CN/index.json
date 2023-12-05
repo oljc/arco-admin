@@ -1,9 +1,15 @@
 {
-  "login": {
-    "banner": {
-      "subSlogan1": ""
-    }
-  },
+  "login": "登录",
+  "login.form.forgetPassword": "忘记密码",
+  "login.form.password.errMsg": "密码错误",
+  "login.form.password.placeholder": "请输入密码",
+  "login.form.register": "注册",
+  "login.form.rememberPassword": "记住密码",
+  "login.form.subtitle": "Arco Admin 给你更好的体验",
+  "login.form.title": "欢迎",
+  "login.form.userName.errMsg": "账号错误",
+  "login.form.userName.placeholder": "请输入账号",
+  "login.tab.iphone": "手机号",
   "menu.arcoWebsite": "Arco Design",
   "menu.dashboard": "仪表盘",
   "menu.exception": "异常页",
@@ -24,14 +30,14 @@
   "settings.color.tooltip": "根据主题颜色生成的 10 个梯度色（将配置复制到项目中，主题色才能对亮色 / 暗黑模式同时生效）",
   "settings.colorWeak": "色弱模式",
   "settings.content": "内容区域",
-  "settings.copySettings": "复制配置",
+  "settings.copySettings": "",
   "settings.copySettings.message": "复制成功，请粘贴到 src/settings.json 文件中",
   "settings.footer": "底部",
   "settings.language": "语言",
   "settings.menu": "菜单栏",
   "settings.menuFromServer": "菜单来源于后台",
   "settings.menuWidth": "菜单宽度 (px)",
-  "settings.navbar": "导航栏",
+  "settings.navbar": "",
   "settings.navbar.alerts": "消息通知",
   "settings.navbar.screen.toExit": "点击退出全屏模式",
   "settings.navbar.screen.toFull": "点击切换全屏模式",

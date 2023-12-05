@@ -7,21 +7,15 @@
       />
       <div class="logo-text">Arco Admin</div>
     </div>
-    <LoginBanner />
     <div class="content">
-      <div class="content-inner">
-        <LoginForm />
-      </div>
-      <div class="footer">
-        <Footer />
-      </div>
+      <LoginForm />
     </div>
+    <Footer class="footer" />
   </div>
 </template>
 
 <script lang="ts" setup>
   import Footer from '@/components/footer/index.vue';
-  import LoginBanner from './components/banner.vue';
   import LoginForm from './components/login-form.vue';
 </script>
 
@@ -36,12 +30,12 @@
     }
 
     .content {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       display: flex;
-      flex: 1;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: 40px;
+      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
     .footer {
@@ -70,7 +64,6 @@
 </style>
 
 <style lang="less" scoped>
-  // responsive
   @media (max-width: @screen-lg) {
     .container {
       .banner {

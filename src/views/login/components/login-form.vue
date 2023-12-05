@@ -1,8 +1,16 @@
 <template>
   <div class="login-form-wrapper">
-    <div class="login-form-title">{{ $t('login.form.title') }}</div>
-    <div class="login-form-sub-title">{{ $t('login.form.title') }}</div>
-    <div class="login-form-error-msg">{{ errorMessage }}</div>
+    <div class="login-form-title">欢迎使用Arco Admin</div>
+    <a-tabs default-active-key="2" size="mini">
+      <a-tab-pane key="1" title="手机号">
+        {{ $t('index.login.tab.iphone') }}
+      </a-tab-pane>
+      <a-tab-pane key="2" title="Tab 2"> Content of Tab Panel 2 </a-tab-pane>
+      <a-tab-pane key="3">
+        <template #title>Tab 3</template>
+        Content of Tab Panel 3
+      </a-tab-pane>
+    </a-tabs>
     <a-form
       ref="loginForm"
       :model="userInfo"
@@ -53,7 +61,7 @@
           <a-link>{{ $t('login.form.forgetPassword') }}</a-link>
         </div>
         <a-button type="primary" html-type="submit" long :loading="loading">
-          {{ $t('login.form.login') }}
+          {{ $t('login') }}
         </a-button>
         <a-button type="text" long class="login-form-register-btn">
           {{ $t('login.form.register') }}
@@ -132,6 +140,10 @@
   .login-form {
     &-wrapper {
       width: 320px;
+      padding: 24px;
+      overflow: hidden;
+      border: 1px solid var(--color-border-2);
+      border-radius: var(--border-radius-large);
     }
 
     &-title {
@@ -145,12 +157,6 @@
       font-size: 16px;
       line-height: 24px;
       color: var(--color-text-3);
-    }
-
-    &-error-msg {
-      height: 32px;
-      line-height: 32px;
-      color: rgb(var(--red-6));
     }
 
     &-password-actions {
