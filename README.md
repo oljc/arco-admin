@@ -4,6 +4,9 @@
 <br/>
 <p align="center">
   <a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
+  <img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
+  <img src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg" alt="node compatibility">
+  <img alt="Version" src="https://img.shields.io/github/package-json/v/LIjiAngChen8/arco-admin/main">
 </p>
 
 *<p align="center">📌项目还在快速开发中敬请期待，目前可当启动模板使用👈🏻</p>*
@@ -65,7 +68,3 @@ pnpm run dev
 
 # License
 本项目遵循 [MIT 协议](./LICENSE)许可证。
-
-
-
-
