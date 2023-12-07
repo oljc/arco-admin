@@ -10,16 +10,20 @@ declare module 'vue' {
     AAffix: (typeof import('@arco-design/web-vue'))['Affix'];
     AAlert: (typeof import('@arco-design/web-vue'))['Alert'];
     AAvatar: (typeof import('@arco-design/web-vue'))['Avatar'];
+    AAvatarGroup: (typeof import('@arco-design/web-vue'))['AvatarGroup'];
     ABadge: (typeof import('@arco-design/web-vue'))['Badge'];
     ABreadcrumb: (typeof import('@arco-design/web-vue'))['Breadcrumb'];
     ABreadcrumbItem: (typeof import('@arco-design/web-vue'))['BreadcrumbItem'];
     AButton: (typeof import('@arco-design/web-vue'))['Button'];
     ACard: (typeof import('@arco-design/web-vue'))['Card'];
+    ACardMeta: (typeof import('@arco-design/web-vue'))['CardMeta'];
     ACarousel: (typeof import('@arco-design/web-vue'))['Carousel'];
     ACarouselItem: (typeof import('@arco-design/web-vue'))['CarouselItem'];
+    ACascader: (typeof import('@arco-design/web-vue'))['Cascader'];
     ACheckbox: (typeof import('@arco-design/web-vue'))['Checkbox'];
     ACol: (typeof import('@arco-design/web-vue'))['Col'];
     AConfigProvider: (typeof import('@arco-design/web-vue'))['ConfigProvider'];
+    ADescriptions: (typeof import('@arco-design/web-vue'))['Descriptions'];
     ADivider: (typeof import('@arco-design/web-vue'))['Divider'];
     ADoption: (typeof import('@arco-design/web-vue'))['Doption'];
     ADrawer: (typeof import('@arco-design/web-vue'))['Drawer'];
@@ -31,6 +35,7 @@ declare module 'vue' {
     AInput: (typeof import('@arco-design/web-vue'))['Input'];
     AInputNumber: (typeof import('@arco-design/web-vue'))['InputNumber'];
     AInputPassword: (typeof import('@arco-design/web-vue'))['InputPassword'];
+    AInputSearch: (typeof import('@arco-design/web-vue'))['InputSearch'];
     ALayout: (typeof import('@arco-design/web-vue'))['Layout'];
     ALayoutContent: (typeof import('@arco-design/web-vue'))['LayoutContent'];
     ALayoutFooter: (typeof import('@arco-design/web-vue'))['LayoutFooter'];
@@ -49,6 +54,9 @@ declare module 'vue' {
     AResult: (typeof import('@arco-design/web-vue'))['Result'];
     ARow: (typeof import('@arco-design/web-vue'))['Row'];
     ASelect: (typeof import('@arco-design/web-vue'))['Select'];
+    ASkeleton: (typeof import('@arco-design/web-vue'))['Skeleton'];
+    ASkeletonLine: (typeof import('@arco-design/web-vue'))['SkeletonLine'];
+    ASkeletonShape: (typeof import('@arco-design/web-vue'))['SkeletonShape'];
     ASpace: (typeof import('@arco-design/web-vue'))['Space'];
     ASpin: (typeof import('@arco-design/web-vue'))['Spin'];
     AStatistic: (typeof import('@arco-design/web-vue'))['Statistic'];
