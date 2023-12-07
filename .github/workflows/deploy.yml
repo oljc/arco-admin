@@ -1,0 +1,57 @@
+name: Deploy
+
+on:
+  # master 分支 push 时触发
+  push:
+    branches: ["main"]
+
+  # 允许通过手动触发
+  workflow_dispatch:
+
+# 设置权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # 虚拟机
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout
+        uses: actions/checkout@v4
+      # 安装 pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.4.0
+      # 设置 node 环境
+      - name: Set node version to 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+          cache: "pnpm"
+      # 安装依赖
+      - name: Install dependencies
+        run: pnpm install
+      # 打包
+      - name: Build
+        run: pnpm run build
+      # 配置 GitHub Pages
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v3
+      # 将打包的 dist 上传
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist'
+      # 部署
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v3
