@@ -24,7 +24,6 @@ const useAppStore = defineStore('app', {
   actions: {
     // Update app settings
     updateSettings(partial: Partial<AppState>) {
-      // @ts-expect-error-next-line
       this.$patch(partial);
     },
 
@@ -45,7 +44,6 @@ const useAppStore = defineStore('app', {
       this.hideMenu = value;
     },
     async fetchServerMenuConfig() {
-      // @ts-expect-error-next-line
       let notifyInstance: NotificationReturn | null = null;
       try {
         notifyInstance = Notification.info({
@@ -61,12 +59,15 @@ const useAppStore = defineStore('app', {
           closable: true,
         });
       } catch (error) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         notifyInstance = Notification.error({
           id: 'menuNotice',
           content: 'error',
           closable: true,
         });
+      } finally {
+        if (notifyInstance) {
+          notifyInstance.close();
+        }
       }
     },
     clearServerMenu() {

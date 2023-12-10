@@ -1,6 +1,7 @@
 /dist/*
 /node_modules/**
 /src/assets/*
+src/**/*.d.ts
 
 **/*.svg
 **/*.sh

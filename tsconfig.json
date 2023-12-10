@@ -28,8 +28,8 @@
       "@/*": ["src/*"],
       "@config/*": ["config/*"]
     },
+    "types": ["vite/client"]
   },
-  "types": ["node", "vite/client"],
   "include": ["src/**/*", "src/**/*.vue", "vite.config.ts"],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }
