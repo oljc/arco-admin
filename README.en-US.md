@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://github.com/LIjiAngChen8/arco-admin">
+    <img width="180" src="./docs/logo.svg" alt="Arco admin logo">
+  </a>
+</p>
+
 <h1 align="center">Arco Admin</h1>
 
 <p align="center">An out-of-the-box, feature-rich middle and back-office management system framework, standardized with the latest technology stack.</p> 
