@@ -15,7 +15,11 @@ export default function autoImportPlugin() {
     }),
     Components({
       extensions: ['vue'],
-      resolvers: [ArcoResolver()],
+      resolvers: [
+        ArcoResolver({
+          resolveIcons: true,
+        }),
+      ],
       dts: './src/types/components.d.ts',
     }),
   ];
