@@ -98,7 +98,7 @@
       <a-checkbox
         checked="rememberPassword"
         :model-value="loginConfig.rememberPassword"
-        @change="setRememberPassword as any"
+        @change="setRememberPassword"
       >
         我已阅读并同意
       </a-checkbox>
