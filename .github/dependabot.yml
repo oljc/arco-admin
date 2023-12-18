@@ -14,3 +14,7 @@ updates:
       - dependency-name: "pnpm" # 忽略 pnpm 本身的更新
     pull-request-branch-name:
       separator: "-" # 分隔符
+    commit-message:
+      prefix: "build"
+      prefix-development: "build"
+      include: "scope"
