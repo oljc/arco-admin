@@ -104,8 +104,8 @@ devDependencies:
     specifier: ^9.1.0
     version: 9.1.0(eslint@8.56.0)
   eslint-define-config:
-    specifier: ^1.24.1
-    version: 1.24.1
+    specifier: ^2.0.0
+    version: 2.0.0
   eslint-plugin-prettier:
     specifier: ^5.0.1
     version: 5.0.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
@@ -2393,9 +2393,9 @@ packages:
       eslint: 8.56.0
     dev: true
 
-  /eslint-define-config@1.24.1:
-    resolution: {integrity: sha512-o36vBhPSWyIQlHoMqGhhcGmOOm2A2ccBVIdLTG/AWdm9YmjpsLpf+5ntf9LlHR6dduLREgxtGwvwPwSt7vnXJg==}
-    engines: {node: '>=18.0.0', npm: '>=9.0.0', pnpm: '>= 8.6.0'}
+  /eslint-define-config@2.0.0:
+    resolution: {integrity: sha512-M8ao9mAE35BGwjZeT8ZlsRA42wcJHWS29Avd0qfeclRXig6uTnGXcaO7UxVyFzUA1VJtxeV/acw4KrhJA3JqxQ==}
+    engines: {node: '>=18.0.0', npm: '>=9.0.0', pnpm: '>=8.6.0'}
     dev: true
 
   /eslint-plugin-prettier@5.0.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
