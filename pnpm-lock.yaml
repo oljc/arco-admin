@@ -68,8 +68,8 @@ devDependencies:
     specifier: ^8.56.0
     version: 8.56.0
   '@intlify/unplugin-vue-i18n':
-    specifier: 1.5.0
-    version: 1.5.0(vue-i18n@9.8.0)
+    specifier: 1.6.0
+    version: 1.6.0(vue-i18n@9.8.0)
   '@types/lodash':
     specifier: ^4.14.202
     version: 4.14.202
@@ -1015,8 +1015,8 @@ packages:
     resolution: {integrity: sha512-TmgR0RCLjzrSo+W3wT0ALf9851iFMlVI9EYNGeWvZFUQTAJx0bvfsMlPdgVtV1tDNRiAfhkFsMKu6jtUY1ZLKQ==}
     engines: {node: '>= 16'}
 
-  /@intlify/unplugin-vue-i18n@1.5.0(vue-i18n@9.8.0):
-    resolution: {integrity: sha512-jW0MCCdwxybxcwjEfCunAcKjVoxyO3i+cnLL6v+MNGRLUHqrpELF6zQAJUhgAK2afhY7mCliy8RxTFWKdXm26w==}
+  /@intlify/unplugin-vue-i18n@1.6.0(vue-i18n@9.8.0):
+    resolution: {integrity: sha512-IGeFNWxdEvB12E/3Y/+nmIsGeTg5okPsK1XEtUUD/DdkHbVqUbJucMpHKeHF8Px55Qca551pQCs/g+VjNUt6KA==}
     engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
