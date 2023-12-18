@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "pnpm" # 包管理器
+    directory: "/"
+    schedule:
+      interval: "daily" # 在每个工作日（周一至周五）运行
+    assignees:
+      - "LIjiAngChen8"
+    labels:
+      - "🔩dependencies"
+      - "🤖bot"
+    open-pull-requests-limit: 6 # 一次最多打开 6 个 PR
+    ignore:
+      - dependency-name: "pnpm" # 忽略 pnpm 本身的更新
+    pull-request-branch-name:
+      separator: "-" # 分隔符
