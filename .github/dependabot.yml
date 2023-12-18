@@ -4,7 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily" # 在每个工作日（周一至周五）运行
-    assignees:
+    reviewers:
       - "LIjiAngChen8"
     labels:
       - "🔩dependencies"
