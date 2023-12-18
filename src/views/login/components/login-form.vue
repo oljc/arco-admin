@@ -45,7 +45,7 @@
           记住密码
         </a-checkbox>
       </a-tab-pane>
-      <a-tab-pane key="2" title="手机号">
+      <a-tab-pane key="2" title="验证码">
         <a-form-item
           field="username"
           :validate-trigger="['change', 'blur']"
