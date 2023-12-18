@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: "pnpm" # 包管理器
+  - package-ecosystem: "npm" # 包管理器
     directory: "/"
     schedule:
       interval: "daily" # 在每个工作日（周一至周五）运行
