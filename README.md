@@ -66,6 +66,9 @@ pnpm run dev
 | [<img src="https://vue.gallerycdn.vsassets.io/extensions/vue/volar/1.8.24/1701250883040/Microsoft.VisualStudio.Services.Icons.Default" width="24px" height="24px" /><br>Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) | [<img src="https://dbaeumer.gallerycdn.vsassets.io/extensions/dbaeumer/vscode-eslint/2.4.2/1687441427519/Microsoft.VisualStudio.Services.Icons.Default" width="24px" height="24px" /><br>ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) |[<img src="https://esbenp.gallerycdn.vsassets.io/extensions/esbenp/prettier-vscode/10.1.0/1690819498575/Microsoft.VisualStudio.Services.Icons.Default" width="24px" height="24px" /><br>Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) |[<img src="https://lokalise.gallerycdn.vsassets.io/extensions/lokalise/i18n-ally/2.12.0/1695476646920/Microsoft.VisualStudio.Services.Icons.Default" width="24px" height="24px" /><br>i18n Ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) |[<img src="https://stylelint.gallerycdn.vsassets.io/extensions/stylelint/vscode-stylelint/1.3.0/1698920117910/Microsoft.VisualStudio.Services.Icons.Default" width="25px" height="25px" /><br>Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)|[<img src="https://editorconfig.gallerycdn.vsassets.io/extensions/editorconfig/editorconfig/0.16.4/1607315835386/Microsoft.VisualStudio.Services.Icons.Default" width="25px" height="25px" /><br>EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)|[<img src="https://antfu.gallerycdn.vsassets.io/extensions/antfu/vite/0.2.5/1622972526798/Microsoft.VisualStudio.Services.Icons.Default" width="25px" height="25px" /><br>Vite](https://marketplace.visualstudio.com/items?itemName=antfu.vite)|
 | --- | --- | --- | ---| --- | --- | --- |
 
+# Achievements
+It's now featured in the official Vite community-selected projects list [awesome-vite](https://github.com/vitejs/awesome-vite#vue-3) 🎉
+
 ## Contributing
 
 Welcome contributions in any form and assure you that we will carefully consider each and every one of them.<br/><br/>
@@ -73,9 +76,7 @@ Welcome contributions in any form and assure you that we will carefully consider
 <a href="https://github.com/LIjiAngChen8/arco-admin/graphs/contributors"><img src="https://contrib.rocks/image?repo=LIjiAngChen8/arco-admin" />
 </a><br/>
 
-## Star
-
-[![趋势图](https://starchart.cc/LIjiAngChen8/arco-admin.svg)](https://starchart.cc/LIjiAngChen8/arco-admin)
-
 # License
 This project is licensed under the [MIT License](./LICENSE)
+
+[![趋势图](https://starchart.cc/LIjiAngChen8/arco-admin.svg)](https://starchart.cc/LIjiAngChen8/arco-admin)
