@@ -67,7 +67,7 @@ pnpm run dev
 | --- | --- | --- | ---| --- | --- | --- |
 
 # Achievements
-It's now featured in the official Vite community-selected projects list [awesome-vite](https://github.com/vitejs/awesome-vite#vue-3) 🎉
+Added to the [awesome-vite](https://github.com/vitejs/awesome-vite#vue-3) list 🎉
 
 ## Contributing
 
