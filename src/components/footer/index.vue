@@ -1,8 +1,8 @@
 <template>
-  <a-layout-footer class="footer">Arco Admin</a-layout-footer>
+  <footer class="footer">
+    <slot>Arco Admin</slot>
+  </footer>
 </template>
-
-<script lang="ts" setup></script>
 
 <style lang="less" scoped>
   .footer {

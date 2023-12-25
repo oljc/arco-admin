@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <div class="logo">
+    <header class="header">
       <img alt="logo" src="../../assets//logo.svg" style="width: 36px" />
-      <div class="logo-text">Arco Admin</div>
-    </div>
+      <div class="header-text">Arco Admin</div>
+    </header>
     <div class="content">
       <LoginForm />
     </div>
-    <Footer class="footer" />
+    <Footer />
   </div>
 </template>
 
@@ -20,11 +20,6 @@
   .container {
     display: flex;
     height: 100vh;
-
-    .banner {
-      width: 550px;
-      background: linear-gradient(163.85deg, #1d2129 0%, #00308f 100%);
-    }
 
     .content {
       position: absolute;
@@ -42,29 +37,22 @@
     }
   }
 
-  .logo {
+  .header {
     position: fixed;
-    top: 24px;
+    top: 0;
     left: 22px;
     z-index: 1;
     display: inline-flex;
     align-items: center;
+    width: 100%;
+    padding: @spacing-7 @spacing-0;
 
     &-text {
       margin-right: 4px;
       margin-left: 4px;
-      font-size: 20px;
-      color: var(--color-fill-1);
-    }
-  }
-</style>
-
-<style lang="less" scoped>
-  @media (max-width: @screen-lg) {
-    .container {
-      .banner {
-        width: 25%;
-      }
+      font-size: 26px;
+      font-weight: 500;
+      color: rgb(var(--primary-6));
     }
   }
 </style>
