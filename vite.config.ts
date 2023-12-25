@@ -1,6 +1,6 @@
-import { resolve } from "path";
-import { pluginsList } from "./config";
-import { type UserConfigExport, type ConfigEnv, loadEnv } from "vite";
+import { resolve } from 'path';
+import { pluginsList } from './config';
+import { type UserConfigExport, type ConfigEnv, loadEnv } from 'vite';
 
 export default ({ mode }: ConfigEnv): UserConfigExport => {
   const { VITE_PORT, VITE_BASE } = loadEnv(mode, process.cwd());
@@ -10,8 +10,8 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
     // 路径别名
     resolve: {
       alias: {
-        '@': resolve(__dirname,'src'),
-        'assets': resolve(__dirname,'src/assets'),
+        '@': resolve(__dirname, 'src'),
+        'assets': resolve(__dirname, 'src/assets'),
         'vue': 'vue/dist/vue.esm-bundler.js', // compile template
       },
     },
@@ -19,7 +19,9 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       preprocessorOptions: {
         less: {
           modifyVars: {
-            hack: `true; @import (reference) "${resolve('src/assets/style/breakpoint.less')}";`,
+            hack: `true; @import (reference) "${resolve(
+              'src/assets/style/variables.less',
+            )}";`,
           },
           // https://lesscss.org/usage/#less-options
           math: 'parens-division',
@@ -30,14 +32,14 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
     plugins: [pluginsList()],
     // 依赖预构建-> https://cn.vitejs.dev/config/dep-optimization-options#dep-optimization-options
     optimizeDeps: {
-      include: ['mitt', 'dayjs', 'axios', 'pinia', '@vueuse/core', "vue-i18n",],
+      include: ['mitt', 'dayjs', 'axios', 'pinia', '@vueuse/core', 'vue-i18n'],
       exclude: ['@iconify-icons/lets-icons'],
     },
     server: {
       // 允许跨域
       cors: true,
       // 监听所有地址
-      host: "0.0.0.0",
+      host: '0.0.0.0',
       // 服务启动时是否自动打开浏览器
       open: true,
       // 端口号（这里使用了变量 VITE_PORT）
@@ -47,12 +49,12 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       // 预热文件以降低启动期间的初始页面加载时长
       warmup: {
         // 预热的客户端文件：首页、views、 components
-        clientFiles: ["./index.html", "./src/{views,components}/*"]
-      }
+        clientFiles: ['./index.html', './src/{views,components}/*'],
+      },
     },
     build: {
       // 浏览器兼容目标
-      target: "es2015",
+      target: 'es2015',
       // 是否生成 source map 文件
       sourcemap: false,
       rollupOptions: {
@@ -72,5 +74,5 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       // chunk 大小警告的限制
       chunkSizeWarningLimit: 2000,
     },
-  }
-}
+  };
+};
