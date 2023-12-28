@@ -59,8 +59,8 @@
     ]
   },
   "dependencies": {
-    "@arco-design/web-vue": "^2.53.3",
-    "@vueuse/core": "^10.7.0",
+    "@arco-design/web-vue": "^2.54.1",
+    "@vueuse/core": "^10.7.1",
     "axios": "^1.6.3",
     "dayjs": "^1.11.10",
     "echarts": "^5.4.3",
@@ -104,7 +104,7 @@
     "postcss-less": "^6.0.0",
     "prettier": "^3.1.1",
     "rimraf": "5.0.5",
-    "rollup-plugin-visualizer": "^5.11.0",
+    "rollup-plugin-visualizer": "^5.12.0",
     "stylelint": "^16.1.0",
     "stylelint-config-recess-order": "^4.4.0",
     "stylelint-config-recommended-vue": "^1.5.0",
