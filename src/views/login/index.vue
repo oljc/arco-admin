@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <header class="header">
-      <img alt="logo" src="../../assets//logo.svg" style="width: 36px" />
+      <logoSvg style="width: 36px; color: #165fdd"></logoSvg>
       <div class="header-text">Arco Admin</div>
     </header>
     <div class="content">
@@ -12,14 +12,17 @@
 </template>
 
 <script lang="ts" setup>
-  import Footer from '@/components/footer/index.vue';
   import LoginForm from './components/login-form.vue';
+  import logoSvg from '@/assets/logo.svg';
 </script>
 
 <style lang="less" scoped>
   .container {
     display: flex;
     height: 100vh;
+    background-image: url('../../assets/images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 
     .content {
       position: absolute;
@@ -52,7 +55,7 @@
       margin-left: 4px;
       font-size: 26px;
       font-weight: 500;
-      color: rgb(var(--primary-6));
+      color: rgb(var(--color-text-1));
     }
   }
 </style>

@@ -8,10 +8,10 @@
   >
     <div class="login-form-title">欢迎登录</div>
     <a-tabs default-active-key="1" size="mini" animation>
-      <a-tab-pane key="1" title="账号密码" destroy-on-hide>
+      <a-tab-pane key="1" title="账号登录" destroy-on-hide>
         <a-form-item
           field="username"
-          :rules="[{ required: true, message: '账号/邮箱/手机号不能为空' }]"
+          :rules="[{ required: true, message: '请输入账号/邮箱/手机号' }]"
           :validate-trigger="['blur']"
           hide-label
         >
@@ -23,7 +23,7 @@
         </a-form-item>
         <a-form-item
           field="password"
-          :rules="[{ required: true, message: '未填写密码' }]"
+          :rules="[{ required: true, message: '请输入密码' }]"
           :validate-trigger="['blur']"
           hide-label
         >
@@ -45,31 +45,26 @@
           记住密码
         </a-checkbox>
       </a-tab-pane>
-      <a-tab-pane key="2" title="验证码">
+      <a-tab-pane key="2" title="手机号登录">
         <a-form-item
           field="username"
           :validate-trigger="['change', 'blur']"
           hide-label
         >
-          <a-input
-            :style="{ width: '320px' }"
-            placeholder="请输入手机号"
-            allow-clear
-          >
-            <template #prepend> +86 </template>
-          </a-input>
+          <a-input-group :style="{ width: '320px' }">
+            <country-code-select />
+            <a-input placeholder="请输入手机号" allow-clear />
+          </a-input-group>
         </a-form-item>
         <a-form-item
           field="username"
           :validate-trigger="['change', 'blur']"
           hide-label
         >
-          <a-input
-            :style="{ width: '320px' }"
-            placeholder="请输入你的手机号"
-            allow-clear
-          >
-          </a-input>
+          <a-input-group :style="{ width: '320px' }">
+            <a-input placeholder="请输入验证码" allow-clear> </a-input>
+            <a-button>获取验证码</a-button>
+          </a-input-group>
         </a-form-item>
       </a-tab-pane>
     </a-tabs>
@@ -180,6 +175,7 @@
       width: 330px;
       padding: 24px 24px 12px;
       overflow: hidden;
+      background-color: #fff;
       border: 1px solid var(--color-border-2);
       border-radius: var(--border-radius-large);
     }
