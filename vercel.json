@@ -1,4 +1,3 @@
 {
-  "rewrites": [{ "source": "/:path*", "destination": "/index.html" }],
-  "ignore": ["**/.*", "**/node_modules/**"]
+  "rewrites": [{ "source": "/:path*", "destination": "/index.html" }]
 }
