@@ -8,7 +8,7 @@
 <p>An out-of-the-box, feature-rich middle and back-office management system framework, standardized with the latest technology stack.</p>
 <br/>
 
-English | [简体中文](./README.zh-CN.md)
+English | [简体中文](./README.md)
 
 <a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
 <img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
