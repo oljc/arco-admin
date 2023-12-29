@@ -1,25 +1,28 @@
-<p align="center">
-  <a href="https://github.com/LIjiAngChen8/arco-admin">
-    <img width="180" src="./docs/logo.svg" alt="Arco admin logo">
-  </a>
-</p>
-
-<h1 align="center">Arco Admin</h1>
-
-<p align="center">An out-of-the-box, feature-rich middle and back-office management system framework, standardized with the latest technology stack.</p> 
-<br/>
 <div align="center">
 
-English | [简体中文](./README.zh-CN.md)
-</div>
-<p align="center">
-  <a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
-  <img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
-  <img src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg" alt="node compatibility">
-  <img alt="Version" src="https://img.shields.io/github/package-json/v/LIjiAngChen8/arco-admin/main">
-</p>
+<a href="https://github.com/LIjiAngChen8/arco-admin">
+  <img width="180" src="./docs/logo.svg" alt="Arco admin logo">
+</a>
 
-*<p align="center">📌The project is still under rapid development, stay tuned! Currently usable as a starter template👈🏻</p>*
+<h1>Arco Admin</h1>
+<p>An out-of-the-box, feature-rich middle and back-office management system framework, standardized with the latest technology stack.</p>
+<br/>
+
+English | [简体中文](./README.zh-CN.md)
+
+<a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
+<img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
+<img src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg" alt="node compatibility">
+<img alt="Version" src="https://img.shields.io/github/package-json/v/LIjiAngChen8/arco-admin/main">
+
+*📌The project is still under rapid development, stay tuned! Currently usable as a starter template👈🏻*
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=725470717&image_size=auto&color_scheme=dark" width="655" height="auto">
+  <img alt="LIjiAngChen8/arco-admin" src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=725470717&image_size=auto&color_scheme=light" width="655" height="auto">
+</picture>
+
+</div>
 
 ## Features
 + ⚡️ New version built with [Vite 5](https://vitejs.dev) for lightning-fast response in frontend development.

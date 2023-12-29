@@ -1,26 +1,28 @@
-<p align="center">
-  <a href="https://github.com/LIjiAngChen8/arco-admin">
-    <img width="180" src="./docs/logo.svg" alt="Arco admin logo">
-  </a>
-</p>
+<div align="center">
+
+<a href="https://github.com/LIjiAngChen8/arco-admin">
+  <img width="180" src="./docs/logo.svg" alt="Arco admin logo">
+</a>
 
 <h1 align="center">Arco Admin</h1>
 <p align="center">一款开箱即用、功能丰富的中后台管理系统框架，最新技术栈的标准化规范项目。</p> 
 <br/>
 
-<div align="center">
-
 简体中文 | [English](./README.md)
+
+<a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
+<img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
+<img src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg" alt="node compatibility">
+<img alt="Version" src="https://img.shields.io/github/package-json/v/LIjiAngChen8/arco-admin/main">
+
+*📌项目还在快速开发中敬请期待，目前可当启动模板使用👈🏻*
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=725470717&image_size=auto&color_scheme=dark" width="655" height="auto">
+  <img alt="LIjiAngChen8/arco-admin 近 28 天统计" src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=725470717&image_size=auto&color_scheme=light" width="655" height="auto">
+</picture>
+
 </div>
-
-<p align="center">
-  <a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
-  <img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
-  <img src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg" alt="node compatibility">
-  <img alt="Version" src="https://img.shields.io/github/package-json/v/LIjiAngChen8/arco-admin/main">
-</p>
-
-*<p align="center">📌项目还在快速开发中敬请期待，目前可当启动模板使用👈🏻</p>*
 
 ## 特性
 + ⚡️ 新版极速响应的 [Vite 5](https://cn.vitejs.dev) 前端构建工具。
