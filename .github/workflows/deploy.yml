@@ -20,6 +20,9 @@ concurrency:
 
 jobs:
   deploy:
+    # 更换了别的服务商所以暂时阻止整个作业执行
+    if: contains(github.event.head_commit.message, '[ci]')
+
     # 虚拟机
     runs-on: ubuntu-latest
 
