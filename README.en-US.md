@@ -6,11 +6,11 @@
 
 <h1>Arco Admin</h1>
 <p>An out-of-the-box, feature-rich middle and back-office management system framework, standardized with the latest technology stack.</p>
-<br/>
 
 English | [简体中文](./README.md)
 
-<a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
+[![Preview](https://img.shields.io/badge/%E9%A2%84%E8%A7%88%E5%9C%B0%E5%9D%80-8A2BE2?color=%2314C9C9)](https://arco-admin.cn)
+<a href="https://nodejs.org/en/about/previous-releases" target="_blank"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
 <img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
 <img src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg" alt="node compatibility">
 <img alt="Version" src="https://img.shields.io/github/package-json/v/LIjiAngChen8/arco-admin/main">

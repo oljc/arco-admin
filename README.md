@@ -6,13 +6,13 @@
 
 <h1 align="center">Arco Admin</h1>
 <p align="center">一款开箱即用、功能丰富的中后台管理系统框架，最新技术栈的标准化规范项目。</p> 
-<br/>
 
 简体中文 | [English](./README.en-US.md)
 
-<a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
+[![Preview](https://img.shields.io/badge/%E9%A2%84%E8%A7%88%E5%9C%B0%E5%9D%80-8A2BE2?color=%2314C9C9)](https://arco-admin.cn)
+<a href="https://nodejs.org/en/about/previous-releases" target="_blank"><img alt="node compatibility" src="https://img.shields.io/node/v/vite.svg"></a>
 <img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
-<img src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg" alt="node compatibility">
+<img alt="Commit" src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg">
 <img alt="Version" src="https://img.shields.io/github/package-json/v/LIjiAngChen8/arco-admin/main">
 
 *📌项目还在快速开发中敬请期待，目前可当启动模板使用👈🏻*
