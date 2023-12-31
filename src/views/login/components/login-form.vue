@@ -1,34 +1,29 @@
 <template>
   <a-form
-    ref="loginForm"
-    :model="userInfo"
+    ref="formRef"
     class="login-form-wrapper"
     layout="vertical"
-    @submit="handleSubmit"
+    :model="form"
+    :rules="rules"
   >
     <div class="login-form-title">欢迎登录</div>
-    <a-tabs default-active-key="1" size="mini" animation>
+    <a-tabs v-model:active-key="tabActiveKey" size="mini" animation>
       <a-tab-pane key="1" title="账号登录" destroy-on-hide>
-        <a-form-item
-          field="username"
-          :rules="[{ required: true, message: '请输入账号/邮箱/手机号' }]"
-          :validate-trigger="['blur']"
-          hide-label
-        >
-          <a-input v-model="userInfo.username" placeholder="账号/邮箱/手机号">
+        <a-form-item field="username" validate-trigger="blur" hide-label>
+          <a-input
+            v-model="form.username"
+            autocomplete="username"
+            placeholder="账号/邮箱/手机号"
+          >
             <template #prefix>
               <icon-user />
             </template>
           </a-input>
         </a-form-item>
-        <a-form-item
-          field="password"
-          :rules="[{ required: true, message: '请输入密码' }]"
-          :validate-trigger="['blur']"
-          hide-label
-        >
+        <a-form-item field="password" validate-trigger="blur" hide-label>
           <a-input-password
-            v-model="userInfo.password"
+            v-model="form.password"
+            autocomplete="current-password"
             placeholder="请输入密码"
             allow-clear
           >
@@ -40,40 +35,43 @@
         <a-checkbox
           checked="rememberPassword"
           :model-value="loginConfig.rememberPassword"
-          @change="setRememberPassword as any"
+          @change="setRememberPassword"
         >
           记住密码
         </a-checkbox>
       </a-tab-pane>
-      <a-tab-pane key="2" title="手机号登录">
-        <a-form-item
-          field="username"
-          :validate-trigger="['change', 'blur']"
-          hide-label
-        >
+      <a-tab-pane key="2" title="手机号登录" destroy-on-hide>
+        <a-form-item field="phone" validate-trigger="blur" hide-label>
           <a-input-group :style="{ width: '320px' }">
             <country-code-select />
-            <a-input placeholder="请输入手机号" allow-clear />
+            <a-input
+              v-model="form.phone"
+              placeholder="请输入手机号"
+              :max-length="11"
+              allow-clear
+            />
           </a-input-group>
         </a-form-item>
-        <a-form-item
-          field="username"
-          :validate-trigger="['change', 'blur']"
-          hide-label
-        >
+        <a-form-item field="code" validate-trigger="blur" hide-label>
           <a-input-group :style="{ width: '320px' }">
-            <a-input placeholder="请输入验证码" allow-clear> </a-input>
-            <a-button>获取验证码</a-button>
+            <a-input v-model="form.code" placeholder="请输入验证码" allow-clear>
+            </a-input>
+            <a-button
+              style="width: 100px"
+              :disabled="codeDisabled"
+              @click="handleSendCode"
+              >{{ codeText }}</a-button
+            >
           </a-input-group>
         </a-form-item>
       </a-tab-pane>
     </a-tabs>
     <a-button
       type="primary"
-      html-type="submit"
       style="margin: 32px 0 6px"
       long
       :loading="loading"
+      @click="handleSubmit"
     >
       登录
     </a-button>
@@ -90,15 +88,9 @@
       </template>
     </a-space>
     <div class="login-form-actions">
-      <a-checkbox
-        checked="rememberPassword"
-        :model-value="loginConfig.rememberPassword"
-        @change="setRememberPassword"
-      >
-        我已阅读并同意
-      </a-checkbox>
+      <a-checkbox v-model="form.agreement"> 我已阅读并同意 </a-checkbox>
       <a-link>服务协议</a-link>
-      <label>和</label>
+      <span>和</span>
       <a-link>隐私政策</a-link>
     </div>
   </a-form>
@@ -107,65 +99,119 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
   import { useRouter } from 'vue-router';
-  import { Message } from '@arco-design/web-vue';
-  import { ValidatedError } from '@arco-design/web-vue/es/form/interface';
   import { useI18n } from 'vue-i18n';
   import { useStorage } from '@vueuse/core';
   import { useUserStore } from '@/store';
+  import useCountDown from '@/hooks/use-count-down';
   import useLoading from '@/hooks/loading';
   import type { LoginData } from '@/api/user';
+  import { pick } from 'lodash';
 
   const router = useRouter();
   const { t } = useI18n();
-  const errorMessage = ref('');
-  const { loading, setLoading } = useLoading();
+  const codeDisabled = ref(false);
   const userStore = useUserStore();
+  const codeText = ref('获取验证码');
+  const formRef = ref();
+  const tabActiveKey = ref('1');
+  const { loading, setLoading } = useLoading();
 
   const loginConfig = useStorage('login-config', {
     rememberPassword: true,
     username: '', // 演示默认值
     password: '', // 演示密码
   });
-  const userInfo = reactive({
+  const form = reactive({
     username: loginConfig.value.username,
     password: loginConfig.value.password,
+    phone: '',
+    code: '',
+    agreement: false,
   });
 
-  const handleSubmit = async ({
-    errors,
-    values,
-  }: {
-    errors: Record<string, ValidatedError> | undefined;
-    values: Record<string, any>;
-  }) => {
+  const rules = {
+    username: [{ required: true, message: '请输入账号/邮箱/手机号' }],
+    // 密码格式：6-32位，包含大小写字母、数字、特殊字符(除空格)两种以上
+    password: [
+      { required: true, message: '请输入密码' },
+      {
+        match:
+          /^(?![\d]+$)(?![a-z]+$)(?![A-Z]+$)(?![~!@#$%^&*.]+$)[\da-zA-z~!@#$%^&*.]{6,32}$/,
+        message: '密码格式不正确',
+      },
+    ],
+    phone: [
+      { required: true, message: '请输入手机号' },
+      { length: 11, message: '手机号格式不正确' },
+    ],
+    code: [{ required: true, message: '请输入验证码' }],
+  };
+
+  const handleSubmit = () => {
     if (loading.value) return;
-    if (!errors) {
-      setLoading(true);
-      try {
-        await userStore.login(values as LoginData);
-        const { redirect, ...othersQuery } = router.currentRoute.value.query;
-        router.push({
-          name: (redirect as string) || 'Workplace',
-          query: {
-            ...othersQuery,
-          },
+
+    if (!form.agreement) {
+      Message.error('请确认阅读并同意服务协议和隐私政策');
+      return;
+    }
+
+    if (tabActiveKey.value === '1') {
+      formRef.value
+        .validateField(['username', 'password'])
+        .then(async (res) => {
+          if (res) return;
+          setLoading(true);
+          try {
+            const userInfoform = pick(form, ['username', 'password']);
+            console.log(userInfoform);
+
+            await userStore.login(userInfoform as LoginData);
+            const { redirect, ...othersQuery } =
+              router.currentRoute.value.query;
+            router.push({
+              name: (redirect as string) || 'Workplace',
+              query: {
+                ...othersQuery,
+              },
+            });
+            Message.success(t('login.form.login.success'));
+            const { rememberPassword } = loginConfig.value;
+            const { username, password } = userInfoform;
+            // 实际生产环境需要进行加密存储。
+            loginConfig.value.username = rememberPassword ? username : '';
+            loginConfig.value.password = rememberPassword ? password : '';
+          } finally {
+            setLoading(false);
+          }
         });
-        Message.success(t('login.form.login.success'));
-        const { rememberPassword } = loginConfig.value;
-        const { username, password } = values;
-        // 实际生产环境需要进行加密存储。
-        // The actual production environment requires encrypted storage.
-        loginConfig.value.username = rememberPassword ? username : '';
-        loginConfig.value.password = rememberPassword ? password : '';
-      } catch (err) {
-        errorMessage.value = (err as Error).message;
-      } finally {
-        setLoading(false);
-      }
+    }
+
+    if (tabActiveKey.value === '2') {
+      formRef.value.validateField(['phone', 'code']).then((res) => {
+        if (res) return;
+        //   setLoading(true);
+      });
     }
   };
   const setRememberPassword = (value: boolean) => {
     loginConfig.value.rememberPassword = value;
+  };
+
+  const { start } = useCountDown({
+    initValue: 9,
+    onEnd: () => {
+      codeText.value = '获取验证码';
+      codeDisabled.value = false;
+    },
+    onChange: (count) => (codeText.value = `重新获取${count}s`),
+  });
+
+  // 发送验证码
+  const handleSendCode = async () => {
+    const res = await formRef.value.validateField(['phone']);
+    if (res || codeDisabled.value) return;
+    codeDisabled.value = true;
+    start();
   };
 </script>
 
