@@ -25,3 +25,8 @@ export function getUserInfo() {
 export function getMenuList() {
   return axios.post<RouteRecordNormalized[]>('/api/user/menu');
 }
+
+// 获取验证码
+export function getCaptcha(data: { tel: string }) {
+  return axios.post('/api/login/captcha', data);
+}

@@ -9,8 +9,6 @@ import { isLogin } from '@/utils/auth';
 
 setupMock({
   setup() {
-    // Mock.XHR.prototype.withCredentials = true;
-
     // 用户信息
     Mock.mock(new RegExp('/api/user/info'), () => {
       if (isLogin()) {

@@ -13,7 +13,7 @@
           <a-input
             v-model="form.username"
             autocomplete="username"
-            placeholder="账号/邮箱/手机号"
+            placeholder="账号/邮箱"
           >
             <template #prefix>
               <icon-user />
@@ -52,9 +52,13 @@
             />
           </a-input-group>
         </a-form-item>
-        <a-form-item field="code" validate-trigger="blur" hide-label>
+        <a-form-item field="captcha" validate-trigger="blur" hide-label>
           <a-input-group :style="{ width: '320px' }">
-            <a-input v-model="form.code" placeholder="请输入验证码" allow-clear>
+            <a-input
+              v-model="form.captcha"
+              placeholder="请输入验证码"
+              allow-clear
+            >
             </a-input>
             <a-button
               style="width: 100px"
@@ -105,7 +109,9 @@
   import useCountDown from '@/hooks/use-count-down';
   import useLoading from '@/hooks/loading';
   import type { LoginData } from '@/api/user';
+  import { getCaptcha } from '@/api/user';
   import { pick } from 'lodash';
+  import { Message, Notification } from '@arco-design/web-vue';
 
   const router = useRouter();
   const { t } = useI18n();
@@ -125,12 +131,13 @@
     username: loginConfig.value.username,
     password: loginConfig.value.password,
     phone: '',
-    code: '',
+    captcha: '',
     agreement: false,
   });
 
   const rules = {
-    username: [{ required: true, message: '请输入账号/邮箱/手机号' }],
+    username: [{ required: true, message: '请输入账号/邮箱' }],
+    captcha: [{ required: true, message: '请输入验证码' }],
     // 密码格式：6-32位，包含大小写字母、数字、特殊字符(除空格)两种以上
     password: [
       { required: true, message: '请输入密码' },
@@ -144,14 +151,13 @@
       { required: true, message: '请输入手机号' },
       { length: 11, message: '手机号格式不正确' },
     ],
-    code: [{ required: true, message: '请输入验证码' }],
   };
 
   const handleSubmit = () => {
     if (loading.value) return;
 
     if (!form.agreement) {
-      Message.error('请确认阅读并同意服务协议和隐私政策');
+      Message.info('请阅读并同意服务协议和隐私政策');
       return;
     }
 
@@ -187,7 +193,7 @@
     }
 
     if (tabActiveKey.value === '2') {
-      formRef.value.validateField(['phone', 'code']).then((res) => {
+      formRef.value.validateField(['phone', 'captcha']).then((res) => {
         if (res) return;
         //   setLoading(true);
       });
@@ -211,6 +217,16 @@
     const res = await formRef.value.validateField(['phone']);
     if (res || codeDisabled.value) return;
     codeDisabled.value = true;
+    getCaptcha({ tel: form.phone }).then((res: any) => {
+      if (res.code === 20000) {
+        Notification.success({
+          id: 'captcha',
+          content: `Mock 验证码:${res.data.captcha}`,
+          closable: true,
+          duration: 0,
+        });
+      }
+    });
     start();
   };
 </script>

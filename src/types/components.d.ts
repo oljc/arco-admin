@@ -22,6 +22,7 @@ declare module 'vue' {
     AInputNumber: typeof import('@arco-design/web-vue')['InputNumber']
     AInputPassword: typeof import('@arco-design/web-vue')['InputPassword']
     ALink: typeof import('@arco-design/web-vue')['Link']
+    APopconfirm: typeof import('@arco-design/web-vue')['Popconfirm']
     ASelect: typeof import('@arco-design/web-vue')['Select']
     ASpace: typeof import('@arco-design/web-vue')['Space']
     ASwitch: typeof import('@arco-design/web-vue')['Switch']

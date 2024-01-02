@@ -2,6 +2,7 @@ import Mock from 'mockjs';
 
 import './user';
 import './message-box';
+import './login';
 
 import '@/views/dashboard/workplace/mock';
 
@@ -21,5 +22,5 @@ import '@/views/user/info/mock';
 import '@/views/user/setting/mock';
 
 Mock.setup({
-  timeout: '600-1000',
+  timeout: '200-900',
 });
