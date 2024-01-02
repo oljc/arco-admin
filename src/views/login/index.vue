@@ -38,24 +38,24 @@
       bottom: 0;
       width: 100%;
     }
-  }
 
-  .header {
-    position: fixed;
-    top: 0;
-    left: 22px;
-    z-index: 1;
-    display: inline-flex;
-    align-items: center;
-    width: 100%;
-    padding: @spacing-7 @spacing-0;
+    .header {
+      position: fixed;
+      top: 0;
+      left: 22px;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      padding: @spacing-7 @spacing-0;
 
-    &-text {
-      margin-right: 4px;
-      margin-left: 4px;
-      font-size: 26px;
-      font-weight: 500;
-      color: rgb(var(--color-text-1));
+      &-text {
+        margin-right: 4px;
+        margin-left: 4px;
+        font-size: 26px;
+        font-weight: 500;
+        color: rgb(var(--color-text-1));
+      }
     }
   }
 </style>

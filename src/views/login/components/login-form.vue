@@ -6,14 +6,14 @@
     :model="form"
     :rules="rules"
   >
-    <div class="login-form-title">欢迎登录</div>
+    <div class="login-form-title">{{ $t('login-title') }}</div>
     <a-tabs v-model:active-key="tabActiveKey" size="mini" animation>
-      <a-tab-pane key="1" title="账号登录" destroy-on-hide>
+      <a-tab-pane key="1" :title="$t('login-tab-account')" destroy-on-hide>
         <a-form-item field="username" validate-trigger="blur" hide-label>
           <a-input
             v-model="form.username"
             autocomplete="username"
-            placeholder="账号/邮箱"
+            :placeholder="$t('login.form.username.placeholder')"
           >
             <template #prefix>
               <icon-user />
@@ -24,7 +24,7 @@
           <a-input-password
             v-model="form.password"
             autocomplete="current-password"
-            placeholder="请输入密码"
+            :placeholder="$t('login.form.password.placeholder')"
             allow-clear
           >
             <template #prefix>
@@ -37,16 +37,16 @@
           :model-value="loginConfig.rememberPassword"
           @change="setRememberPassword"
         >
-          记住密码
+          {{ $t('login.form.remember') }}
         </a-checkbox>
       </a-tab-pane>
-      <a-tab-pane key="2" title="手机号登录" destroy-on-hide>
+      <a-tab-pane key="2" :title="$t('login-tab-tel')" destroy-on-hide>
         <a-form-item field="phone" validate-trigger="blur" hide-label>
           <a-input-group :style="{ width: '320px' }">
             <country-code-select />
             <a-input
               v-model="form.phone"
-              placeholder="请输入手机号"
+              :placeholder="$t('login.form.phone.placeholder')"
               :max-length="11"
               allow-clear
             />
@@ -56,7 +56,7 @@
           <a-input-group :style="{ width: '320px' }">
             <a-input
               v-model="form.captcha"
-              placeholder="请输入验证码"
+              :placeholder="$t('login.form.captcha.placeholder')"
               allow-clear
             >
             </a-input>
@@ -77,10 +77,12 @@
       :loading="loading"
       @click="handleSubmit"
     >
-      登录
+      {{ $t('common.login') }}
     </a-button>
-    <a-button type="text" long class="login-form-register-btn"> 注册 </a-button>
-    <a-divider orientation="center">更多方式</a-divider>
+    <a-button type="text" long class="login-form-register-btn">
+      {{ $t('signin') }}
+    </a-button>
+    <a-divider orientation="center">{{ $t('login.more') }}</a-divider>
     <a-space class="login-form-more" :size="2" fill>
       <icon-alipay-circle style="color: #4b81ff" />
       <icon-wechat style="color: #38ad19" />
@@ -92,10 +94,12 @@
       </template>
     </a-space>
     <div class="login-form-actions">
-      <a-checkbox v-model="form.agreement"> 我已阅读并同意 </a-checkbox>
-      <a-link>服务协议</a-link>
-      <span>和</span>
-      <a-link>隐私政策</a-link>
+      <a-checkbox v-model="form.agreement">
+        {{ $t('login-agreement') }}
+      </a-checkbox>
+      <a-link>{{ $t('login-service-agreement') }}</a-link>
+      <span>{{ $t('login-agreement-and') }}</span>
+      <a-link>{{ $t('login-privacy-policy') }}</a-link>
     </div>
   </a-form>
 </template>
@@ -117,7 +121,7 @@
   const { t } = useI18n();
   const codeDisabled = ref(false);
   const userStore = useUserStore();
-  const codeText = ref('获取验证码');
+  const codeText = ref(t('login.form.captcha.send'));
   const formRef = ref();
   const tabActiveKey = ref('1');
   const { loading, setLoading } = useLoading();
@@ -136,12 +140,12 @@
   });
 
   const rules = {
-    username: [{ required: true, message: '请输入账号/邮箱' }],
-    captcha: [{ required: true, message: '请输入验证码' }],
-    // 密码格式：6-32位，包含大小写字母、数字、特殊字符(除空格)两种以上
+    username: [{ required: true, message: t('login.form.username.msg') }],
+    captcha: [{ required: true, message: t('login.form.captcha.msg') }],
     password: [
       { required: true, message: '请输入密码' },
       {
+        // 密码格式：6-32位，包含大小写字母、数字、特殊字符(除空格)两种以上
         match:
           /^(?![\d]+$)(?![a-z]+$)(?![A-Z]+$)(?![~!@#$%^&*.]+$)[\da-zA-z~!@#$%^&*.]{6,32}$/,
         message: '密码格式不正确',
@@ -156,16 +160,14 @@
   const handleSubmit = () => {
     if (loading.value) return;
 
-    if (!form.agreement) {
-      Message.info('请阅读并同意服务协议和隐私政策');
-      return;
-    }
-
     if (tabActiveKey.value === '1') {
       formRef.value
         .validateField(['username', 'password'])
         .then(async (res) => {
           if (res) return;
+          if (!form.agreement) {
+            return Message.info(t('login.form.agreement.tips'));
+          }
           setLoading(true);
           try {
             const userInfoform = pick(form, ['username', 'password']);
@@ -195,10 +197,13 @@
     if (tabActiveKey.value === '2') {
       formRef.value.validateField(['phone', 'captcha']).then((res) => {
         if (res) return;
+        if (!form.agreement)
+          return Message.info('请阅读并同意服务协议和隐私政策');
         //   setLoading(true);
       });
     }
   };
+
   const setRememberPassword = (value: boolean) => {
     loginConfig.value.rememberPassword = value;
   };
@@ -206,10 +211,11 @@
   const { start } = useCountDown({
     initValue: 9,
     onEnd: () => {
-      codeText.value = '获取验证码';
+      codeText.value = t('login.form.captcha.send');
       codeDisabled.value = false;
     },
-    onChange: (count) => (codeText.value = `重新获取${count}s`),
+    onChange: (seconds) =>
+      (codeText.value = t('login.form.captcha.resend', { seconds })),
   });
 
   // 发送验证码
