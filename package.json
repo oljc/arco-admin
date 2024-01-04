@@ -77,9 +77,9 @@
   },
   "devDependencies": {
     "@arco-plugins/vite-vue": "^1.4.5",
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
-    "@commitlint/types": "^18.4.3",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@commitlint/types": "^18.4.4",
     "@eslint/js": "^8.56.0",
     "@intlify/unplugin-vue-i18n": "2.0.0",
     "@types/lodash": "^4.14.202",
