@@ -52,7 +52,7 @@
             />
           </a-input-group>
         </a-form-item>
-        <a-form-item field="captcha" validate-trigger="blur" hide-label>
+        <a-form-item field="captcha" hide-label>
           <a-input-group :style="{ width: '320px' }">
             <a-input
               v-model="form.captcha"
