@@ -14,12 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue';
-  import { useTabBarStore } from '@/store';
+import { computed } from 'vue';
+import { useTabBarStore } from '@/store';
 
-  const tabBarStore = useTabBarStore();
+const tabBarStore = useTabBarStore();
 
-  const cacheList = computed(() => tabBarStore.getCacheList);
+const cacheList = computed(() => tabBarStore.getCacheList);
 </script>
 
 <style scoped lang="less"></style>

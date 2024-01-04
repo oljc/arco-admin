@@ -26,12 +26,12 @@
         :label-style="{
           width: '140px',
           fontWeight: 'normal',
-          color: 'rgb(var(--gray-8))',
+          color: 'rgb(var(--gray-8))'
         }"
         :value-style="{
           width: '200px',
           paddingLeft: '8px',
-          textAlign: 'left',
+          textAlign: 'left'
         }"
       >
         <template #label="{ label }">{{ $t(label) }} :</template>
@@ -51,107 +51,101 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
-  import type {
-    FileItem,
-    RequestOption,
-  } from '@arco-design/web-vue/es/upload/interfaces';
-  import { useUserStore } from '@/store';
-  import { userUploadApi } from '@/api/user-center';
-  import type { DescData } from '@arco-design/web-vue/es/descriptions/interface';
+import { ref } from 'vue';
+import type {
+  FileItem,
+  RequestOption
+} from '@arco-design/web-vue/es/upload/interfaces';
+import { useUserStore } from '@/store';
+import { userUploadApi } from '@/api/user-center';
+import type { DescData } from '@arco-design/web-vue/es/descriptions/interface';
 
-  const userStore = useUserStore();
-  const file = {
-    uid: '-2',
-    name: 'avatar.png',
-    url: userStore.avatar,
-  };
-  const renderData = [
-    {
-      label: 'userSetting.label.name',
-      value: userStore.name,
-    },
-    {
-      label: 'userSetting.label.certification',
-      value: userStore.certification,
-    },
-    {
-      label: 'userSetting.label.accountId',
-      value: userStore.accountId,
-    },
-    {
-      label: 'userSetting.label.phone',
-      value: userStore.phone,
-    },
-    {
-      label: 'userSetting.label.registrationDate',
-      value: userStore.registrationDate,
-    },
-  ] as DescData[];
-  const fileList = ref<FileItem[]>([file]);
-  const uploadChange = (_fileItemList: FileItem[], fileItem: FileItem) => {
-    fileList.value = [fileItem];
-  };
-  const customRequest = (options: RequestOption) => {
-    // docs: https://axios-http.com/docs/cancellation
-    const controller = new AbortController();
+const userStore = useUserStore();
+const file = {
+  uid: '-2',
+  name: 'avatar.png',
+  url: userStore.avatar
+};
+const renderData = [
+  {
+    label: 'userSetting.label.name',
+    value: userStore.name
+  },
+  {
+    label: 'userSetting.label.certification',
+    value: userStore.certification
+  },
+  {
+    label: 'userSetting.label.accountId',
+    value: userStore.accountId
+  },
+  {
+    label: 'userSetting.label.phone',
+    value: userStore.phone
+  },
+  {
+    label: 'userSetting.label.registrationDate',
+    value: userStore.registrationDate
+  }
+] as DescData[];
+const fileList = ref<FileItem[]>([file]);
+const uploadChange = (_fileItemList: FileItem[], fileItem: FileItem) => {
+  fileList.value = [fileItem];
+};
+const customRequest = (options: RequestOption) => {
+  // docs: https://axios-http.com/docs/cancellation
+  const controller = new AbortController();
 
-    (async function requestWrap() {
-      const {
-        onProgress,
-        onError,
-        onSuccess,
-        fileItem,
-        name = 'file',
-      } = options;
-      onProgress(20);
-      const formData = new FormData();
-      formData.append(name as string, fileItem.file as Blob);
-      const onUploadProgress = (event: ProgressEvent) => {
-        let percent;
-        if (event.total > 0) {
-          percent = (event.loaded / event.total) * 100;
-        }
-        onProgress(parseInt(String(percent), 10), event);
-      };
-
-      try {
-        // https://github.com/axios/axios/issues/1630
-        // https://github.com/nuysoft/Mock/issues/127
-
-        const res = await userUploadApi(formData, {
-          controller,
-          onUploadProgress,
-        });
-        onSuccess(res);
-      } catch (error) {
-        onError(error);
+  (async function requestWrap() {
+    const { onProgress, onError, onSuccess, fileItem, name = 'file' } = options;
+    onProgress(20);
+    const formData = new FormData();
+    formData.append(name as string, fileItem.file as Blob);
+    const onUploadProgress = (event: ProgressEvent) => {
+      let percent;
+      if (event.total > 0) {
+        percent = (event.loaded / event.total) * 100;
       }
-    })();
-    return {
-      abort() {
-        controller.abort();
-      },
+      onProgress(parseInt(String(percent), 10), event);
     };
+
+    try {
+      // https://github.com/axios/axios/issues/1630
+      // https://github.com/nuysoft/Mock/issues/127
+
+      const res = await userUploadApi(formData, {
+        controller,
+        onUploadProgress
+      });
+      onSuccess(res);
+    } catch (error) {
+      onError(error);
+    }
+  })();
+  return {
+    abort() {
+      controller.abort();
+    }
   };
+};
 </script>
 
 <style scoped lang="less">
-  .arco-card {
-    padding: 14px 0 4px 4px;
-    border-radius: 4px;
-  }
+.arco-card {
+  padding: 14px 0 4px 4px;
+  border-radius: 4px;
+}
 
-  :deep(.arco-avatar-trigger-icon-button) {
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    background-color: #e8f3ff;
+:deep(.arco-avatar-trigger-icon-button) {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  background-color: #e8f3ff;
 
-    .arco-icon-camera {
-      margin-top: 8px;
-      font-size: 14px;
-      color: rgb(var(--arcoblue-6));
-    }
+  .arco-icon-camera {
+    margin-top: 8px;
+    font-size: 14px;
+    color: rgb(var(--arcoblue-6));
   }
+}
 </style>

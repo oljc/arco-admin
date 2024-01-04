@@ -9,7 +9,7 @@ const FORM: AppRouteRecordRaw = {
     locale: 'menu.form',
     icon: 'icon-settings',
     requiresAuth: true,
-    order: 3,
+    order: 3
   },
   children: [
     {
@@ -19,8 +19,8 @@ const FORM: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.form.step',
         requiresAuth: true,
-        roles: ['admin'],
-      },
+        roles: ['admin']
+      }
     },
     {
       path: 'group',
@@ -29,10 +29,10 @@ const FORM: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.form.group',
         requiresAuth: true,
-        roles: ['admin'],
-      },
-    },
-  ],
+        roles: ['admin']
+      }
+    }
+  ]
 };
 
 export default FORM;

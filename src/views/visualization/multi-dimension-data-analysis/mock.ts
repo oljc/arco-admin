@@ -13,14 +13,14 @@ setupMock({
             name: quota,
             value: new Array(12)
               .fill(0)
-              .map(() => Mock.Random.natural(1000, 3000)),
-          },
+              .map(() => Mock.Random.natural(1000, 3000))
+          }
         };
       };
       return successResponseWrap({
         count: Mock.Random.natural(1000, 3000),
         growth: Mock.Random.float(20, 100, 2, 2),
-        chartData: getLineData(),
+        chartData: getLineData()
       });
     });
     // v2
@@ -29,7 +29,7 @@ setupMock({
         return {
           name,
           count: Mock.Random.natural(20, 2000),
-          value: new Array(8).fill(0).map(() => Mock.Random.natural(800, 4000)),
+          value: new Array(8).fill(0).map(() => Mock.Random.natural(800, 4000))
         };
       };
       const xAxis = new Array(8).fill(0).map((_item, index) => {
@@ -41,9 +41,9 @@ setupMock({
           generateLineData('内容生产量'),
           generateLineData('内容点击量'),
           generateLineData('内容曝光量'),
-          generateLineData('活跃用户数'),
-        ],
+          generateLineData('活跃用户数')
+        ]
       });
     });
-  },
+  }
 });

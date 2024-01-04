@@ -26,7 +26,7 @@ export interface CountDownReturnType {
  * 倒计时Hook
  */
 export default function useCountDown(
-  options: UseCountDownOptions = {},
+  options: UseCountDownOptions = {}
 ): CountDownReturnType {
   const { initValue = 60, interval = 1000 } = options;
 
@@ -43,7 +43,7 @@ export default function useCountDown(
       }
     },
     interval,
-    { immediate: false },
+    { immediate: false }
   );
 
   // 开始
@@ -61,6 +61,6 @@ export default function useCountDown(
     start,
     resume,
     pause,
-    reset,
+    reset
   };
 }

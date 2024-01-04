@@ -37,15 +37,15 @@
 </template>
 
 <script lang="ts" setup>
-  import { queryRulesPresetList, ServiceRecord } from '@/api/list';
-  import useRequest from '@/hooks/request';
-  import CardWrap from './card-wrap.vue';
+import { queryRulesPresetList, ServiceRecord } from '@/api/list';
+import useRequest from '@/hooks/request';
+import CardWrap from './card-wrap.vue';
 
-  const defaultValue: ServiceRecord[] = new Array(6).fill({});
-  const { loading, response: renderData } = useRequest<ServiceRecord[]>(
-    queryRulesPresetList,
-    defaultValue,
-  );
+const defaultValue: ServiceRecord[] = new Array(6).fill({});
+const { loading, response: renderData } = useRequest<ServiceRecord[]>(
+  queryRulesPresetList,
+  defaultValue
+);
 </script>
 
 <style scoped lang="less"></style>

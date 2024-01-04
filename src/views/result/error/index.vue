@@ -44,35 +44,35 @@
 <script lang="ts" setup></script>
 
 <script lang="ts">
-  export default {
-    name: 'Error',
-  };
+export default {
+  name: 'Error'
+};
 </script>
 
 <style scoped lang="less">
-  .container {
-    padding: 0 20px 20px;
-  }
+.container {
+  padding: 0 20px 20px;
+}
 
-  .wrapper {
-    padding: 24px 150px;
-    background-color: var(--color-bg-2);
-    border-radius: 4px;
-  }
+.wrapper {
+  padding: 24px 150px;
+  background-color: var(--color-bg-2);
+  border-radius: 4px;
+}
 
-  .result {
-    margin: 150px 0 36px;
-  }
+.result {
+  margin: 150px 0 36px;
+}
 
-  .operation-wrap {
-    margin-bottom: 40px;
-    text-align: center;
-  }
+.operation-wrap {
+  margin-bottom: 40px;
+  text-align: center;
+}
 
-  .details-wrapper {
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 150px;
-    background-color: rgb(var(--gray-1));
-  }
+.details-wrapper {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 150px;
+  background-color: rgb(var(--gray-1));
+}
 </style>

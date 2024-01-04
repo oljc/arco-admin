@@ -9,7 +9,7 @@ const PROFILE: AppRouteRecordRaw = {
     locale: 'menu.profile',
     requiresAuth: true,
     icon: 'icon-file',
-    order: 4,
+    order: 4
   },
   children: [
     {
@@ -19,10 +19,10 @@ const PROFILE: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.profile.basic',
         requiresAuth: true,
-        roles: ['admin'],
-      },
-    },
-  ],
+        roles: ['admin']
+      }
+    }
+  ]
 };
 
 export default PROFILE;

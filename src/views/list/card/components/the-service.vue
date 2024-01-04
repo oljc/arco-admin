@@ -43,15 +43,15 @@
 </template>
 
 <script lang="ts" setup>
-  import { queryTheServiceList, ServiceRecord } from '@/api/list';
-  import useRequest from '@/hooks/request';
-  import CardWrap from './card-wrap.vue';
+import { queryTheServiceList, ServiceRecord } from '@/api/list';
+import useRequest from '@/hooks/request';
+import CardWrap from './card-wrap.vue';
 
-  const defaultValue: ServiceRecord[] = new Array(4).fill({});
-  const { loading, response: renderData } = useRequest<ServiceRecord[]>(
-    queryTheServiceList,
-    defaultValue,
-  );
+const defaultValue: ServiceRecord[] = new Array(4).fill({});
+const { loading, response: renderData } = useRequest<ServiceRecord[]>(
+  queryTheServiceList,
+  defaultValue
+);
 </script>
 
 <style scoped lang="less"></style>

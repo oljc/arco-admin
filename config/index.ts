@@ -16,12 +16,12 @@ export function pluginsList(): PluginOption[] {
     VueI18nPlugin({
       runtimeOnly: true,
       compositionOnly: true,
-      include: [resolve('locales/**')],
+      include: [resolve('locales/**')]
     }),
     vueJsx(), // jsx支持
     removeConsole(), // 移除console
     svgLoader({ svgoConfig: {} }), // svg组件化支持
     configCompressPlugin('gzip'), // 压缩
-    configVisualizerPlugin('none'), // 打包分析
+    configVisualizerPlugin('none') // 打包分析
   ];
 }

@@ -21,9 +21,9 @@
       </a-result>
 
       <div class="steps-wrapper">
-        <a-typography-paragraph bold>{{
-          $t('success.result.progress')
-        }}</a-typography-paragraph>
+        <a-typography-paragraph bold>
+          {{ $t('success.result.progress') }}
+        </a-typography-paragraph>
         <a-steps type="dot" :current="2">
           <a-step
             :title="$t('success.submitApplication')"
@@ -54,48 +54,48 @@
 <script lang="ts" setup></script>
 
 <script lang="ts">
-  export default {
-    name: 'Success',
-  };
+export default {
+  name: 'Success'
+};
 </script>
 
 <style scoped lang="less">
-  .container {
-    padding: 0 20px 20px;
-  }
+.container {
+  padding: 0 20px 20px;
+}
 
-  .wrapper {
-    padding: 24px 150px;
-    background-color: var(--color-bg-2);
-    border-radius: 4px;
-  }
+.wrapper {
+  padding: 24px 150px;
+  background-color: var(--color-bg-2);
+  border-radius: 4px;
+}
 
-  .result {
-    margin: 150px 0 0;
-  }
+.result {
+  margin: 150px 0 0;
+}
 
-  .operation-wrap {
-    margin-bottom: 40px;
-    text-align: center;
-  }
+.operation-wrap {
+  margin-bottom: 40px;
+  text-align: center;
+}
 
-  .steps-wrapper {
-    width: 100%;
-    min-width: fit-content;
-    padding: 20px;
-    margin-bottom: 150px;
-    background-color: rgb(var(--gray-1));
-  }
+.steps-wrapper {
+  width: 100%;
+  min-width: fit-content;
+  padding: 20px;
+  margin-bottom: 150px;
+  background-color: rgb(var(--gray-1));
+}
 </style>
 
 <style lang="less" scoped>
-  .mobile {
-    .wrapper {
-      padding: 24px 10px;
+.mobile {
+  .wrapper {
+    padding: 24px 10px;
 
-      .steps-wrapper {
-        transform: scale(0.8);
-      }
+    .steps-wrapper {
+      transform: scale(0.8);
     }
   }
+}
 </style>

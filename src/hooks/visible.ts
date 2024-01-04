@@ -11,6 +11,6 @@ export default function useVisible(initValue = false) {
   return {
     visible,
     setVisible,
-    toggle,
+    toggle
   };
 }

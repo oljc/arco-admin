@@ -9,7 +9,7 @@ const DASHBOARD: AppRouteRecordRaw = {
     locale: 'menu.dashboard',
     requiresAuth: true,
     icon: 'icon-dashboard',
-    order: 0,
+    order: 0
   },
   children: [
     {
@@ -19,8 +19,8 @@ const DASHBOARD: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.dashboard.workplace',
         requiresAuth: true,
-        roles: ['*'],
-      },
+        roles: ['*']
+      }
     },
 
     {
@@ -30,10 +30,10 @@ const DASHBOARD: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.dashboard.monitor',
         requiresAuth: true,
-        roles: ['admin'],
-      },
-    },
-  ],
+        roles: ['admin']
+      }
+    }
+  ]
 };
 
 export default DASHBOARD;

@@ -5,6 +5,6 @@ export default {
     locale: 'menu.arcoWebsite',
     icon: 'icon-link',
     requiresAuth: true,
-    order: 8,
-  },
+    order: 8
+  }
 };

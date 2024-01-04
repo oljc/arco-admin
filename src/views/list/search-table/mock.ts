@@ -15,9 +15,9 @@ const data = Mock.mock({
       'count|2-3': /[0-9]/,
       'status|1': ['online', 'offline'],
       'filterType|1': ['artificial', 'rules'],
-      'createdTime': Random.datetime(),
-    },
-  ],
+      'createdTime': Random.datetime()
+    }
+  ]
 });
 
 setupMock({
@@ -28,8 +28,8 @@ setupMock({
       const ps = pageSize as number;
       return successResponseWrap({
         list: data.list.slice((p - 1) * ps, p * ps),
-        total: 55,
+        total: 55
       });
     });
-  },
+  }
 });

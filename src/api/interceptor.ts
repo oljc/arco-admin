@@ -27,10 +27,10 @@ axios.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
+  error => {
     // do something
     return Promise.reject(error);
-  },
+  }
 );
 // add response interceptors
 axios.interceptors.response.use(
@@ -41,7 +41,7 @@ axios.interceptors.response.use(
     if (res.code !== 20000) {
       Message.error({
         content: res.msg || 'Error',
-        duration: 5 * 1000,
+        duration: 5 * 1000
       });
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       if (
@@ -58,18 +58,18 @@ axios.interceptors.response.use(
 
             await userStore.logout();
             window.location.reload();
-          },
+          }
         });
       }
       return Promise.reject(new Error(res.msg || 'Error'));
     }
     return res;
   },
-  (error) => {
+  error => {
     Message.error({
       content: error.msg || 'Request Error',
-      duration: 5 * 1000,
+      duration: 5 * 1000
     });
     return Promise.reject(error);
-  },
+  }
 );

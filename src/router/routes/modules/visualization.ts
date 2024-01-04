@@ -9,7 +9,7 @@ const VISUALIZATION: AppRouteRecordRaw = {
     locale: 'menu.visualization',
     requiresAuth: true,
     icon: 'icon-apps',
-    order: 1,
+    order: 1
   },
   children: [
     {
@@ -19,8 +19,8 @@ const VISUALIZATION: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.visualization.dataAnalysis',
         requiresAuth: true,
-        roles: ['admin'],
-      },
+        roles: ['admin']
+      }
     },
     {
       path: 'multi-dimension-data-analysis',
@@ -30,10 +30,10 @@ const VISUALIZATION: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.visualization.multiDimensionDataAnalysis',
         requiresAuth: true,
-        roles: ['admin'],
-      },
-    },
-  ],
+        roles: ['admin']
+      }
+    }
+  ]
 };
 
 export default VISUALIZATION;

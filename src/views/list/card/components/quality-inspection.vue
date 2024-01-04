@@ -67,56 +67,56 @@
 </template>
 
 <script lang="ts" setup>
-  import { queryInspectionList, ServiceRecord } from '@/api/list';
-  import useRequest from '@/hooks/request';
-  import CardWrap from './card-wrap.vue';
+import { queryInspectionList, ServiceRecord } from '@/api/list';
+import useRequest from '@/hooks/request';
+import CardWrap from './card-wrap.vue';
 
-  const defaultValue: ServiceRecord[] = new Array(3).fill({});
-  const { loading, response: renderData } = useRequest<ServiceRecord[]>(
-    queryInspectionList,
-    defaultValue,
-  );
+const defaultValue: ServiceRecord[] = new Array(3).fill({});
+const { loading, response: renderData } = useRequest<ServiceRecord[]>(
+  queryInspectionList,
+  defaultValue
+);
 </script>
 
 <style scoped lang="less">
-  .card-wrap {
-    height: 100%;
-    border: 1px solid var(--color-neutral-3);
-    transition: all 0.3s;
+.card-wrap {
+  height: 100%;
+  border: 1px solid var(--color-neutral-3);
+  transition: all 0.3s;
 
-    &:hover {
-      transform: translateY(-4px);
-    }
-
-    :deep(.arco-card-meta-description) {
-      color: rgb(var(--gray-6));
-
-      .arco-descriptions-item-label-inline {
-        font-size: 12px;
-        font-weight: normal;
-        color: rgb(var(--gray-6));
-      }
-
-      .arco-descriptions-item-value-inline {
-        color: rgb(var(--gray-8));
-      }
-    }
+  &:hover {
+    transform: translateY(-4px);
   }
 
-  .empty-wrap {
-    height: 200px;
+  :deep(.arco-card-meta-description) {
+    color: rgb(var(--gray-6));
+
+    .arco-descriptions-item-label-inline {
+      font-size: 12px;
+      font-weight: normal;
+      color: rgb(var(--gray-6));
+    }
+
+    .arco-descriptions-item-value-inline {
+      color: rgb(var(--gray-8));
+    }
+  }
+}
+
+.empty-wrap {
+  height: 200px;
+  border-radius: 4px;
+
+  :deep(.arco-card) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     border-radius: 4px;
 
-    :deep(.arco-card) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      border-radius: 4px;
-
-      .arco-result-title {
-        color: rgb(var(--gray-6));
-      }
+    .arco-result-title {
+      color: rgb(var(--gray-6));
     }
   }
+}
 </style>

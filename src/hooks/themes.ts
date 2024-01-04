@@ -7,6 +7,6 @@ export default function useThemes() {
     return appStore.theme === 'dark';
   });
   return {
-    isDark,
+    isDark
   };
 }

@@ -26,26 +26,26 @@
 </template>
 
 <script lang="ts" setup>
-  const emits = defineEmits(['changeStep']);
-  const oneMore = () => {
-    emits('changeStep', 1);
-  };
+const emits = defineEmits(['changeStep']);
+const oneMore = () => {
+  emits('changeStep', 1);
+};
 </script>
 
 <style scoped lang="less">
-  .success-wrap {
-    text-align: center;
-  }
+.success-wrap {
+  text-align: center;
+}
 
-  :deep(.arco-result) {
-    padding-top: 0;
-  }
+:deep(.arco-result) {
+  padding-top: 0;
+}
 
-  .details-wrapper {
-    width: 895px;
-    padding: 20px;
-    margin-top: 54px;
-    text-align: left;
-    background-color: var(--color-fill-2);
-  }
+.details-wrapper {
+  width: 895px;
+  padding: 20px;
+  margin-top: 54px;
+  text-align: left;
+  background-color: var(--color-fill-2);
+}
 </style>

@@ -32,25 +32,25 @@
 </template>
 
 <script lang="ts" setup>
-  import DataStatisticList from './data-statistic-list.vue';
+import DataStatisticList from './data-statistic-list.vue';
 </script>
 
 <style scoped lang="less">
-  .data-statistic {
-    &-content {
-      padding: 20px 0;
+.data-statistic {
+  &-content {
+    padding: 20px 0;
+  }
+
+  &-list {
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
     }
 
-    &-list {
-      &-header {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 16px;
-      }
-
-      &-content {
-        margin-top: 16px;
-      }
+    &-content {
+      margin-top: 16px;
     }
   }
+}
 </style>

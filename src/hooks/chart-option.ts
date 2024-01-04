@@ -22,6 +22,6 @@ export default function useChartOption(sourceOption: optionsFn) {
     return sourceOption(isDark.value);
   });
   return {
-    chartOption,
+    chartOption
   };
 }

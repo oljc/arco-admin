@@ -12,8 +12,8 @@
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingSource.required'),
-        },
+          message: $t('stepForm.form.error.advertisingSource.required')
+        }
       ]"
     >
       <a-input
@@ -27,8 +27,8 @@
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingMedia.required'),
-        },
+          message: $t('stepForm.form.error.advertisingMedia.required')
+        }
       ]"
     >
       <a-input
@@ -40,7 +40,7 @@
       field="keyword"
       :label="$t('stepForm.form.label.keyword')"
       :rules="[
-        { required: true, message: $t('stepForm.form.error.keyword.required') },
+        { required: true, message: $t('stepForm.form.error.keyword.required') }
       ]"
     >
       <a-select
@@ -65,12 +65,12 @@
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingContent.required'),
+          message: $t('stepForm.form.error.advertisingContent.required')
         },
         {
           maxLength: 200,
-          message: $t('stepForm.form.error.advertisingContent.maxLength'),
-        },
+          message: $t('stepForm.form.error.advertisingContent.maxLength')
+        }
       ]"
       row-class="keep-margin"
     >
@@ -96,56 +96,56 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
-  import { FormInstance } from '@arco-design/web-vue/es/form';
-  import { ChannelInfoModel } from '@/api/form';
+import { ref } from 'vue';
+import { FormInstance } from '@arco-design/web-vue/es/form';
+import { ChannelInfoModel } from '@/api/form';
 
-  const emits = defineEmits(['changeStep']);
+const emits = defineEmits(['changeStep']);
 
-  const formRef = ref<FormInstance>();
-  const formData = ref<ChannelInfoModel>({
-    advertisingSource: '',
-    advertisingMedia: '',
-    keyword: [],
-    pushNotify: true,
-    advertisingContent: '',
-  });
+const formRef = ref<FormInstance>();
+const formData = ref<ChannelInfoModel>({
+  advertisingSource: '',
+  advertisingMedia: '',
+  keyword: [],
+  pushNotify: true,
+  advertisingContent: ''
+});
 
-  const onNextClick = async () => {
-    const res = await formRef.value?.validate();
-    if (!res) {
-      emits('changeStep', 'submit', { ...formData.value });
-    }
-  };
-  const goPrev = () => {
-    emits('changeStep', 'backward');
-  };
+const onNextClick = async () => {
+  const res = await formRef.value?.validate();
+  if (!res) {
+    emits('changeStep', 'submit', { ...formData.value });
+  }
+};
+const goPrev = () => {
+  emits('changeStep', 'backward');
+};
 </script>
 
 <style scoped lang="less">
-  .container {
-    .keep-margin {
-      margin-bottom: 20px;
-    }
+.container {
+  .keep-margin {
+    margin-bottom: 20px;
   }
+}
 
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 64px 0;
-    background-color: var(--color-bg-2);
-  }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 0;
+  background-color: var(--color-bg-2);
+}
 
-  .steps {
-    margin-bottom: 36px;
-  }
+.steps {
+  margin-bottom: 36px;
+}
 
-  .form {
-    width: 540px;
-  }
+.form {
+  width: 540px;
+}
 
-  .form-content {
-    padding: 8px 50px 0 30px;
-  }
+.form-content {
+  padding: 8px 50px 0 30px;
+}
 </style>

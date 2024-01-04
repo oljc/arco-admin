@@ -10,30 +10,30 @@ setupMock({
           mode: '自定义',
           acquisition: {
             resolution: '720*1280',
-            frameRate: 15,
+            frameRate: 15
           },
           encoding: {
             resolution: '720*1280',
             rate: {
               min: 300,
               max: 800,
-              default: 1500,
+              default: 1500
             },
             frameRate: 15,
-            profile: 'high',
-          },
+            profile: 'high'
+          }
         },
         audio: {
           mode: '自定义',
           acquisition: {
-            channels: 8,
+            channels: 8
           },
           encoding: {
             channels: 8,
             rate: 128,
-            profile: 'ACC-LC',
-          },
-        },
+            profile: 'ACC-LC'
+          }
+        }
       });
     });
     Mock.mock(new RegExp('/api/operation/log'), () => {
@@ -43,16 +43,16 @@ setupMock({
           contentNumber: '视频类001003',
           updateContent: '视频参数变更',
           status: 0,
-          updateTime: '2021-02-28 10:30:50',
+          updateTime: '2021-02-28 10:30:50'
         },
         {
           key: '2',
           contentNumber: '视频类058212',
           updateContent: '视频参数变更；音频参数变更',
           status: 1,
-          updateTime: '2020-05-13 08:00:00',
-        },
+          updateTime: '2020-05-13 08:00:00'
+        }
       ]);
     });
-  },
+  }
 });

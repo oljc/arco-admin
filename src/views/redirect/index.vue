@@ -3,14 +3,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { useRouter, useRoute } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 
-  const router = useRouter();
-  const route = useRoute();
+const router = useRouter();
+const route = useRoute();
 
-  const gotoPath = route.params.path as string;
+const gotoPath = route.params.path as string;
 
-  router.replace({ path: gotoPath });
+router.replace({ path: gotoPath });
 </script>
 
 <style scoped lang="less"></style>

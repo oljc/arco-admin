@@ -18,7 +18,7 @@ const useAppStore = defineStore('app', {
     },
     appAsyncMenus(state: AppState): RouteRecordNormalized[] {
       return state.serverMenu as unknown as RouteRecordNormalized[];
-    },
+    }
   },
 
   actions: {
@@ -49,20 +49,20 @@ const useAppStore = defineStore('app', {
         notifyInstance = Notification.info({
           id: 'menuNotice', // Keep the instance id the same
           content: 'loading',
-          closable: true,
+          closable: true
         });
         const { data } = await getMenuList();
         this.serverMenu = data;
         notifyInstance = Notification.success({
           id: 'menuNotice',
           content: 'success',
-          closable: true,
+          closable: true
         });
       } catch (error) {
         notifyInstance = Notification.error({
           id: 'menuNotice',
           content: 'error',
-          closable: true,
+          closable: true
         });
       } finally {
         if (notifyInstance) {
@@ -72,8 +72,8 @@ const useAppStore = defineStore('app', {
     },
     clearServerMenu() {
       this.serverMenu = [];
-    },
-  },
+    }
+  }
 });
 
 export default useAppStore;

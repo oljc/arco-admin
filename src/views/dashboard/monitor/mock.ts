@@ -1,7 +1,7 @@
 import Mock from 'mockjs';
 
 import setupMock, {
-  successResponseWrap,
+  successResponseWrap
   // failResponseWrap,
 } from '@/utils/setup-mock';
 
@@ -16,11 +16,11 @@ setupMock({
             'username': '用户7352772',
             'content': '马上就开始了，好激动！',
             'time': '13:09:12',
-            'isCollect|2': true,
-          },
-        ],
+            'isCollect|2': true
+          }
+        ]
       });
       return successResponseWrap(data.data);
     });
-  },
+  }
 });

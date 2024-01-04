@@ -28,24 +28,24 @@
 </template>
 
 <script lang="ts" setup>
-  import { useUserStore } from '@/store';
+import { useUserStore } from '@/store';
 
-  const userInfo = useUserStore();
+const userInfo = useUserStore();
 </script>
 
 <style scoped lang="less">
-  .studio {
-    &-preview {
-      display: block;
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    &-bar {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 16px;
-    }
+.studio {
+  &-preview {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
+
+  &-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+}
 </style>

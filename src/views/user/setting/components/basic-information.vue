@@ -12,8 +12,8 @@
       :rules="[
         {
           required: true,
-          message: $t('userSetting.form.error.email.required'),
-        },
+          message: $t('userSetting.form.error.email.required')
+        }
       ]"
     >
       <a-input
@@ -27,8 +27,8 @@
       :rules="[
         {
           required: true,
-          message: $t('userSetting.form.error.nickname.required'),
-        },
+          message: $t('userSetting.form.error.nickname.required')
+        }
       ]"
     >
       <a-input
@@ -42,8 +42,8 @@
       :rules="[
         {
           required: true,
-          message: $t('userSetting.form.error.countryRegion.required'),
-        },
+          message: $t('userSetting.form.error.countryRegion.required')
+        }
       ]"
     >
       <a-select
@@ -59,8 +59,8 @@
       :rules="[
         {
           required: true,
-          message: $t('userSetting.form.error.area.required'),
-        },
+          message: $t('userSetting.form.error.area.required')
+        }
       ]"
     >
       <a-cascader
@@ -77,12 +77,12 @@
                 children: [
                   {
                     label: '朝阳',
-                    value: 'chaoyang',
-                  },
-                ],
-              },
-            ],
-          },
+                    value: 'chaoyang'
+                  }
+                ]
+              }
+            ]
+          }
         ]"
         allow-clear
       />
@@ -102,8 +102,8 @@
       :rules="[
         {
           maxLength: 200,
-          message: $t('userSetting.form.error.profile.maxLength'),
-        },
+          message: $t('userSetting.form.error.profile.maxLength')
+        }
       ]"
       row-class="keep-margin"
     >
@@ -126,34 +126,34 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
-  import { FormInstance } from '@arco-design/web-vue/es/form';
-  import { BasicInfoModel } from '@/api/user-center';
+import { ref } from 'vue';
+import { FormInstance } from '@arco-design/web-vue/es/form';
+import { BasicInfoModel } from '@/api/user-center';
 
-  const formRef = ref<FormInstance>();
-  const formData = ref<BasicInfoModel>({
-    email: '',
-    nickname: '',
-    countryRegion: '',
-    area: '',
-    address: '',
-    profile: '',
-  });
-  const validate = async () => {
-    const res = await formRef.value?.validate();
-    if (!res) {
-      // do some thing
-      // you also can use html-type to submit
-    }
-  };
-  const reset = async () => {
-    await formRef.value?.resetFields();
-  };
+const formRef = ref<FormInstance>();
+const formData = ref<BasicInfoModel>({
+  email: '',
+  nickname: '',
+  countryRegion: '',
+  area: '',
+  address: '',
+  profile: ''
+});
+const validate = async () => {
+  const res = await formRef.value?.validate();
+  if (!res) {
+    // do some thing
+    // you also can use html-type to submit
+  }
+};
+const reset = async () => {
+  await formRef.value?.resetFields();
+};
 </script>
 
 <style scoped lang="less">
-  .form {
-    width: 540px;
-    margin: 0 auto;
-  }
+.form {
+  width: 540px;
+  margin: 0 auto;
+}
 </style>

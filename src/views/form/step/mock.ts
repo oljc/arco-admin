@@ -7,5 +7,5 @@ setupMock({
     Mock.mock(new RegExp('/api/channel-form/submit'), () => {
       return successResponseWrap('ok');
     });
-  },
+  }
 });

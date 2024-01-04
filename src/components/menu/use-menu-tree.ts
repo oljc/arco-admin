@@ -22,7 +22,7 @@ export default function useMenuTree() {
     function travel(_routes: RouteRecordRaw[], layer: number) {
       if (!_routes) return null;
 
-      const collector: any = _routes.map((element) => {
+      const collector: any = _routes.map(element => {
         // no access
         if (!permission.accessRouter(element)) {
           return null;
@@ -36,7 +36,7 @@ export default function useMenuTree() {
 
         // route filter hideInMenu true
         element.children = element.children.filter(
-          (x) => x.meta?.hideInMenu !== true,
+          x => x.meta?.hideInMenu !== true
         );
 
         // Associated child node
@@ -64,6 +64,6 @@ export default function useMenuTree() {
   });
 
   return {
-    menuTree,
+    menuTree
   };
 }

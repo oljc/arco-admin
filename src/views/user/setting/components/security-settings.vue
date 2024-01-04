@@ -53,9 +53,7 @@
         </template>
         <template #description>
           <div class="content">
-            <a-typography-paragraph>
-              已绑定：150******50
-            </a-typography-paragraph>
+            <a-typography-paragraph>已绑定：150******50</a-typography-paragraph>
           </div>
           <div class="operation">
             <a-link>
@@ -92,38 +90,38 @@
 <script lang="ts" setup></script>
 
 <style scoped lang="less">
-  :deep(.arco-list-item) {
-    border-bottom: none !important;
+:deep(.arco-list-item) {
+  border-bottom: none !important;
 
-    .arco-typography {
-      margin-bottom: 20px;
-    }
-
-    .arco-list-item-meta-avatar {
-      margin-bottom: 1px;
-    }
-
-    .arco-list-item-meta {
-      padding: 0;
-    }
+  .arco-typography {
+    margin-bottom: 20px;
   }
 
-  :deep(.arco-list-item-meta-content) {
-    flex: 1;
-    border-bottom: 1px solid var(--color-neutral-3);
+  .arco-list-item-meta-avatar {
+    margin-bottom: 1px;
+  }
 
-    .arco-list-item-meta-description {
-      display: flex;
-      flex-flow: row;
-      justify-content: space-between;
+  .arco-list-item-meta {
+    padding: 0;
+  }
+}
 
-      .tip {
-        color: rgb(var(--gray-6));
-      }
+:deep(.arco-list-item-meta-content) {
+  flex: 1;
+  border-bottom: 1px solid var(--color-neutral-3);
 
-      .operation {
-        margin-right: 6px;
-      }
+  .arco-list-item-meta-description {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+    .tip {
+      color: rgb(var(--gray-6));
+    }
+
+    .operation {
+      margin-right: 6px;
     }
   }
+}
 </style>

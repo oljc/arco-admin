@@ -20,7 +20,8 @@
           show-group-separator
         >
           <template #suffix>
-            W+ <span class="unit">{{ $t('workplace.pecs') }}</span>
+            W+
+            <span class="unit">{{ $t('workplace.pecs') }}</span>
           </template>
         </a-statistic>
       </a-space>
@@ -92,7 +93,10 @@
           :value-from="0"
           animation
         >
-          <template #suffix> % <icon-caret-up class="up-icon" /> </template>
+          <template #suffix>
+            %
+            <icon-caret-up class="up-icon" />
+          </template>
         </a-statistic>
       </a-space>
     </a-grid-item>
@@ -105,32 +109,32 @@
 <script lang="ts" setup></script>
 
 <style lang="less" scoped>
-  .arco-grid.panel {
-    padding: 16px 20px 0;
-    margin-bottom: 0;
-  }
+.arco-grid.panel {
+  padding: 16px 20px 0;
+  margin-bottom: 0;
+}
 
-  .panel-col {
-    padding-left: 43px;
-    border-right: 1px solid rgb(var(--gray-2));
-  }
+.panel-col {
+  padding-left: 43px;
+  border-right: 1px solid rgb(var(--gray-2));
+}
 
-  .col-avatar {
-    margin-right: 12px;
-    background-color: var(--color-fill-2);
-  }
+.col-avatar {
+  margin-right: 12px;
+  background-color: var(--color-fill-2);
+}
 
-  .up-icon {
-    color: rgb(var(--red-6));
-  }
+.up-icon {
+  color: rgb(var(--red-6));
+}
 
-  .unit {
-    margin-left: 8px;
-    font-size: 12px;
-    color: rgb(var(--gray-8));
-  }
+.unit {
+  margin-left: 8px;
+  font-size: 12px;
+  color: rgb(var(--gray-8));
+}
 
-  :deep(.panel-border) {
-    margin: 4px 0 0;
-  }
+:deep(.panel-border) {
+  margin: 4px 0 0;
+}
 </style>

@@ -81,7 +81,7 @@ export function userUploadApi(
   config: {
     controller: AbortController;
     onUploadProgress?: (progressEvent: any) => void;
-  },
+  }
 ) {
   // const controller = new AbortController();
   return axios.post('/api/user/upload', data, config);

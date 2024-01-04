@@ -27,7 +27,7 @@ export default function usePermission() {
         }
       }
       return null;
-    },
+    }
     // You can add any rules you want
   };
 }

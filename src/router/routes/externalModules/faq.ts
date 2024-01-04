@@ -5,6 +5,6 @@ export default {
     locale: 'menu.faq',
     icon: 'icon-question-circle',
     requiresAuth: true,
-    order: 9,
-  },
+    order: 9
+  }
 };

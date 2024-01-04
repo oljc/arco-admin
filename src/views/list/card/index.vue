@@ -35,63 +35,63 @@
 </template>
 
 <script lang="ts" setup>
-  import QualityInspection from './components/quality-inspection.vue';
-  import TheService from './components/the-service.vue';
-  import RulesPreset from './components/rules-preset.vue';
+import QualityInspection from './components/quality-inspection.vue';
+import TheService from './components/the-service.vue';
+import RulesPreset from './components/rules-preset.vue';
 </script>
 
 <script lang="ts">
-  export default {
-    name: 'Card',
-  };
+export default {
+  name: 'Card'
+};
 </script>
 
 <style scoped lang="less">
-  .container {
-    padding: 0 20px 20px;
+.container {
+  padding: 0 20px 20px;
 
-    :deep(.arco-list-content) {
-      overflow-x: hidden;
-    }
-
-    :deep(.arco-card-meta-title) {
-      font-size: 14px;
-    }
+  :deep(.arco-list-content) {
+    overflow-x: hidden;
   }
 
-  :deep(.arco-list-col) {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
-
-  :deep(.arco-list-item) {
-    width: 33%;
-  }
-
-  :deep(.block-title) {
-    margin: 0 0 12px;
+  :deep(.arco-card-meta-title) {
     font-size: 14px;
   }
+}
 
-  :deep(.list-wrap) {
-    // min-height: 140px;
-    .list-row {
-      align-items: stretch;
+:deep(.arco-list-col) {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 
-      .list-col {
-        margin-bottom: 16px;
-      }
+:deep(.arco-list-item) {
+  width: 33%;
+}
+
+:deep(.block-title) {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+:deep(.list-wrap) {
+  // min-height: 140px;
+  .list-row {
+    align-items: stretch;
+
+    .list-col {
+      margin-bottom: 16px;
     }
+  }
 
-    :deep(.arco-space) {
-      width: 100%;
+  :deep(.arco-space) {
+    width: 100%;
 
-      .arco-space-item {
-        &:last-child {
-          flex: 1;
-        }
+    .arco-space-item {
+      &:last-child {
+        flex: 1;
       }
     }
   }
+}
 </style>

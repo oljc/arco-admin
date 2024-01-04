@@ -3,7 +3,7 @@ import {
   login as userLogin,
   logout as userLogout,
   getUserInfo,
-  type LoginData,
+  type LoginData
 } from '@/api/user';
 import { setToken, clearToken } from '@/utils/auth';
 import { removeRouteListener } from '@/utils/route-listener';
@@ -27,18 +27,18 @@ const useUserStore = defineStore('user', {
     registrationDate: undefined,
     accountId: undefined,
     certification: undefined,
-    role: '',
+    role: ''
   }),
 
   getters: {
     userInfo(state: UserState): UserState {
       return { ...state };
-    },
+    }
   },
 
   actions: {
     switchRoles() {
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
         this.role = this.role === 'user' ? 'admin' : 'user';
         resolve(this.role);
       });
@@ -84,8 +84,8 @@ const useUserStore = defineStore('user', {
       } finally {
         this.logoutCallBack();
       }
-    },
-  },
+    }
+  }
 });
 
 export default useUserStore;

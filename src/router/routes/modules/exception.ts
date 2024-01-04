@@ -9,7 +9,7 @@ const EXCEPTION: AppRouteRecordRaw = {
     locale: 'menu.exception',
     requiresAuth: true,
     icon: 'icon-exclamation-circle',
-    order: 6,
+    order: 6
   },
   children: [
     {
@@ -19,8 +19,8 @@ const EXCEPTION: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.exception.403',
         requiresAuth: true,
-        roles: ['admin'],
-      },
+        roles: ['admin']
+      }
     },
     {
       path: '404',
@@ -29,8 +29,8 @@ const EXCEPTION: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.exception.404',
         requiresAuth: true,
-        roles: ['*'],
-      },
+        roles: ['*']
+      }
     },
     {
       path: '500',
@@ -39,10 +39,10 @@ const EXCEPTION: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.exception.500',
         requiresAuth: true,
-        roles: ['*'],
-      },
-    },
-  ],
+        roles: ['*']
+      }
+    }
+  ]
 };
 
 export default EXCEPTION;

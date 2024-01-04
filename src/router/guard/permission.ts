@@ -20,7 +20,7 @@ export default function setupPermissionGuard(router: Router) {
       // Refine the permission logic from the server's menu configuration as needed
       if (
         !appStore.appAsyncMenus.length &&
-        !WHITE_LIST.find((el) => el.name === to.name)
+        !WHITE_LIST.find(el => el.name === to.name)
       ) {
         await appStore.fetchServerMenuConfig();
       }
@@ -33,7 +33,7 @@ export default function setupPermissionGuard(router: Router) {
 
         if (element?.children) {
           serverMenuConfig.push(
-            ...(element.children as unknown as RouteRecordNormalized[]),
+            ...(element.children as unknown as RouteRecordNormalized[])
           );
         }
       }

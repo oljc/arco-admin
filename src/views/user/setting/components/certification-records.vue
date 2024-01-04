@@ -53,25 +53,25 @@
 </template>
 
 <script lang="ts" setup>
-  import { PropType } from 'vue';
-  import { CertificationRecord } from '@/api/user-center';
+import { PropType } from 'vue';
+import { CertificationRecord } from '@/api/user-center';
 
-  defineProps({
-    renderData: {
-      type: Array as PropType<CertificationRecord>,
-      default() {
-        return [];
-      },
-    },
-  });
+defineProps({
+  renderData: {
+    type: Array as PropType<CertificationRecord>,
+    default() {
+      return [];
+    }
+  }
+});
 </script>
 
 <style scoped lang="less">
-  :deep(.arco-table-th) {
-    &:last-child {
-      .arco-table-th-item-title {
-        margin-left: 16px;
-      }
+:deep(.arco-table-th) {
+  &:last-child {
+    .arco-table-th-item-title {
+      margin-left: 16px;
     }
   }
+}
 </style>

@@ -9,7 +9,7 @@ export default function configVisualizerPlugin(lifecycle: string) {
       filename: './node_modules/.cache/visualizer/stats.html',
       open: true,
       gzipSize: true,
-      brotliSize: true,
+      brotliSize: true
     });
   }
   return null as any;

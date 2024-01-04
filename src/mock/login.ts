@@ -1,7 +1,7 @@
 import Mock from 'mockjs';
 import setupMock, {
   successResponseWrap,
-  failResponseWrap,
+  failResponseWrap
 } from '@/utils/setup-mock';
 import type { MockParams } from '@/types/mock';
 
@@ -20,8 +20,8 @@ setupMock({
       }
 
       return successResponseWrap({
-        captcha: '996996',
+        captcha: '996996'
       });
     });
-  },
+  }
 });

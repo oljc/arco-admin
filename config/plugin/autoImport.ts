@@ -11,16 +11,16 @@ export default function autoImportPlugin() {
     AutoImport({
       imports: [],
       resolvers: [ArcoResolver()],
-      dts: './src/types/auto-imports.d.ts',
+      dts: './src/types/auto-imports.d.ts'
     }),
     Components({
       extensions: ['vue'],
       resolvers: [
         ArcoResolver({
-          resolveIcons: true,
-        }),
+          resolveIcons: true
+        })
       ],
-      dts: './src/types/components.d.ts',
-    }),
+      dts: './src/types/components.d.ts'
+    })
   ];
 }

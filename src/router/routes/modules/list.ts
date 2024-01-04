@@ -9,7 +9,7 @@ const LIST: AppRouteRecordRaw = {
     locale: 'menu.list',
     requiresAuth: true,
     icon: 'icon-list',
-    order: 2,
+    order: 2
   },
   children: [
     {
@@ -19,8 +19,8 @@ const LIST: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.list.searchTable',
         requiresAuth: true,
-        roles: ['*'],
-      },
+        roles: ['*']
+      }
     },
     {
       path: 'card',
@@ -29,10 +29,10 @@ const LIST: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.list.cardList',
         requiresAuth: true,
-        roles: ['*'],
-      },
-    },
-  ],
+        roles: ['*']
+      }
+    }
+  ]
 };
 
 export default LIST;

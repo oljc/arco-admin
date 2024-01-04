@@ -11,17 +11,17 @@ const qualityInspectionList: ServiceRecord[] = [
     data: [
       {
         label: '待质检数',
-        value: '120',
+        value: '120'
       },
       {
         label: '积压时长',
-        value: '60s',
+        value: '60s'
       },
       {
         label: '待抽检数',
-        value: '0',
-      },
-    ],
+        value: '0'
+      }
+    ]
   },
   {
     id: 2,
@@ -31,17 +31,17 @@ const qualityInspectionList: ServiceRecord[] = [
     data: [
       {
         label: '待质检数',
-        value: '120',
+        value: '120'
       },
       {
         label: '积压时长',
-        value: '60s',
+        value: '60s'
       },
       {
         label: '待抽检数',
-        value: '0',
-      },
-    ],
+        value: '0'
+      }
+    ]
   },
   {
     id: 3,
@@ -51,18 +51,18 @@ const qualityInspectionList: ServiceRecord[] = [
     data: [
       {
         label: '待质检数',
-        value: '120',
+        value: '120'
       },
       {
         label: '积压时长',
-        value: '60s',
+        value: '60s'
       },
       {
         label: '待抽检数',
-        value: '0',
-      },
-    ],
-  },
+        value: '0'
+      }
+    ]
+  }
 ];
 const theServiceList: ServiceRecord[] = [
   {
@@ -72,7 +72,7 @@ const theServiceList: ServiceRecord[] = [
     description:
       '用户行为分析之漏斗分析模型是企业实现精细化运营、进行用户行为分析的重要数据分析模型。',
     enable: true,
-    actionType: 'button',
+    actionType: 'button'
   },
   {
     id: 2,
@@ -82,7 +82,7 @@ const theServiceList: ServiceRecord[] = [
       '快速诊断用户人群，地域细分情况，了解数据分布的集中度，以及主要的数据分布的区间段是什么。',
     enable: true,
     actionType: 'button',
-    expires: true,
+    expires: true
   },
   {
     id: 3,
@@ -91,7 +91,7 @@ const theServiceList: ServiceRecord[] = [
     description:
       '移动端动态化资源分发解决方案。提供稳定大流量服务支持、灵活定制的分发圈选规则，通过离线化预加载。',
     enable: false,
-    actionType: 'button',
+    actionType: 'button'
   },
   {
     id: 4,
@@ -100,8 +100,8 @@ const theServiceList: ServiceRecord[] = [
     description:
       '用户画像就是将典型用户信息标签化，根据用户特征、业务场景和用户行为等信息，构建一个标签化的用户模型。',
     enable: true,
-    actionType: 'button',
-  },
+    actionType: 'button'
+  }
 ];
 const rulesPresetList: ServiceRecord[] = [
   {
@@ -110,7 +110,7 @@ const rulesPresetList: ServiceRecord[] = [
     description:
       '用户在执行特定的内容分发任务时，可使用内容屏蔽规则根据特定标签，过滤内容集合。',
     enable: true,
-    actionType: 'switch',
+    actionType: 'switch'
   },
   {
     id: 2,
@@ -118,28 +118,28 @@ const rulesPresetList: ServiceRecord[] = [
     description:
       '该规则支持用户在执行特定内容分发任务时，对固定的几条内容置顶。',
     enable: true,
-    actionType: 'switch',
+    actionType: 'switch'
   },
   {
     id: 3,
     title: '内容加权规则',
     description: '选定内容加权规则后可自定义从不同内容集合获取内容的概率。',
     enable: false,
-    actionType: 'switch',
+    actionType: 'switch'
   },
   {
     id: 4,
     title: '内容分发规则',
     description: '内容分发时，对某些内容需要固定在C端展示的位置。',
     enable: true,
-    actionType: 'switch',
+    actionType: 'switch'
   },
   {
     id: 5,
     title: '违禁内容识别',
     description: '精准识别赌博、刀枪、毒品、造假、贩假等违规物品和违规行为。',
     enable: false,
-    actionType: 'switch',
+    actionType: 'switch'
   },
   {
     id: 6,
@@ -147,8 +147,8 @@ const rulesPresetList: ServiceRecord[] = [
     description:
       '精准识别英语、维语、藏语、蒙古语、朝鲜语等多种语言以及emoji表情形态的语义识别。',
     enable: false,
-    actionType: 'switch',
-  },
+    actionType: 'switch'
+  }
 ];
 
 setupMock({
@@ -158,8 +158,8 @@ setupMock({
       return successResponseWrap(
         qualityInspectionList.map((_, index) => ({
           ...qualityInspectionList[index % qualityInspectionList.length],
-          id: Mock.Random.guid(),
-        })),
+          id: Mock.Random.guid()
+        }))
       );
     });
 
@@ -168,8 +168,8 @@ setupMock({
       return successResponseWrap(
         theServiceList.map((_, index) => ({
           ...theServiceList[index % theServiceList.length],
-          id: Mock.Random.guid(),
-        })),
+          id: Mock.Random.guid()
+        }))
       );
     });
 
@@ -178,9 +178,9 @@ setupMock({
       return successResponseWrap(
         rulesPresetList.map((_, index) => ({
           ...rulesPresetList[index % rulesPresetList.length],
-          id: Mock.Random.guid(),
-        })),
+          id: Mock.Random.guid()
+        }))
       );
     });
-  },
+  }
 });

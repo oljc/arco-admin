@@ -34,5 +34,5 @@
 </template>
 
 <script lang="ts" setup>
-  import ChainItem from './chain-item.vue';
+import ChainItem from './chain-item.vue';
 </script>
