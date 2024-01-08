@@ -1,58 +1,48 @@
 import axios from 'axios';
-import type { AxiosRequestConfig, AxiosResponse } from 'axios';
+import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { Message, Modal } from '@arco-design/web-vue';
 import { useUserStore } from '@/store';
 import { getToken } from '@/utils/auth';
 
-export interface HttpResponse<T = unknown> {
-  status: number;
-  msg: string;
-  code: number;
-  data: T;
-}
+axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL || '',
+  // 请求超时的毫秒数
+  timeout: 10000,
+  // 跨域请求时是否需要使用凭证
+  withCredentials: false
+});
 
-if (import.meta.env.VITE_API_BASE_URL) {
-  axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
-}
-
+// 添加请求拦截器
 axios.interceptors.request.use(
-  // @ts-expect-error-next-line
-  (config: AxiosRequestConfig) => {
+  (config: InternalAxiosRequestConfig) => {
     const token = getToken();
     if (token) {
-      if (!config.headers) {
-        config.headers = {};
-      }
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
   error => {
-    // do something
     return Promise.reject(error);
   }
 );
-// add response interceptors
+
+// 添加响应拦截器
 axios.interceptors.response.use(
-  // @ts-expect-error-next-line
-  (response: AxiosResponse<HttpResponse>) => {
+  (response: AxiosResponse) => {
     const res = response.data;
-    // if the custom code is not 20000, it is judged as an error.
     if (res.code !== 20000) {
       Message.error({
-        content: res.msg || 'Error',
+        content: res.msg || '网络错误',
         duration: 5 * 1000
       });
-      // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       if (
         [50008, 50012, 50014].includes(res.code) &&
         response.config.url !== '/api/user/info'
       ) {
         Modal.error({
-          title: 'Confirm logout',
-          content:
-            'You have been logged out, you can cancel to stay on this page, or log in again',
-          okText: 'Re-Login',
+          title: '登录信息已过期',
+          content: '登录信息已过期，请重新登录',
+          okText: '去登录',
           async onOk() {
             const userStore = useUserStore();
 
@@ -61,13 +51,13 @@ axios.interceptors.response.use(
           }
         });
       }
-      return Promise.reject(new Error(res.msg || 'Error'));
+      return Promise.reject(new Error(res.msg || '网络错误'));
     }
     return res;
   },
   error => {
     Message.error({
-      content: error.msg || 'Request Error',
+      content: error.msg || '网络错误请稍后重试',
       duration: 5 * 1000
     });
     return Promise.reject(error);

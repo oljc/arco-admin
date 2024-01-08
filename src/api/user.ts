@@ -28,5 +28,5 @@ export function getMenuList() {
 
 // 获取验证码
 export function getCaptcha(data: { tel: string }) {
-  return axios.post('/api/login/captcha', data);
+  return axios.post<{ captcha?: string }>('/api/login/captcha', data);
 }

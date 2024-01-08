@@ -220,7 +220,7 @@ const handleSendCode = async () => {
   const res = await formRef.value.validateField(['phone']);
   if (res || codeDisabled.value) return;
   codeDisabled.value = true;
-  getCaptcha({ tel: form.phone }).then((res: any) => {
+  getCaptcha({ tel: form.phone }).then(res => {
     if (res.code === 20000) {
       Notification.success({
         id: 'captcha',
