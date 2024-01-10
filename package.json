@@ -2,7 +2,7 @@
   "name": "arco-admin",
   "type": "module",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.6",
   "license": "MIT",
   "author": {
     "name": "LIjiAngChen8",
@@ -26,7 +26,8 @@
     "lint:fix": "pnpm eslint:fix && pnpm stylelint:fix && pnpm prettier:fix",
     "lint-staged": "npx lint-staged",
     "clean:cache": "rimraf .eslintcache && rimraf node_modules && pnpm install",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "bumpp"
   },
   "keywords": [
     "arco-design-vue",
@@ -70,7 +71,7 @@
     "pinia": "^2.1.7",
     "query-string": "^8.1.0",
     "sortablejs": "^1.15.1",
-    "vue": "^3.4.4",
+    "vue": "^3.4.6",
     "vue-echarts": "^6.6.8",
     "vue-i18n": "^9.9.0",
     "vue-router": "^4.2.5"
@@ -86,11 +87,12 @@
     "@types/mockjs": "^1.0.10",
     "@types/nprogress": "^0.2.3",
     "@types/sortablejs": "^1.15.7",
-    "@typescript-eslint/eslint-plugin": "^6.18.0",
-    "@typescript-eslint/parser": "^6.18.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
     "@vitejs/plugin-vue": "^5.0.2",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "autoprefixer": "^10.4.16",
+    "bumpp": "^9.2.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-define-config": "^2.1.0",
