@@ -17,7 +17,7 @@ export default function autoImportPlugin() {
       extensions: ['vue'],
       resolvers: [
         ArcoResolver({
-          resolveIcons: true
+          resolveIcons: false
         })
       ],
       dts: './src/types/components.d.ts'
