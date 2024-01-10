@@ -7,18 +7,21 @@
     </a-button>
   </div>
   <a-drawer
-    :width="300"
+    :width="410"
     unmount-on-close
     :visible="visible"
-    :cancel-text="$t('settings.close')"
-    :ok-text="$t('settings.copySettings')"
     @ok="copySettings"
     @cancel="cancel"
   >
     <template #title>{{ $t('settings.title') }}</template>
+    <a-alert type="warning">{{ $t('settings.alertContent') }}</a-alert>
     <Block :options="contentOpts" :title="$t('settings.content')" />
     <Block :options="othersOpts" :title="$t('settings.otherSettings')" />
-    <a-alert>{{ $t('settings.alertContent') }}</a-alert>
+    <template #footer>
+      <a-button type="primary" style="margin: 0" shape="round" long>
+        {{ $t('settings.copySettings') }}
+      </a-button>
+    </template>
   </a-drawer>
 </template>
 
@@ -93,6 +96,10 @@ const setVisible = () => {
   svg {
     font-size: 18px;
     vertical-align: -4px;
+  }
+
+  .arco-drawer-footer > .arco-btn {
+    margin-left: 0;
   }
 }
 </style>

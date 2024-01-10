@@ -2,10 +2,7 @@
   <div class="navbar">
     <div class="left-side">
       <a-space>
-        <img
-          alt="logo"
-          src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/dfdba5317c0c20ce20e64fac803d52bc.svg~tplv-49unhts6dw-image.image"
-        />
+        <logoSvg style="width: 36px; color: #165fdd" />
         <a-typography-title
           :style="{ margin: 0, fontSize: '18px' }"
           :heading="5"
@@ -24,28 +21,33 @@
     </div>
     <ul class="right-side">
       <li>
-        <a-tooltip :content="$t('settings.search')">
-          <a-button class="nav-btn" type="outline" :shape="'circle'">
-            <template #icon>
-              <icon-search />
-            </template>
-          </a-button>
+        <a-input-search style="width: 135px" placeholder="搜索" />
+      </li>
+      <li>
+        <a-tooltip :content="$t('settings.reload')">
+          <div class="nav-btn" @click="handleReload">
+            <icon-sync />
+          </div>
+        </a-tooltip>
+      </li>
+      <li>
+        <a-tooltip :content="$t('settings.source')">
+          <a
+            class="nav-btn"
+            href="https://github.com/LIjiAngChen8/arco-admin"
+            target="_blank"
+          >
+            <icon-github />
+          </a>
         </a-tooltip>
       </li>
       <li>
         <a-tooltip :content="$t('settings.language')">
-          <a-button
-            class="nav-btn"
-            type="outline"
-            :shape="'circle'"
-            @click="setDropDownVisible"
-          >
-            <template #icon>
-              <icon-language />
-            </template>
-          </a-button>
+          <div class="nav-btn" @click="setDropDownVisible">
+            <icon-language />
+          </div>
         </a-tooltip>
-        <a-dropdown trigger="click" @select="changeLocale as any">
+        <a-dropdown trigger="click" @select="changeLocale">
           <div ref="triggerBtn" class="trigger-btn"></div>
           <template #content>
             <a-doption
@@ -69,33 +71,19 @@
               : $t('settings.navbar.theme.toLight')
           "
         >
-          <a-button
-            class="nav-btn"
-            type="outline"
-            :shape="'circle'"
-            @click="handleToggleTheme"
-          >
-            <template #icon>
-              <icon-moon-fill v-if="theme === 'dark'" />
-              <icon-sun-fill v-else />
-            </template>
-          </a-button>
+          <div class="nav-btn" @click="handleToggleTheme">
+            <icon-moon-fill v-if="theme === 'dark'" />
+            <icon-sun-fill v-else />
+          </div>
         </a-tooltip>
       </li>
       <li>
         <a-tooltip :content="$t('settings.navbar.alerts')">
-          <div class="message-box-trigger">
-            <a-badge :count="9" dot>
-              <a-button
-                class="nav-btn"
-                type="outline"
-                :shape="'circle'"
-                @click="setPopoverVisible"
-              >
-                <icon-notification />
-              </a-button>
-            </a-badge>
-          </div>
+          <a-badge :count="9">
+            <div class="nav-btn" @click="setPopoverVisible">
+              <icon-notification />
+            </div>
+          </a-badge>
         </a-tooltip>
         <a-popover
           trigger="click"
@@ -117,40 +105,23 @@
               : $t('settings.navbar.screen.toFull')
           "
         >
-          <a-button
-            class="nav-btn"
-            type="outline"
-            :shape="'circle'"
-            @click="toggleFullScreen"
-          >
-            <template #icon>
-              <icon-fullscreen-exit v-if="isFullscreen" />
-              <icon-fullscreen v-else />
-            </template>
-          </a-button>
+          <div class="nav-btn" @click="toggleFullScreen">
+            <icon-fullscreen-exit v-if="isFullscreen" />
+            <icon-fullscreen v-else />
+          </div>
         </a-tooltip>
       </li>
       <li>
         <a-tooltip :content="$t('settings.title')">
-          <a-button
-            class="nav-btn"
-            type="outline"
-            :shape="'circle'"
-            @click="setVisible"
-          >
-            <template #icon>
-              <icon-settings />
-            </template>
-          </a-button>
+          <div class="nav-btn" @click="setVisible">
+            <icon-settings />
+          </div>
         </a-tooltip>
       </li>
       <li>
         <a-dropdown trigger="click">
-          <a-avatar
-            :size="32"
-            :style="{ marginRight: '8px', cursor: 'pointer' }"
-          >
-            <img alt="avatar" :src="avatar" />
+          <a-avatar style="margin-right: 8px; cursor: pointer" :size="32">
+            <IconUser />
           </a-avatar>
           <template #content>
             <a-doption>
@@ -202,6 +173,7 @@ import useLocale from '@/hooks/locale';
 import useUser from '@/hooks/user';
 import Menu from '@/components/menu/index.vue';
 import MessageBox from '../message-box/index.vue';
+import logoSvg from '@/assets/logo.svg';
 
 const appStore = useAppStore();
 const userStore = useUserStore();
@@ -209,9 +181,6 @@ const { logout } = useUser();
 const { changeLocale, currentLocale } = useLocale();
 const { isFullscreen, toggle: toggleFullScreen } = useFullscreen();
 const locales = [...LOCALE_OPTIONS];
-const avatar = computed(() => {
-  return userStore.avatar;
-});
 const theme = computed(() => {
   return appStore.theme;
 });
@@ -233,6 +202,9 @@ const handleToggleTheme = () => {
 };
 const setVisible = () => {
   appStore.updateSettings({ globalSettings: true });
+};
+const handleReload = () => {
+  window.location.reload();
 };
 const refBtn = ref();
 const triggerBtn = ref();
@@ -293,7 +265,7 @@ const toggleDrawerMenu = inject('toggleDrawerMenu') as () => void;
   li {
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 4px;
   }
 
   a {
@@ -302,9 +274,27 @@ const toggleDrawerMenu = inject('toggleDrawerMenu') as () => void;
   }
 
   .nav-btn {
-    font-size: 16px;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    // transition: all 0.1s cubic-bezier(0, 0, 1, 1);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5715;
     color: rgb(var(--gray-8));
-    border-color: rgb(var(--gray-2));
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: var(--border-radius-circle);
+    outline: none;
+
+    &:hover {
+      border: 1px solid rgb(var(--gray-2));
+    }
   }
 
   .trigger-btn,
