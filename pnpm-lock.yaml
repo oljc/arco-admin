@@ -36,8 +36,8 @@ dependencies:
     specifier: ^8.1.0
     version: 8.1.0
   sortablejs:
-    specifier: ^1.15.1
-    version: 1.15.1
+    specifier: ^1.15.2
+    version: 1.15.2
   vue:
     specifier: ^3.4.10
     version: 3.4.10(typescript@5.3.3)
@@ -4387,8 +4387,8 @@ packages:
       is-fullwidth-code-point: 5.0.0
     dev: true
 
-  /sortablejs@1.15.1:
-    resolution: {integrity: sha512-P5Cjvb0UG1ZVNiDPj/n4V+DinttXG6K8n7vM/HQf0C25K3YKQTQY6fsr/sEGsJGpQ9exmPxluHxKBc0mLKU1lQ==, tarball: https://registry.npmmirror.com/sortablejs/-/sortablejs-1.15.1.tgz}
+  /sortablejs@1.15.2:
+    resolution: {integrity: sha512-FJF5jgdfvoKn1MAKSdGs33bIqLi3LmsgVTliuX6iITj834F+JRQZN90Z93yql8h0K2t0RwDPBmxwlbZfDcxNZA==}
     dev: false
 
   /source-map-js@1.0.2:
