@@ -58,4 +58,10 @@ import logoSvg from '@/assets/logo.svg';
     }
   }
 }
+
+@media (max-height: @screen-md) {
+  .footer {
+    display: none;
+  }
+}
 </style>
