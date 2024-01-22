@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "serve": "pnpm dev",
+    "serve": "vite --mode production",
     "build": "rimraf dist && vite build",
     "build:staging": "rimraf dist && vite build --mode staging",
     "preview": "vite preview",
