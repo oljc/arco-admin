@@ -1,5 +1,3 @@
-import type { RouteRecordNormalized } from 'vue-router';
-
 export interface AppState {
   theme: string;
   colorWeak: boolean;
@@ -14,7 +12,5 @@ export interface AppState {
   globalSettings: boolean;
   device: string;
   tabBar: boolean;
-  menuFromServer: boolean;
-  serverMenu: RouteRecordNormalized[];
   [key: string]: unknown;
 }
