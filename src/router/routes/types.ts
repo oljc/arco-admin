@@ -7,14 +7,14 @@ export type Component<T = any> =
   | (() => Promise<T>);
 
 export interface AppRouteRecordRaw {
-  path: string;
-  name?: string | symbol;
-  meta?: RouteMeta;
-  redirect?: string;
-  component: Component | string;
-  children?: AppRouteRecordRaw[];
-  alias?: string | string[];
-  props?: Record<string, any>;
-  beforeEnter?: NavigationGuard | NavigationGuard[];
-  fullPath?: string;
+  path: string; // 路径
+  name?: string | symbol; // 名字
+  meta?: RouteMeta; // 路由元信息
+  redirect?: string; // 重定向地址
+  component: Component | string; // 组件
+  children?: AppRouteRecordRaw[]; // 子路由
+  alias?: string | string[]; // 别名
+  props?: Record<string, any>; // 传递给路由的参数
+  beforeEnter?: NavigationGuard | NavigationGuard[]; // 路由独享的守卫
+  fullPath?: string; // 完整路径
 }
