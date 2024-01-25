@@ -19,7 +19,7 @@ export default function setupUserLoginInfoGuard(router: Router) {
         } catch (error) {
           await userStore.logout();
           next({
-            name: 'login',
+            name: LOGIN_ROUTE_NAME,
             query: {
               redirect: to.name,
               ...to.query
@@ -34,10 +34,10 @@ export default function setupUserLoginInfoGuard(router: Router) {
       }
 
       let query: LocationQueryRaw = { ...to.query };
-      if (to.name === DEFAULT_ROUTE_NAME) {
-        query.redirect = to.name;
+      if (to.name !== DEFAULT_ROUTE_NAME) {
+        query.redirect = to.name as string;
       }
-      next({ name: 'login', query });
+      next({ name: LOGIN_ROUTE_NAME, query });
     }
   });
 }
