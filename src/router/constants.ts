@@ -8,7 +8,7 @@ export const NOT_FOUND = {
 };
 
 export const REDIRECT_ROUTE_NAME = 'Redirect';
-
+export const LOGIN_ROUTE_NAME = 'Login';
 export const DEFAULT_ROUTE_NAME = 'Workplace';
 
 export const DEFAULT_ROUTE = {

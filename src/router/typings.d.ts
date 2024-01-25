@@ -4,8 +4,8 @@ declare module 'vue-router' {
   interface RouteMeta {
     /** 页面角色权限 */
     roles?: string[];
-    /** 是否需要登录(必填) */
-    requiresAuth: boolean;
+    /** 是否需要登录 */
+    requiresAuth?: boolean;
     /** 菜单图标 */
     icon?: string;
     /** 国际化 */
@@ -13,7 +13,7 @@ declare module 'vue-router' {
     /** 隐藏菜单 */
     hideInMenu?: boolean;
     /** 隐藏子菜单 */
-    hideChildrenInMenu?: boolean;
+    hideChildrenMenu?: boolean;
     /** 高亮菜单名字 */
     activeMenu?: string;
     /** 排序 */

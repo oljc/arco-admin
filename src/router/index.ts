@@ -4,6 +4,7 @@ import 'nprogress/nprogress.css';
 
 import { appRoutes } from './routes';
 import { REDIRECT_MAIN, NOT_FOUND_ROUTE } from './routes/base';
+import { DEFAULT_ROUTE_NAME, LOGIN_ROUTE_NAME } from './constants';
 import createRouteGuard from './guard';
 
 NProgress.configure({ showSpinner: false });
@@ -13,11 +14,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: 'login'
+      redirect: DEFAULT_ROUTE_NAME
     },
     {
       path: '/login',
-      name: 'login',
+      name: LOGIN_ROUTE_NAME,
       component: () => import('@/views/login/index.vue'),
       meta: {
         requiresAuth: false

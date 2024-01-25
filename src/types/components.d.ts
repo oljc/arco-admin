@@ -131,10 +131,10 @@ declare module 'vue' {
     List: typeof import('./../components/message-box/list.vue')['default']
     Menu: typeof import('./../components/menu/index.vue')['default']
     MessageBox: typeof import('./../components/message-box/index.vue')['default']
-    Navbar: typeof import('./../components/Navbar/index.vue')['default']
+    Navbar: typeof import('./../components/navbar/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TabBar: typeof import('./../components/TabBar/index.vue')['default']
-    TabItem: typeof import('./../components/TabBar/tab-item.vue')['default']
+    TabBar: typeof import('./../components/tab-bar/index.vue')['default']
+    TabItem: typeof import('./../components/tab-bar/tab-item.vue')['default']
   }
 }

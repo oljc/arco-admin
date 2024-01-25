@@ -3,6 +3,7 @@ import NProgress from 'nprogress'; // progress bar
 
 import { useUserStore } from '@/store';
 import { isLogin } from '@/utils/auth';
+import { DEFAULT_ROUTE_NAME, LOGIN_ROUTE_NAME } from '@/router/constants';
 
 export default function setupUserLoginInfoGuard(router: Router) {
   router.beforeEach(async (to, _from, next) => {
@@ -27,17 +28,16 @@ export default function setupUserLoginInfoGuard(router: Router) {
         }
       }
     } else {
-      if (to.name === 'login') {
+      if (to.name === LOGIN_ROUTE_NAME) {
         next();
         return;
       }
-      next({
-        name: 'login',
-        query: {
-          redirect: to.name,
-          ...to.query
-        } as LocationQueryRaw
-      });
+
+      let query: LocationQueryRaw = { ...to.query };
+      if (to.name === DEFAULT_ROUTE_NAME) {
+        query.redirect = to.name;
+      }
+      next({ name: 'login', query });
     }
   });
 }
