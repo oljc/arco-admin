@@ -62,7 +62,7 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.54.3",
     "@vueuse/core": "^10.7.2",
-    "axios": "^1.6.5",
+    "axios": "^1.6.6",
     "dayjs": "^1.11.10",
     "echarts": "^5.4.3",
     "lodash": "^4.17.21",
