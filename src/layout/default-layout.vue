@@ -52,8 +52,8 @@ import NavBar from '@/components/navbar/index.vue';
 import Menu from '@/components/menu/index.vue';
 import Footer from '@/components/footer/index.vue';
 import TabBar from '@/components/tab-bar/index.vue';
-import usePermission from '@/hooks/permission';
-import useResponsive from '@/hooks/responsive';
+import usePermission from '@/hooks/usePermission';
+import useResponsive from '@/hooks/useResponsive';
 import PageLayout from './page-layout.vue';
 
 const isInit = ref(false);

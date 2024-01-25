@@ -12,7 +12,7 @@ import {
   UnitCertification,
   EnterpriseCertificationModel
 } from '@/api/user-center';
-import useLoading from '@/hooks/loading';
+import useLoading from '@/hooks/useLoading';
 import EnterpriseCertification from './enterprise-certification.vue';
 import CertificationRecords from './certification-records.vue';
 

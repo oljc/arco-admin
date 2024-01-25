@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import useLoading from '@/hooks/loading';
+import useLoading from '@/hooks/useLoading';
 
 const { loading, setLoading } = useLoading(true);
 setTimeout(() => {

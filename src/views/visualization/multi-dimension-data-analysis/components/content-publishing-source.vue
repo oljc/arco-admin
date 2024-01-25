@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import useLoading from '@/hooks/loading';
-import useChartOption from '@/hooks/chart-option';
+import useLoading from '@/hooks/useLoading';
+import useChartOption from '@/hooks/useChartOption';
 
 const { chartOption } = useChartOption(isDark => {
   const graphicElementStyle = {

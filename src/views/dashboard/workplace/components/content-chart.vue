@@ -19,9 +19,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { graphic } from 'echarts';
-import useLoading from '@/hooks/loading';
+import useLoading from '@/hooks/useLoading';
 import { queryContentData, ContentDataRecord } from '@/api/dashboard';
-import useChartOption from '@/hooks/chart-option';
+import useChartOption from '@/hooks/useChartOption';
 import { ToolTipFormatterParams } from '@/types/echarts';
 import { AnyObject } from '@/types/global';
 

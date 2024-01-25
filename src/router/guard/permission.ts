@@ -1,7 +1,7 @@
 import type { Router } from 'vue-router';
 import NProgress from 'nprogress';
 
-import usePermission from '@/hooks/permission';
+import usePermission from '@/hooks/usePermission';
 import { useUserStore } from '@/store';
 import { appRoutes } from '../routes';
 import { NOT_FOUND } from '../constants';

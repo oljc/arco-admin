@@ -30,13 +30,13 @@
 
 <script lang="ts" setup>
 import { ref, PropType, CSSProperties } from 'vue';
-import useLoading from '@/hooks/loading';
+import useLoading from '@/hooks/useLoading';
 import {
   queryPublicOpinionAnalysis,
   PublicOpinionAnalysis,
   PublicOpinionAnalysisRes
 } from '@/api/visualization';
-import useChartOption from '@/hooks/chart-option';
+import useChartOption from '@/hooks/useChartOption';
 
 const barChartOptionsFactory = () => {
   const data = ref<any>([]);

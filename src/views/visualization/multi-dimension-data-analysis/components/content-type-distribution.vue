@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import useChartOption from '@/hooks/chart-option';
+import useChartOption from '@/hooks/useChartOption';
 
 const { chartOption } = useChartOption(isDark => {
   return {

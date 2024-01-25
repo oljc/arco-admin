@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts" setup>
-import useLoading from '@/hooks/loading';
-import useChartOption from '@/hooks/chart-option';
+import useLoading from '@/hooks/useLoading';
+import useChartOption from '@/hooks/useChartOption';
 
 const { loading } = useLoading();
 const { chartOption } = useChartOption(isDark => {

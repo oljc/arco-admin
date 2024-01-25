@@ -43,7 +43,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { queryLatestActivity, LatestActivity } from '@/api/user-center';
-import useLoading from '@/hooks/loading';
+import useLoading from '@/hooks/useLoading';
 
 const { loading, setLoading } = useLoading(true);
 const activityList = ref<LatestActivity[]>(new Array(7).fill({}));

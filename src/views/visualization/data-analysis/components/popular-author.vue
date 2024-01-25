@@ -45,7 +45,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import useLoading from '@/hooks/loading';
+import useLoading from '@/hooks/useLoading';
 import { queryPopularAuthor, PopularAuthorRes } from '@/api/visualization';
 
 const { loading, setLoading } = useLoading();

@@ -11,10 +11,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import useLoading from '@/hooks/loading';
+import useLoading from '@/hooks/useLoading';
 import { queryContentPeriodAnalysis } from '@/api/visualization';
 import { ToolTipFormatterParams } from '@/types/echarts';
-import useChartOption from '@/hooks/chart-option';
+import useChartOption from '@/hooks/useChartOption';
 
 const tooltipItemsHtmlString = (items: ToolTipFormatterParams[]) => {
   return items

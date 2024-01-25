@@ -1,6 +1,6 @@
 import { ref, type UnwrapRef } from 'vue';
 import type { AxiosResponse, HttpResponse } from 'axios';
-import useLoading from './loading';
+import useLoading from './useLoading';
 
 // use to fetch list
 // Don't use async function. It doesn't work in async function.

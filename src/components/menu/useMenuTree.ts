@@ -1,7 +1,7 @@
 import { computed } from 'vue';
 import type { RouteRecordRaw, RouteRecordNormalized } from 'vue-router';
 import { appRoutes } from '@/router/routes';
-import usePermission from '@/hooks/permission';
+import usePermission from '@/hooks/usePermission';
 import { cloneDeep } from 'lodash';
 
 export default function useMenuTree() {
@@ -23,6 +23,7 @@ export default function useMenuTree() {
     copyRouter.sort((a: RouteRecordNormalized, b: RouteRecordNormalized) => {
       return (a.meta.order || 0) - (b.meta.order || 0);
     });
+
     function travel(_routes: RouteRecordRaw[], layer: number) {
       if (!_routes) return null;
 
@@ -31,19 +32,15 @@ export default function useMenuTree() {
         if (!permission.accessRouter(element)) {
           return null;
         }
-
-        // leaf node
-        if (element.meta?.hideChildrenInMenu || !element.children) {
+        if (element.meta?.hideChildrenMenu || !element.children) {
           element.children = [];
           return element;
         }
-
-        // route filter hideInMenu true
+        // 过滤掉 hideInMenu 的路由
         element.children = element.children.filter(
           x => x.meta?.hideInMenu !== true
         );
-
-        // Associated child node
+        // 关联子路由
         const subItem = travel(element.children, layer + 1);
 
         if (subItem.length) {

@@ -6,7 +6,7 @@ import type { RouteMeta } from 'vue-router';
 import { useAppStore } from '@/store';
 import { listenerRouteChange } from '@/utils/route-listener';
 import { openWindow, regexUrl } from '@/utils';
-import useMenuTree from './use-menu-tree';
+import useMenuTree from './useMenuTree';
 
 export default defineComponent({
   emit: ['collapse'],
@@ -159,3 +159,4 @@ export default defineComponent({
   }
 }
 </style>
+./useMenuTree

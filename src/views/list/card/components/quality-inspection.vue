@@ -68,7 +68,7 @@
 
 <script lang="ts" setup>
 import { queryInspectionList, ServiceRecord } from '@/api/list';
-import useRequest from '@/hooks/request';
+import useRequest from '@/hooks/useRequest';
 import CardWrap from './card-wrap.vue';
 
 const defaultValue: ServiceRecord[] = new Array(3).fill({});
