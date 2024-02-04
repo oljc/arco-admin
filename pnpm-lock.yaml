@@ -33,8 +33,8 @@ dependencies:
     specifier: ^2.1.7
     version: 2.1.7(typescript@5.3.3)(vue@3.4.15)
   query-string:
-    specifier: ^8.1.0
-    version: 8.1.0
+    specifier: ^8.2.0
+    version: 8.2.0
   sortablejs:
     specifier: ^1.15.2
     version: 1.15.2
@@ -4082,8 +4082,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /query-string@8.1.0:
-    resolution: {integrity: sha512-BFQeWxJOZxZGix7y+SByG3F36dA0AbTy9o6pSmKFcFz7DAj0re9Frkty3saBn3nHo3D0oZJ/+rx3r8H8r8Jbpw==}
+  /query-string@8.2.0:
+    resolution: {integrity: sha512-tUZIw8J0CawM5wyGBiDOAp7ObdRQh4uBor/fUR9ZjmbZVvw95OD9If4w3MQxr99rg0DJZ/9CIORcpEqU5hQG7g==}
     engines: {node: '>=14.16'}
     dependencies:
       decode-uri-component: 0.4.1
