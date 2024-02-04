@@ -57,7 +57,7 @@ devDependencies:
     version: 1.4.5
   '@commitlint/cli':
     specifier: ^18.6.0
-    version: 18.6.0(@types/node@20.11.15)(typescript@5.3.3)
+    version: 18.6.0(@types/node@20.11.16)(typescript@5.3.3)
   '@commitlint/config-conventional':
     specifier: ^18.6.0
     version: 18.6.0
@@ -111,7 +111,7 @@ devDependencies:
     version: 2.1.0
   eslint-plugin-prettier:
     specifier: ^5.1.3
-    version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.4)
+    version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.5)
   eslint-plugin-vue:
     specifier: ^9.21.1
     version: 9.21.1(eslint@8.56.0)
@@ -134,8 +134,8 @@ devDependencies:
     specifier: ^6.0.0
     version: 6.0.0(postcss@8.4.33)
   prettier:
-    specifier: ^3.2.4
-    version: 3.2.4
+    specifier: ^3.2.5
+    version: 3.2.5
   rimraf:
     specifier: 5.0.5
     version: 5.0.5
@@ -156,7 +156,7 @@ devDependencies:
     version: 3.0.1(postcss@8.4.33)(stylelint@16.2.1)
   stylelint-prettier:
     specifier: ^5.0.0
-    version: 5.0.0(prettier@3.2.4)(stylelint@16.2.1)
+    version: 5.0.0(prettier@3.2.5)(stylelint@16.2.1)
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -168,7 +168,7 @@ devDependencies:
     version: 0.26.0(vue@3.4.15)
   vite:
     specifier: ^5.0.12
-    version: 5.0.12(@types/node@20.11.15)(less@4.2.0)
+    version: 5.0.12(@types/node@20.11.16)(less@4.2.0)
   vite-plugin-compression:
     specifier: ^0.5.1
     version: 0.5.1(vite@5.0.12)
@@ -522,14 +522,14 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
 
-  /@commitlint/cli@18.6.0(@types/node@20.11.15)(typescript@5.3.3):
+  /@commitlint/cli@18.6.0(@types/node@20.11.16)(typescript@5.3.3):
     resolution: {integrity: sha512-FiH23cr9QG8VdfbmvJJZmdfHGVMCouOOAzoXZ3Cd7czGC52RbycwNt8YCI7SA69pAl+t30vh8LMaO/N+kcel6w==}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
       '@commitlint/format': 18.6.0
       '@commitlint/lint': 18.6.0
-      '@commitlint/load': 18.6.0(@types/node@20.11.15)(typescript@5.3.3)
+      '@commitlint/load': 18.6.0(@types/node@20.11.16)(typescript@5.3.3)
       '@commitlint/read': 18.6.0
       '@commitlint/types': 18.6.0
       execa: 5.1.1
@@ -600,7 +600,7 @@ packages:
       '@commitlint/types': 18.6.0
     dev: true
 
-  /@commitlint/load@18.6.0(@types/node@20.11.15)(typescript@5.3.3):
+  /@commitlint/load@18.6.0(@types/node@20.11.16)(typescript@5.3.3):
     resolution: {integrity: sha512-RRssj7TmzT0bowoEKlgwg8uQ7ORXWkw7lYLsZZBMi9aInsJuGNLNWcMxJxRZbwxG3jkCidGUg85WmqJvRjsaDA==}
     engines: {node: '>=v18'}
     dependencies:
@@ -610,7 +610,7 @@ packages:
       '@commitlint/types': 18.6.0
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.3.3)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.11.15)(cosmiconfig@8.3.6)(typescript@5.3.3)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.11.16)(cosmiconfig@8.3.6)(typescript@5.3.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -1304,8 +1304,8 @@ packages:
     resolution: {integrity: sha512-+FSfZd5mpMDTcIK7bp2GueIcAespzR4FROOXnEst248c85vwthIEwtXYOLgVc/sI4ihE1K/7yO1lEiSgvwAOxA==}
     dev: true
 
-  /@types/node@20.11.15:
-    resolution: {integrity: sha512-gscmuADZfvNULx1eyirVbr3kVOVZtpQtzKMCZpeSZcN6MfbkRXAR4s9/gsQ4CzxLHw6EStDtKLNtSDL3vbq05A==}
+  /@types/node@20.11.16:
+    resolution: {integrity: sha512-gKb0enTmRCzXSSUJDq6/sPcqrfCv2mkkG6Jt/clpn5eiCbKTY+SgZUxo+p8ZKMof5dCp9vHQUAB7wOUTod22wQ==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -1475,7 +1475,7 @@ packages:
       '@babel/core': 7.23.7
       '@babel/plugin-transform-typescript': 7.23.6(@babel/core@7.23.7)
       '@vue/babel-plugin-jsx': 1.2.1(@babel/core@7.23.7)
-      vite: 5.0.12(@types/node@20.11.15)(less@4.2.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)
       vue: 3.4.15(typescript@5.3.3)
     transitivePeerDependencies:
       - supports-color
@@ -1488,7 +1488,7 @@ packages:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.0.12(@types/node@20.11.15)(less@4.2.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)
       vue: 3.4.15(typescript@5.3.3)
     dev: true
 
@@ -2109,7 +2109,7 @@ packages:
       is-what: 3.14.1
     dev: true
 
-  /cosmiconfig-typescript-loader@5.0.0(@types/node@20.11.15)(cosmiconfig@8.3.6)(typescript@5.3.3):
+  /cosmiconfig-typescript-loader@5.0.0(@types/node@20.11.16)(cosmiconfig@8.3.6)(typescript@5.3.3):
     resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
     engines: {node: '>=v16'}
     peerDependencies:
@@ -2117,7 +2117,7 @@ packages:
       cosmiconfig: '>=8.2'
       typescript: '>=4'
     dependencies:
-      '@types/node': 20.11.15
+      '@types/node': 20.11.16
       cosmiconfig: 8.3.6(typescript@5.3.3)
       jiti: 1.21.0
       typescript: 5.3.3
@@ -2462,7 +2462,7 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=9.0.0', pnpm: '>=8.6.0'}
     dev: true
 
-  /eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.4):
+  /eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.5):
     resolution: {integrity: sha512-C9GCVAs4Eq7ZC/XFQHITLiHJxQngdtraXaM+LoUFoFp/lHNl2Zn8f3WQbe9HvTBBQ9YnKFB0/2Ajdqwo5D1EAw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2478,7 +2478,7 @@ packages:
     dependencies:
       eslint: 8.56.0
       eslint-config-prettier: 9.1.0(eslint@8.56.0)
-      prettier: 3.2.4
+      prettier: 3.2.5
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
     dev: true
@@ -4053,8 +4053,8 @@ packages:
       fast-diff: 1.3.0
     dev: true
 
-  /prettier@3.2.4:
-    resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
+  /prettier@3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -4621,14 +4621,14 @@ packages:
       stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint-prettier@5.0.0(prettier@3.2.4)(stylelint@16.2.1):
+  /stylelint-prettier@5.0.0(prettier@3.2.5)(stylelint@16.2.1):
     resolution: {integrity: sha512-RHfSlRJIsaVg5Br94gZVdWlz/rBTyQzZflNE6dXvSxt/GthWMY3gEHsWZEBaVGg7GM+XrtVSp4RznFlB7i0oyw==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       prettier: '>=3.0.0'
       stylelint: '>=16.0.0'
     dependencies:
-      prettier: 3.2.4
+      prettier: 3.2.5
       prettier-linter-helpers: 1.0.0
       stylelint: 16.2.1(typescript@5.3.3)
     dev: true
@@ -4983,7 +4983,7 @@ packages:
       chalk: 4.1.2
       debug: 4.3.4
       fs-extra: 10.1.0
-      vite: 5.0.12(@types/node@20.11.15)(less@4.2.0)
+      vite: 5.0.12(@types/node@20.11.16)(less@4.2.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5001,7 +5001,7 @@ packages:
       vue: 3.4.15(typescript@5.3.3)
     dev: true
 
-  /vite@5.0.12(@types/node@20.11.15)(less@4.2.0):
+  /vite@5.0.12(@types/node@20.11.16)(less@4.2.0):
     resolution: {integrity: sha512-4hsnEkG3q0N4Tzf1+t6NdN9dg/L3BM+q8SWgbSPnJvrgH2kgdyzfVJwbR1ic69/4uMJJ/3dqDZZE5/WwqW8U1w==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -5029,7 +5029,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.11.15
+      '@types/node': 20.11.16
       esbuild: 0.19.12
       less: 4.2.0
       postcss: 8.4.33
