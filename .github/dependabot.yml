@@ -7,7 +7,7 @@ updates:
     reviewers:
       - "LIjiAngChen8"
     labels:
-      - "🔩dependencies"
+      - "🔩 dependencies"
     open-pull-requests-limit: 6 # 一次最多打开 6 个 PR
     ignore:
       - dependency-name: "pnpm" # 忽略 pnpm 本身的更新
@@ -28,4 +28,4 @@ updates:
     schedule:
       interval: "daily"
     labels:
-      - "🪛actions"
+      - "🪛 actions"
