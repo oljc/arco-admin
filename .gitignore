@@ -17,6 +17,10 @@ dist
 dist-ssr
 *.local
 
+# 忽略自动生成的文件
+/src/types/auto-imports.d.ts
+/src/types/components.d.ts
+
 # 编辑器相关的文件
 .vscode/*
 !.vscode/extensions.json
