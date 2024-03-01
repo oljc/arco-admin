@@ -91,7 +91,7 @@
     "@typescript-eslint/parser": "^7.1.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "autoprefixer": "^10.4.17",
+    "autoprefixer": "^10.4.18",
     "bumpp": "^9.3.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
