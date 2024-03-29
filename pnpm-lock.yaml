@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@arco-design/web-vue':
-    specifier: ^2.55.0
-    version: 2.55.0(vue@3.4.21)
+    specifier: ^2.55.1
+    version: 2.55.1(vue@3.4.21)
   '@vueuse/core':
     specifier: ^10.9.0
     version: 10.9.0(vue@3.4.21)
@@ -210,8 +210,8 @@ packages:
       color: 3.2.1
     dev: false
 
-  /@arco-design/web-vue@2.55.0(vue@3.4.21):
-    resolution: {integrity: sha512-aMfg9dHiDsiJsxU2Mpa0V4WKjtdAdETBBrrVEHj1E7rJYF+PmrfZcSgIvAJSbdJZC/euqSCHyYOQezi3esSzxA==}
+  /@arco-design/web-vue@2.55.1(vue@3.4.21):
+    resolution: {integrity: sha512-MI0mteI4B1+UAKAslCrV2zqRKHWwkjLjdOpOLAR36cAbYhtlj7Tel3yAjGHk5zsQ1ODZX60OFfRfl66pq6919A==}
     peerDependencies:
       vue: ^3.1.0
     dependencies:
