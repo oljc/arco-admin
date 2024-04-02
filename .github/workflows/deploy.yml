@@ -48,7 +48,7 @@ jobs:
         run: pnpm run build
       # 配置 GitHub Pages
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       # 将打包的 dist 上传
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
