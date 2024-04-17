@@ -48,8 +48,8 @@ dependencies:
     specifier: ^9.11.0
     version: 9.11.0(vue@3.4.21)
   vue-router:
-    specifier: ^4.3.0
-    version: 4.3.0(vue@3.4.21)
+    specifier: ^4.3.1
+    version: 4.3.1(vue@3.4.21)
 
 devDependencies:
   '@arco-plugins/vite-vue':
@@ -4936,8 +4936,8 @@ packages:
       '@vue/devtools-api': 6.6.1
       vue: 3.4.21(typescript@5.4.3)
 
-  /vue-router@4.3.0(vue@3.4.21):
-    resolution: {integrity: sha512-dqUcs8tUeG+ssgWhcPbjHvazML16Oga5w34uCUmsk7i0BcnskoLGwjpa15fqMr2Fa5JgVBrdL2MEgqz6XZ/6IQ==}
+  /vue-router@4.3.1(vue@3.4.21):
+    resolution: {integrity: sha512-D0h3oyP6vp28BOvxv2hVpiqFTjTJizCf1BuMmCibc8UW0Ll/N80SWqDd/hqPMaZfzW1j+s2s+aTRyBIP9ElzOw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
