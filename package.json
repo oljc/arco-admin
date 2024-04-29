@@ -63,7 +63,7 @@
     "@arco-design/web-vue": "^2.55.1",
     "@vueuse/core": "^10.9.0",
     "axios": "^1.6.8",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.11",
     "echarts": "^5.5.0",
     "lodash": "^4.17.21",
     "mitt": "^3.0.1",
