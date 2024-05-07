@@ -72,7 +72,7 @@
     "query-string": "^9.0.0",
     "sortablejs": "^1.15.2",
     "vue": "^3.4.21",
-    "vue-echarts": "^6.6.9",
+    "vue-echarts": "^6.7.2",
     "vue-i18n": "^9.11.0",
     "vue-router": "^4.3.0"
   },
