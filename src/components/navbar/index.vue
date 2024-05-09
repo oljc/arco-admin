@@ -34,7 +34,7 @@
         <a-tooltip :content="$t('settings.source')">
           <a
             class="nav-btn"
-            href="https://github.com/LIjiAngChen8/arco-admin"
+            href="https://github.com/oljc/arco-admin"
             target="_blank"
           >
             <icon-github />
