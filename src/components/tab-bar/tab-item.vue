@@ -63,7 +63,6 @@ import { useTabBarStore } from '@/store';
 import type { TagProps } from '@/store/modules/tab-bar/types';
 import { DEFAULT_ROUTE_NAME, REDIRECT_ROUTE_NAME } from '@/router/constants';
 
-// eslint-disable-next-line no-shadow
 enum Eaction {
   reload = 'reload',
   current = 'current',
