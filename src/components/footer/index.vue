@@ -4,7 +4,7 @@
       Arco Admin 版权所有 © 2023 李江辰｜
       <a-link
         style="font-size: 12px"
-        href="https://github.com/LIjiAngChen8/arco-admin/blob/main/LICENSE"
+        href="https://github.com/oljc/arco-admin/blob/main/LICENSE"
         target="_blank"
       >
         MIT 使用条款

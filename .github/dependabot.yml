@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "daily" # 在每个工作日（周一至周五）运行
     reviewers:
-      - "LIjiAngChen8"
+      - "oljc"
     labels:
       - "🔩 dependencies"
     open-pull-requests-limit: 6 # 一次最多打开 6 个 PR

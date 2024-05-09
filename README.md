@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://github.com/LIjiAngChen8/arco-admin">
+<a href="https://github.com/oljc/arco-admin">
   <img width="180" src="./docs/logo.svg" alt="Arco admin logo">
 </a>
 
@@ -11,15 +11,15 @@
 
 [![Preview](https://img.shields.io/badge/%E9%A2%84%E8%A7%88%E5%9C%B0%E5%9D%80-8A2BE2?color=%2314C9C9)](https://arco-admin.cn)
 <a href="https://nodejs.org/en/about/previous-releases" target="_blank"><img alt="node compatibility" src="https://img.shields.io/node/v/vite.svg"></a>
-<img alt="License" src="https://img.shields.io/github/license/LIjiAngChen8/arco-admin">
-<img alt="Commit" src="https://img.shields.io/github/last-commit/LIjiAngChen8/arco-admin.svg">
-<img alt="Version" src="https://img.shields.io/github/package-json/v/LIjiAngChen8/arco-admin/main">
+<img alt="License" src="https://img.shields.io/github/license/oljc/arco-admin">
+<img alt="Commit" src="https://img.shields.io/github/last-commit/oljc/arco-admin.svg">
+<img alt="Version" src="https://img.shields.io/github/package-json/v/oljc/arco-admin/main">
 
 *📌项目还在快速开发中敬请期待，目前可当启动模板使用👈🏻*
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=725470717&image_size=auto&color_scheme=dark" width="655" height="auto">
-  <img alt="LIjiAngChen8/arco-admin 近 28 天统计" src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=725470717&image_size=auto&color_scheme=light" width="655" height="auto">
+  <img alt="oljc/arco-admin 近 28 天统计" src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=725470717&image_size=auto&color_scheme=light" width="655" height="auto">
 </picture>
 
 </div>
@@ -53,7 +53,7 @@
 ## 使用
 1. 克隆此仓库
 ```bash
-git clone https://github.com/LIjiAngChen8/arco-admin
+git clone https://github.com/oljc/arco-admin
 ```
 2. 安装依赖
 ```bash
@@ -74,10 +74,10 @@ pnpm run dev
 
 ## 贡献
 欢迎任何形式的贡献，我们将会认真对待每一份参与。<br/><br/>
-<a href="https://github.com/LIjiAngChen8/arco-admin/graphs/contributors"><img src="https://contrib.rocks/image?repo=LIjiAngChen8/arco-admin" />
+<a href="https://github.com/oljc/arco-admin/graphs/contributors"><img src="https://contrib.rocks/image?repo=oljc/arco-admin" />
 </a><br/>
 
 # License
 本项目遵循 [MIT 协议](./LICENSE)许可证。
 
-[![趋势图](https://starchart.cc/LIjiAngChen8/arco-admin.svg)](https://starchart.cc/LIjiAngChen8/arco-admin)
+[![趋势图](https://starchart.cc/oljc/arco-admin.svg)](https://starchart.cc/oljc/arco-admin)
