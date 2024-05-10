@@ -44,7 +44,6 @@
   "menu.server.monitor": "实时监控-服务端",
   "menu.server.workplace": "工作台-服务端",
   "menu.user": "个人中心",
-  "menu.visualization": "数据可视化",
   "messageBox.logout": "退出登录",
   "messageBox.switchRoles": "切换权限",
   "messageBox.userCenter": "用户中心",

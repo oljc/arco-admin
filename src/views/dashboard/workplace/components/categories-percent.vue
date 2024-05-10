@@ -10,105 +10,106 @@
       <template #title>
         {{ $t('workplace.categoriesPercent') }}
       </template>
-      <Chart height="310px" :option="chartOption" />
+      <VChart height="306px" :options="spec" />
     </a-card>
   </a-spin>
 </template>
 
 <script lang="ts" setup>
 import useLoading from '@/hooks/useLoading';
-import useChartOption from '@/hooks/useChartOption';
+import { ISpec } from '@visactor/vchart';
 
 const { loading } = useLoading();
-const { chartOption } = useChartOption(isDark => {
-  // echarts support https://echarts.apache.org/zh/theme-builder.html
-  // It's not used here
-  return {
-    legend: {
-      left: 'center',
-      data: ['纯文本', '图文类', '视频类'],
-      bottom: 0,
-      icon: 'circle',
-      itemWidth: 8,
-      textStyle: {
-        color: isDark ? 'rgba(255, 255, 255, 0.7)' : '#4E5969'
+const spec: ISpec = {
+  type: 'pie',
+  data: [
+    {
+      id: 'id0',
+      values: [
+        { type: '纯文本', value: '46.60' },
+        { type: '图文', value: '27.72' },
+        { type: '短视频', value: '8.13' },
+        { type: '长视频', value: '5' },
+        { type: '动图', value: '3.63' }
+      ]
+    }
+  ],
+  outerRadius: 0.8,
+  innerRadius: 0.5,
+  padAngle: 0.6,
+  valueField: 'value',
+  categoryField: 'type',
+  pie: {
+    style: {
+      cornerRadius: 8,
+      lineWidth: 0,
+      strokeOpacity: 0.5
+    },
+    state: {
+      hover: {
+        lineWidth: 8,
+        outerBorder: {
+          distance: 0.5,
+          stroke: '#fff'
+        }
       },
-      itemStyle: {
-        borderWidth: 0
+      selected: {
+        lineWidth: 10,
+        outerBorder: {
+          distance: 0.2,
+          stroke: '#fff'
+        }
       }
-    },
-    tooltip: {
-      show: true,
-      trigger: 'item'
-    },
-    graphic: {
-      elements: [
+    }
+  },
+  legends: {
+    visible: true,
+    orient: 'bottom'
+  },
+  label: {
+    visible: true
+  },
+  tooltip: {
+    mark: {
+      content: [
         {
-          type: 'text',
-          left: 'center',
-          top: '40%',
-          style: {
-            text: '内容量',
-            textAlign: 'center',
-            fill: isDark ? '#ffffffb3' : '#4E5969',
-            fontSize: 14
-          }
-        },
-        {
-          type: 'text',
-          left: 'center',
-          top: '50%',
-          style: {
-            text: '928,531',
-            textAlign: 'center',
-            fill: isDark ? '#ffffffb3' : '#1D2129',
-            fontSize: 16,
-            fontWeight: 500
-          }
+          key: datum => datum['type'],
+          value: datum => datum['value'] + '%'
         }
       ]
-    },
-    series: [
-      {
-        type: 'pie',
-        radius: ['50%', '70%'],
-        center: ['50%', '50%'],
-        label: {
-          formatter: '{d}%',
-          fontSize: 14,
-          color: isDark ? 'rgba(255, 255, 255, 0.7)' : '#4E5969'
-        },
-        itemStyle: {
-          borderColor: isDark ? '#232324' : '#fff',
-          borderWidth: 1
-        },
-        data: [
-          {
-            value: [148564],
-            name: '纯文本',
-            itemStyle: {
-              color: isDark ? '#3D72F6' : '#249EFF'
-            }
-          },
-          {
-            value: [334271],
-            name: '图文类',
-            itemStyle: {
-              color: isDark ? '#A079DC' : '#313CA9'
-            }
-          },
-          {
-            value: [445694],
-            name: '视频类',
-            itemStyle: {
-              color: isDark ? '#6CAAF5' : '#21CCFF'
-            }
+    }
+  },
+  indicator: {
+    visible: true,
+    trigger: 'select',
+    title: {
+      visible: true,
+      style: {
+        fontSize: 14,
+        text: data => {
+          if (data) {
+            const value = data['type'];
+            return value ? value : null;
           }
-        ]
+          return '内容量';
+        }
+      }
+    },
+    content: [
+      {
+        visible: true,
+        style: {
+          fontSize: 14,
+          text: data => {
+            if (data) {
+              const value = data['value'];
+              return value ? `${value}%` : null;
+            }
+            return 1234;
+          }
+        }
       }
     ]
-  };
-});
+  }
+};
 </script>
-
-<style scoped lang="less"></style>
