@@ -9,6 +9,7 @@ on:
 
 jobs:
   lint:
+    if: github.repository == 'oljc/arco-admin'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,6 +27,7 @@ jobs:
         run: pnpm run lint
 
   type_check:
+    if: github.repository == 'oljc/arco-admin'
     runs-on: ubuntu-latest
     needs: lint
     steps:
