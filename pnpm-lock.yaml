@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@arco-design/web-vue':
-    specifier: ^2.55.1
-    version: 2.55.1(vue@3.4.27)
+    specifier: ^2.55.2
+    version: 2.55.2(vue@3.4.27)
   '@visactor/vchart':
     specifier: ^1.11.0
     version: 1.11.0
@@ -205,8 +205,8 @@ packages:
       color: 3.2.1
     dev: false
 
-  /@arco-design/web-vue@2.55.1(vue@3.4.27):
-    resolution: {integrity: sha512-MI0mteI4B1+UAKAslCrV2zqRKHWwkjLjdOpOLAR36cAbYhtlj7Tel3yAjGHk5zsQ1ODZX60OFfRfl66pq6919A==}
+  /@arco-design/web-vue@2.55.2(vue@3.4.27):
+    resolution: {integrity: sha512-aEuX0a7u1Qif5VYuCM/NFfbFfKA4GiOl3nOoaZEH/W6jhJh/RTmEVAYxJv8j6AYhPySj7ULfel4USVngP31E0Q==}
     peerDependencies:
       vue: ^3.1.0
     dependencies:

@@ -60,7 +60,7 @@
     ]
   },
   "dependencies": {
-    "@arco-design/web-vue": "^2.55.1",
+    "@arco-design/web-vue": "^2.55.2",
     "@visactor/vchart": "^1.11.0",
     "@visactor/vchart-arco-theme": "^1.10.4",
     "@vueuse/core": "^10.9.0",
