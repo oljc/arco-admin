@@ -58,44 +58,42 @@ const blockDataList = computed<BlockList>(() => {
   const result = [];
   result.push({
     title:
-      props.type === 'pre'
-        ? t('basicProfile.title.preVideo')
-        : t('basicProfile.title.video'),
+      props.type === 'pre' ? t('basicProfile.title.preVideo') : t('现视频参数'),
     data: [
       {
-        label: t('basicProfile.label.video.mode'),
+        label: '匹配模式',
         value: renderData?.video?.mode || '-'
       },
       {
-        label: t('basicProfile.label.video.acquisition.resolution'),
+        label: '采集分辨率',
         value: renderData?.video?.acquisition.resolution || '-'
       },
       {
-        label: t('basicProfile.label.video.acquisition.frameRate'),
+        label: '采集帧率',
         value: `${renderData?.video?.acquisition.frameRate || '-'} fps`
       },
       {
-        label: t('basicProfile.label.video.encoding.resolution'),
+        label: '编码分辨率',
         value: renderData?.video?.encoding.resolution || '-'
       },
       {
-        label: t('basicProfile.label.video.encoding.rate.min'),
+        label: '编码码率最小值',
         value: `${renderData?.video?.encoding.rate.min || '-'} bps`
       },
       {
-        label: t('basicProfile.label.video.encoding.rate.max'),
+        label: '编码码率最大值',
         value: `${renderData?.video?.encoding.rate.max || '-'} bps`
       },
       {
-        label: t('basicProfile.label.video.encoding.rate.default'),
+        label: '编码码率默认值',
         value: `${renderData?.video?.encoding.rate.default || '-'} bps`
       },
       {
-        label: t('basicProfile.label.video.encoding.frameRate'),
+        label: '编码帧率',
         value: `${renderData?.video?.encoding.frameRate || '-'} fpx`
       },
       {
-        label: t('basicProfile.label.video.encoding.profile'),
+        label: '编码profile',
         value: renderData?.video?.encoding.profile || '-'
       }
     ]

@@ -1,12 +1,12 @@
 <template>
   <a-card
     class="general-card"
-    :title="$t('workplace.quick.operation')"
+    title="快捷操作"
     :header-style="{ paddingBottom: '0' }"
     :body-style="{ padding: '24px 20px 0 20px' }"
   >
     <template #extra>
-      <a-link>{{ $t('workplace.quickOperation.setup') }}</a-link>
+      <a-link>管理</a-link>
     </template>
     <a-row :gutter="8">
       <a-col v-for="link in links" :key="link.text" :span="8" class="wrapper">
@@ -14,7 +14,7 @@
           <component :is="link.icon" />
         </div>
         <a-typography-paragraph class="text">
-          {{ $t(link.text) }}
+          {{ link.text }}
         </a-typography-paragraph>
       </a-col>
     </a-row>
@@ -24,11 +24,11 @@
 
 <script lang="ts" setup>
 const links = [
-  { text: 'workplace.contentManagement', icon: 'icon-file' },
-  { text: 'workplace.contentStatistical', icon: 'icon-storage' },
-  { text: 'workplace.advanced', icon: 'icon-settings' },
-  { text: 'workplace.onlinePromotion', icon: 'icon-mobile' },
-  { text: 'workplace.contentPutIn', icon: 'icon-fire' }
+  { text: '内容管理', icon: 'icon-file' },
+  { text: '内容分析', icon: 'icon-storage' },
+  { text: '高级管理', icon: 'icon-settings' },
+  { text: '线上推广', icon: 'icon-mobile' },
+  { text: '内容投放', icon: 'icon-fire' }
 ];
 </script>
 

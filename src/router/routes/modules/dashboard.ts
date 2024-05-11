@@ -7,7 +7,7 @@ const DASHBOARD: AppRouteRecordRaw = {
   component: DEFAULT_LAYOUT,
   redirect: '/workplace',
   meta: {
-    locale: 'menu.dashboard.workplace',
+    locale: 'menu.workplace',
     requiresAuth: true,
     hideChildrenMenu: true,
     icon: 'icon-dashboard',

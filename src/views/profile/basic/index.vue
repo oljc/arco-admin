@@ -1,20 +1,18 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.profile', 'menu.profile.basic']" />
+    <Breadcrumb :items="['menu.profile', 'menu.profileBasic']" />
     <a-space direction="vertical" :size="16" fill>
-      <a-card class="general-card" :title="$t('basicProfile.title.form')">
+      <a-card class="general-card" title="参数审批流程表">
         <template #extra>
           <a-space>
-            <a-button>{{ $t('basicProfile.cancel') }}</a-button>
-            <a-button type="primary">
-              {{ $t('basicProfile.goBack') }}
-            </a-button>
+            <a-button>取消流程</a-button>
+            <a-button type="primary">返回</a-button>
           </a-space>
         </template>
         <a-steps v-model:current="step" line-less class="steps">
-          <a-step>{{ $t('basicProfile.steps.commit') }}</a-step>
-          <a-step>{{ $t('basicProfile.steps.approval') }}</a-step>
-          <a-step>{{ $t('basicProfile.steps.finish') }}</a-step>
+          <a-step>提交修改</a-step>
+          <a-step>审批中</a-step>
+          <a-step>修改完成</a-step>
         </a-steps>
       </a-card>
       <a-card class="general-card">

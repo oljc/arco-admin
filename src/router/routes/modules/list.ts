@@ -17,7 +17,7 @@ const LIST: AppRouteRecordRaw = {
       name: 'SearchTable',
       component: () => import('@/views/list/search-table/index.vue'),
       meta: {
-        locale: 'menu.list.searchTable',
+        locale: 'menu.searchTable',
         requiresAuth: true,
         roles: ['*']
       }
@@ -27,7 +27,7 @@ const LIST: AppRouteRecordRaw = {
       name: 'Card',
       component: () => import('@/views/list/card/index.vue'),
       meta: {
-        locale: 'menu.list.cardList',
+        locale: 'menu.cardList',
         requiresAuth: true,
         roles: ['*']
       }

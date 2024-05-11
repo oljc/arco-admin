@@ -67,8 +67,8 @@
         <a-tooltip
           :content="
             theme === 'light'
-              ? $t('settings.navbar.theme.toDark')
-              : $t('settings.navbar.theme.toLight')
+              ? $t('settings.themeToDark')
+              : $t('settings.themeToLight')
           "
         >
           <div class="nav-btn" @click="handleToggleTheme">
@@ -78,7 +78,7 @@
         </a-tooltip>
       </li>
       <li>
-        <a-tooltip :content="$t('settings.navbar.alerts')">
+        <a-tooltip :content="$t('settings.alerts')">
           <a-badge :count="9">
             <div class="nav-btn" @click="setPopoverVisible">
               <icon-notification />
@@ -101,8 +101,8 @@
         <a-tooltip
           :content="
             isFullscreen
-              ? $t('settings.navbar.screen.toExit')
-              : $t('settings.navbar.screen.toFull')
+              ? $t('settings.screenToExit')
+              : $t('settings.screenToFull')
           "
         >
           <div class="nav-btn" @click="toggleFullScreen">
@@ -168,7 +168,6 @@ import { computed, ref, inject } from 'vue';
 import { Message } from '@arco-design/web-vue';
 import { useDark, useToggle, useFullscreen } from '@vueuse/core';
 import { useAppStore, useUserStore } from '@/store';
-import { LOCALE_OPTIONS } from '@/locale';
 import useLocale from '@/hooks/useLocale';
 import useUser from '@/hooks/useUser';
 import Menu from '@/components/menu/index.vue';
@@ -180,7 +179,10 @@ const userStore = useUserStore();
 const { logout } = useUser();
 const { changeLocale, currentLocale } = useLocale();
 const { isFullscreen, toggle: toggleFullScreen } = useFullscreen();
-const locales = [...LOCALE_OPTIONS];
+const locales = [
+  { label: '中文', value: 'zh-CN' },
+  { label: 'English', value: 'en-US' }
+];
 const theme = computed(() => {
   return appStore.theme;
 });

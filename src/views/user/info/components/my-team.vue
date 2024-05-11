@@ -1,7 +1,7 @@
 <template>
   <a-card
     class="general-card"
-    :title="$t('userInfo.tab.title.team')"
+    title="我的团队"
     :header-style="{ paddingBottom: '18px' }"
     :body-style="{ paddingBottom: '12px' }"
   >

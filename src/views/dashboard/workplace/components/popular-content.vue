@@ -2,14 +2,12 @@
   <a-spin :loading="loading" style="width: 100%">
     <a-card
       class="general-card"
+      title="线上热门内容"
       :header-style="{ paddingBottom: '0' }"
       :body-style="{ padding: '17px 20px 21px 20px' }"
     >
-      <template #title>
-        {{ $t('workplace.popularContent') }}
-      </template>
       <template #extra>
-        <a-link>{{ $t('workplace.viewMore') }}</a-link>
+        <a-link>查看更多</a-link>
       </template>
       <a-space direction="vertical" :size="10" fill>
         <a-radio-group
@@ -17,15 +15,9 @@
           type="button"
           @change="typeChange as any"
         >
-          <a-radio value="text">
-            {{ $t('workplace.popularContent.text') }}
-          </a-radio>
-          <a-radio value="image">
-            {{ $t('workplace.popularContent.image') }}
-          </a-radio>
-          <a-radio value="video">
-            {{ $t('workplace.popularContent.video') }}
-          </a-radio>
+          <a-radio value="text">文本</a-radio>
+          <a-radio value="image">图片</a-radio>
+          <a-radio value="video">视频</a-radio>
         </a-radio-group>
         <a-table
           :data="renderList"

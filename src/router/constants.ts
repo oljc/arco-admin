@@ -12,7 +12,7 @@ export const LOGIN_ROUTE_NAME = 'Login';
 export const DEFAULT_ROUTE_NAME = 'Workplace';
 
 export const DEFAULT_ROUTE = {
-  title: 'menu.dashboard.workplace',
+  title: 'menu.workplace',
   name: DEFAULT_ROUTE_NAME,
   fullPath: '/workplace'
 };

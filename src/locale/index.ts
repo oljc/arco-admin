@@ -1,22 +1,26 @@
 import { createI18n } from 'vue-i18n';
-import en from './en-US/index.json';
-import cn from './zh-CN/index.json';
 
-export const LOCALE_OPTIONS = [
-  { label: '中文', value: 'zh-CN' },
-  { label: 'English', value: 'en-US' }
-];
 const defaultLocale = localStorage.getItem('arco-locale') || 'zh-CN';
+
+const autoImportLocale = () => {
+  let locale = Object.fromEntries(
+    Object.entries(import.meta.glob('./*.y(a)?ml', { eager: true })).map(
+      ([key, value]: any) => {
+        const matched = key.match(/([A-Za-z0-9-_]+)\./i)[1];
+        return [matched, value.default];
+      }
+    )
+  );
+  return locale;
+};
+
+const messages = autoImportLocale();
 
 const i18n = createI18n({
   locale: defaultLocale,
   fallbackLocale: 'en-US',
   legacy: false,
-  allowComposition: true,
-  messages: {
-    'en-US': en,
-    'zh-CN': cn
-  }
+  messages
 });
 
 export default i18n;

@@ -1,7 +1,7 @@
 <template>
-  <a-card class="general-card" :title="$t('userInfo.title.latestActivity')">
+  <a-card class="general-card" title="最新动态">
     <template #extra>
-      <a-link>{{ $t('userInfo.viewAll') }}</a-link>
+      <a-link>查看全部</a-link>
     </template>
     <a-list :bordered="false">
       <a-list-item

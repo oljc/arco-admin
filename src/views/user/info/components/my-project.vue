@@ -1,7 +1,7 @@
 <template>
-  <a-card class="general-card" :title="$t('userInfo.title.myProject')">
+  <a-card class="general-card" title="我的项目">
     <template #extra>
-      <a-link>{{ $t('userInfo.showMore') }}</a-link>
+      <a-link>查看更多</a-link>
     </template>
     <a-row :gutter="16">
       <a-col

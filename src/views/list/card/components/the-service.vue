@@ -1,7 +1,7 @@
 <template>
   <div class="list-wrap">
     <a-typography-title class="block-title" :heading="6">
-      {{ $t('cardList.tab.title.service') }}
+      开通服务
     </a-typography-title>
     <a-row class="list-row" :gutter="24">
       <a-col
@@ -23,11 +23,11 @@
           :default-value="item.enable"
           :action-type="item.actionType"
           :expires="item.expires"
-          :open-txt="$t('cardList.service.open')"
-          :close-txt="$t('cardList.service.cancel')"
-          :expires-text="$t('cardList.service.renew')"
-          :tag-text="$t('cardList.service.tag')"
-          :expires-tag-text="$t('cardList.service.expiresTag')"
+          open-txt="开通服务"
+          close-txt="取消服务"
+          expires-text="续约服务"
+          tag-text="已开通"
+          expires-tag-text="已过期"
           :icon="item.icon"
         >
           <template #skeleton>

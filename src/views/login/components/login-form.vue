@@ -6,14 +6,14 @@
     :model="form"
     :rules="rules"
   >
-    <div class="login-form-title">{{ $t('login-title') }}</div>
+    <div class="login-form-title">{{ $t('login.title') }}</div>
     <a-tabs v-model:active-key="tabActiveKey" size="mini" animation>
-      <a-tab-pane key="1" :title="$t('login-tab-account')" destroy-on-hide>
+      <a-tab-pane key="1" :title="$t('login.accountLogin')" destroy-on-hide>
         <a-form-item field="username" validate-trigger="blur" hide-label>
           <a-input
             v-model="form.username"
             autocomplete="username"
-            :placeholder="$t('login.form.username.placeholder')"
+            :placeholder="$t('login.unamePlaceholder')"
           >
             <template #prefix>
               <icon-user />
@@ -24,7 +24,7 @@
           <a-input-password
             v-model="form.password"
             autocomplete="current-password"
-            :placeholder="$t('login.form.password.placeholder')"
+            :placeholder="$t('login.passwordPlaceholder')"
             allow-clear
           >
             <template #prefix>
@@ -37,16 +37,16 @@
           :model-value="loginConfig.rememberPassword"
           @change="setRememberPassword"
         >
-          {{ $t('login.form.remember') }}
+          {{ $t('login.remember') }}
         </a-checkbox>
       </a-tab-pane>
-      <a-tab-pane key="2" :title="$t('login-tab-tel')" destroy-on-hide>
+      <a-tab-pane key="2" :title="$t('login.mobileLogin')" destroy-on-hide>
         <a-form-item field="phone" validate-trigger="blur" hide-label>
           <a-input-group :style="{ width: '320px' }">
             <country-code-select />
             <a-input
               v-model="form.phone"
-              :placeholder="$t('login.form.phone.placeholder')"
+              :placeholder="$t('login.phonePlaceholder')"
               :max-length="11"
               allow-clear
             />
@@ -56,7 +56,7 @@
           <a-input-group :style="{ width: '320px' }">
             <a-input
               v-model="form.captcha"
-              :placeholder="$t('login.form.captcha.placeholder')"
+              :placeholder="$t('login.captchaPlaceholder')"
               allow-clear
             ></a-input>
             <a-button
@@ -80,7 +80,7 @@
       {{ $t('common.login') }}
     </a-button>
     <a-button type="text" long class="login-form-register-btn">
-      {{ $t('signin') }}
+      {{ $t('common.register') }}
     </a-button>
     <a-divider orientation="center">{{ $t('login.more') }}</a-divider>
     <a-space class="login-form-more" :size="2" fill>
@@ -95,11 +95,11 @@
     </a-space>
     <div class="login-form-actions">
       <a-checkbox v-model="form.agreement">
-        {{ $t('login-agreement') }}
+        {{ $t('login.agreement') }}
       </a-checkbox>
-      <a-link>{{ $t('login-service-agreement') }}</a-link>
-      <span>{{ $t('login-agreement-and') }}</span>
-      <a-link>{{ $t('login-privacy-policy') }}</a-link>
+      <a-link>{{ $t('login.serviceAgreement') }}</a-link>
+      <span>{{ $t('login.agreementAnd') }}</span>
+      <a-link>{{ $t('login.privacyPolicy') }}</a-link>
     </div>
   </a-form>
 </template>
@@ -121,7 +121,7 @@ const router = useRouter();
 const { t } = useI18n();
 const codeDisabled = ref(false);
 const userStore = useUserStore();
-const codeText = ref(t('login.form.captcha.send'));
+const codeText = ref(t('login.captchaSend'));
 const formRef = ref();
 const tabActiveKey = ref('1');
 const { loading, setLoading } = useLoading();
@@ -140,8 +140,8 @@ const form = reactive({
 });
 
 const rules = {
-  username: [{ required: true, message: t('login.form.username.msg') }],
-  captcha: [{ required: true, message: t('login.form.captcha.msg') }],
+  username: [{ required: true, message: t('login.usernameMsg') }],
+  captcha: [{ required: true, message: t('login.captchaMsg') }],
   password: [
     { required: true, message: '请输入密码' },
     {
@@ -164,14 +164,14 @@ const handleSubmit = () => {
     formRef.value.validateField(['username', 'password']).then(async res => {
       if (res) return;
       if (!form.agreement) {
-        return Message.info(t('login.form.agreement.tips'));
+        return Message.info(t('login.agreementTips'));
       }
       setLoading(true);
       try {
-        const userInfoform = pick(form, ['username', 'password']);
-        console.log(userInfoform);
+        const userInfoForm = pick(form, ['username', 'password']);
+        console.log(userInfoForm);
 
-        await userStore.login(userInfoform as LoginData);
+        await userStore.login(userInfoForm as LoginData);
         const { redirect, ...othersQuery } = router.currentRoute.value.query;
         router.push({
           name: (redirect as string) || 'Workplace',
@@ -179,9 +179,9 @@ const handleSubmit = () => {
             ...othersQuery
           }
         });
-        Message.success(t('login.form.login.success'));
+        Message.success(t('login.loginSuccess'));
         const { rememberPassword } = loginConfig.value;
-        const { username, password } = userInfoform;
+        const { username, password } = userInfoForm;
         // 实际生产环境需要进行加密存储。
         loginConfig.value.username = rememberPassword ? username : '';
         loginConfig.value.password = rememberPassword ? password : '';
@@ -208,11 +208,10 @@ const setRememberPassword = (value: boolean) => {
 const { start } = useCountDown({
   initValue: 9,
   onEnd: () => {
-    codeText.value = t('login.form.captcha.send');
+    codeText.value = t('login.captchaSend');
     codeDisabled.value = false;
   },
-  onChange: seconds =>
-    (codeText.value = t('login.form.captcha.resend', { seconds }))
+  onChange: seconds => (codeText.value = t('login.captchaResend', { seconds }))
 });
 
 // 发送验证码

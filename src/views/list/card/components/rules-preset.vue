@@ -1,7 +1,7 @@
 <template>
   <div class="list-wrap">
     <a-typography-title class="block-title" :heading="6">
-      {{ $t('cardList.tab.title.preset') }}
+      规则预置
     </a-typography-title>
     <a-row class="list-row" :gutter="24">
       <a-col
@@ -22,7 +22,7 @@
           :description="item.description"
           :default-value="item.enable"
           :action-type="item.actionType"
-          :tag-text="$t('cardList.preset.tag')"
+          tag-text="已启用"
         >
           <template #skeleton>
             <a-skeleton :animation="true">

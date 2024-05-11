@@ -17,7 +17,7 @@ const PROFILE: AppRouteRecordRaw = {
       name: 'Basic',
       component: () => import('@/views/profile/basic/index.vue'),
       meta: {
-        locale: 'menu.profile.basic',
+        locale: 'menu.profileBasic',
         requiresAuth: true,
         roles: ['admin']
       }

@@ -1,50 +1,29 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.result', 'menu.result.success']" />
+    <Breadcrumb :items="['menu.result', 'menu.resultSuccess']" />
     <div class="wrapper">
       <a-result
         class="result"
         status="success"
-        :title="$t('success.result.title')"
-        :subtitle="$t('success.result.subTitle')"
+        title="提交成功"
+        subtitle="表单提交成功！"
       >
         <template #extra>
           <a-space class="operation-wrap" :size="16">
-            <a-button key="again" type="secondary">
-              {{ $t('success.result.printResult') }}
-            </a-button>
-            <a-button key="back" type="primary">
-              {{ $t('success.result.projectList') }}
-            </a-button>
+            <a-button key="again" type="secondary">打印结果</a-button>
+            <a-button key="back" type="primary">返回项目列表</a-button>
           </a-space>
         </template>
       </a-result>
 
       <div class="steps-wrapper">
-        <a-typography-paragraph bold>
-          {{ $t('success.result.progress') }}
-        </a-typography-paragraph>
+        <a-typography-paragraph bold>当前进度</a-typography-paragraph>
         <a-steps type="dot" :current="2">
-          <a-step
-            :title="$t('success.submitApplication')"
-            description="2020/10/10 14:00:39"
-          />
-          <a-step
-            :title="$t('success.leaderReview')"
-            :description="$t('success.processing')"
-          />
-          <a-step
-            :title="$t('success.purchaseCertificate')"
-            :description="$t('success.waiting')"
-          />
-          <a-step
-            :title="$t('success.safetyTest')"
-            :description="$t('success.waiting')"
-          />
-          <a-step
-            :title="$t('success.launched')"
-            :description="$t('success.waiting')"
-          />
+          <a-step title="提交申请" description="2020/10/10 14:00:39" />
+          <a-step title="直属领导审核" description="进行中" />
+          <a-step title="购买证书" description="未开始" />
+          <a-step title="安全测试" description="未开始" />
+          <a-step title="正式上线" description="未开始" />
         </a-steps>
       </div>
     </div>

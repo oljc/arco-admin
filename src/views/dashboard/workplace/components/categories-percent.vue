@@ -2,14 +2,12 @@
   <a-spin :loading="loading" style="width: 100%">
     <a-card
       class="general-card"
+      title="内容类型占比"
       :header-style="{ paddingBottom: '0' }"
       :body-style="{
         padding: '20px'
       }"
     >
-      <template #title>
-        {{ $t('workplace.categoriesPercent') }}
-      </template>
       <VChart height="306px" :options="spec" />
     </a-card>
   </a-spin>

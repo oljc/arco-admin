@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.user', 'menu.user.setting']" />
+    <Breadcrumb :items="['menu.user', 'menu.userSetting']" />
     <a-row style="margin-bottom: 16px">
       <a-col :span="24">
         <UserPanel />
@@ -9,13 +9,13 @@
     <a-row class="wrapper">
       <a-col :span="24">
         <a-tabs default-active-key="1" type="rounded">
-          <a-tab-pane key="1" :title="$t('userSetting.tab.basicInformation')">
+          <a-tab-pane key="1" title="基础信息">
             <BasicInformation />
           </a-tab-pane>
-          <a-tab-pane key="2" :title="$t('userSetting.tab.securitySettings')">
+          <a-tab-pane key="2" title="安全设置">
             <SecuritySettings />
           </a-tab-pane>
-          <a-tab-pane key="3" :title="$t('userSetting.tab.certification')">
+          <a-tab-pane key="3" title="实名认证">
             <Certification />
           </a-tab-pane>
         </a-tabs>

@@ -1,49 +1,33 @@
 <template>
   <a-card
     class="general-card"
-    :title="$t('userSetting.certification.title.record')"
+    title="认证记录"
     :header-style="{ border: 'none' }"
   >
     <a-table v-if="renderData.length" :data="renderData">
       <template #columns>
-        <a-table-column
-          :title="$t('userSetting.certification.columns.certificationType')"
-        >
-          <template #cell>
-            {{ $t('userSetting.certification.cell.certificationType') }}
-          </template>
+        <a-table-column title="认证类型">
+          <template #cell>企业证件认证</template>
         </a-table-column>
-        <a-table-column
-          :title="$t('userSetting.certification.columns.certificationContent')"
-          data-index="certificationContent"
-        />
-        <a-table-column :title="$t('userSetting.certification.columns.status')">
+        <a-table-column title="认证内容" data-index="certificationContent" />
+        <a-table-column title="当前状态">
           <template #cell="{ record }">
             <p v-if="record.status === 0">
               <span class="circle"></span>
-              <span>{{ $t('userSetting.certification.cell.auditing') }}</span>
+              <span>审核中</span>
             </p>
             <p v-if="record.status === 1">
               <span class="circle pass"></span>
-              <span>{{ $t('userSetting.certification.cell.pass') }}</span>
+              <span>已通过</span>
             </p>
           </template>
         </a-table-column>
-        <a-table-column
-          :title="$t('userSetting.certification.columns.time')"
-          data-index="time"
-        />
-        <a-table-column
-          :title="$t('userSetting.certification.columns.operation')"
-        >
+        <a-table-column title="创建时间" data-index="time" />
+        <a-table-column title="操作">
           <template #cell="{ record }">
             <a-space>
-              <a-button type="text">
-                {{ $t('userSetting.certification.button.check') }}
-              </a-button>
-              <a-button v-if="record.status === 0" type="text">
-                {{ $t('userSetting.certification.button.withdraw') }}
-              </a-button>
+              <a-button type="text">查看</a-button>
+              <a-button v-if="record.status === 0" type="text">撤回</a-button>
             </a-space>
           </template>
         </a-table-column>

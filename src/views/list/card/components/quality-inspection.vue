@@ -1,7 +1,7 @@
 <template>
   <div class="list-wrap">
     <a-typography-title class="block-title" :heading="6">
-      {{ $t('cardList.tab.title.content') }}
+      内容质检
     </a-typography-title>
     <a-row class="list-row" :gutter="24">
       <a-col
@@ -15,7 +15,7 @@
       >
         <div class="card-wrap empty-wrap">
           <a-card :bordered="false" hoverable>
-            <a-result :status="null" :title="$t('cardList.content.action')">
+            <a-result :status="null" title="点击创建质检内容队列">
               <template #icon>
                 <icon-plus style="font-size: 20px" />
               </template>
@@ -41,8 +41,8 @@
           :default-value="item.enable"
           :action-type="item.actionType"
           :icon="item.icon"
-          :open-txt="$t('cardList.content.inspection')"
-          :close-txt="$t('cardList.content.delete')"
+          open-txt="质检"
+          close-txt="删除"
           :show-tag="false"
         >
           <a-descriptions

@@ -17,7 +17,7 @@ const EXCEPTION: AppRouteRecordRaw = {
       name: '403',
       component: () => import('@/views/exception/403/index.vue'),
       meta: {
-        locale: 'menu.exception.403',
+        locale: 'menu.exception403',
         requiresAuth: true,
         roles: ['admin']
       }
@@ -27,7 +27,7 @@ const EXCEPTION: AppRouteRecordRaw = {
       name: '404',
       component: () => import('@/views/exception/404/index.vue'),
       meta: {
-        locale: 'menu.exception.404',
+        locale: 'menu.exception404',
         requiresAuth: true,
         roles: ['*']
       }
@@ -37,7 +37,7 @@ const EXCEPTION: AppRouteRecordRaw = {
       name: '500',
       component: () => import('@/views/exception/500/index.vue'),
       meta: {
-        locale: 'menu.exception.500',
+        locale: 'menu.exception500',
         requiresAuth: true,
         roles: ['*']
       }

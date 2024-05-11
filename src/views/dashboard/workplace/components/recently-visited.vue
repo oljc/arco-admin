@@ -1,7 +1,7 @@
 <template>
   <a-card
     class="general-card"
-    :title="$t('workplace.recently.visited')"
+    title="最近访问"
     :header-style="{ paddingBottom: '0' }"
     :body-style="{ paddingTop: '26px' }"
   >
@@ -12,7 +12,7 @@
             <component :is="link.icon" />
           </div>
           <a-typography-paragraph class="text">
-            {{ $t(link.text) }}
+            {{ link.text }}
           </a-typography-paragraph>
         </a-col>
       </a-row>
@@ -23,15 +23,15 @@
 <script lang="ts" setup>
 const links = [
   {
-    text: 'workplace.contentManagement',
+    text: '内容管理',
     icon: 'icon-storage'
   },
   {
-    text: 'workplace.contentStatistical',
+    text: '内容分析',
     icon: 'icon-file'
   },
   {
-    text: 'workplace.advanced',
+    text: '高级管理',
     icon: 'icon-settings'
   }
 ];

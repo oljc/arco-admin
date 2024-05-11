@@ -5,11 +5,9 @@
       <a-result
         class="result"
         status="500"
-        :subtitle="$t('exception.result.500.description')"
+        subtitle="抱歉，服务器出了点问题～"
       />
-      <a-button key="back" type="primary">
-        {{ $t('exception.result.500.back') }}
-      </a-button>
+      <a-button key="back" type="primary">返回</a-button>
     </div>
   </div>
 </template>

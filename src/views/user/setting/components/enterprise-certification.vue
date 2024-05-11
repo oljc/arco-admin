@@ -1,11 +1,11 @@
 <template>
   <a-card
     class="general-card"
-    :title="$t('userSetting.certification.title.enterprise')"
+    title="企业实名认证"
     :header-style="{ padding: '0px 20px 16px 20px' }"
   >
     <template #extra>
-      <a-link>{{ $t('userSetting.certification.extra.enterprise') }}</a-link>
+      <a-link>修改认证主体</a-link>
     </template>
     <a-descriptions
       class="card-content"
@@ -60,39 +60,39 @@ const renderData = computed(() => {
   } = props.enterpriseInfo;
   return [
     {
-      label: 'userSetting.certification.label.accountType',
+      label: '账号类型',
       value: accountType
     },
     {
-      label: 'userSetting.certification.label.status',
+      label: '认证状态',
       value: status
     },
     {
-      label: 'userSetting.certification.label.time',
+      label: '认证时间',
       value: time
     },
     {
-      label: 'userSetting.certification.label.legalPerson',
+      label: '法人姓名',
       value: legalPerson
     },
     {
-      label: 'userSetting.certification.label.certificateType',
+      label: '法人证件类型',
       value: certificateType
     },
     {
-      label: 'userSetting.certification.label.authenticationNumber',
+      label: '法人认证号码',
       value: authenticationNumber
     },
     {
-      label: 'userSetting.certification.label.enterpriseName',
+      label: '企业名称',
       value: enterpriseName
     },
     {
-      label: 'userSetting.certification.label.enterpriseCertificateType',
+      label: '企业证件类型',
       value: enterpriseCertificateType
     },
     {
-      label: 'userSetting.certification.label.organizationCode',
+      label: '组织机构代码',
       value: organizationCode
     }
   ] as DescData[];
