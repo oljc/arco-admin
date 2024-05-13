@@ -170,8 +170,6 @@ import { useDark, useToggle, useFullscreen } from '@vueuse/core';
 import { useAppStore, useUserStore } from '@/store';
 import useLocale from '@/hooks/useLocale';
 import useUser from '@/hooks/useUser';
-import Menu from '@/components/Menu/index.vue';
-import MessageBox from '../message-box/index.vue';
 import logoSvg from '@/assets/logo.svg';
 
 const appStore = useAppStore();
