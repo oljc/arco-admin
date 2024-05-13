@@ -54,6 +54,7 @@ settings:
     the configuration into settings.json.
   alerts: notification
   colorWeak: model
+  content: content area
   copySettings: Copy configuration
   footer: bottom
   language: language

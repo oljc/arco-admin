@@ -8,47 +8,44 @@
   >
     <a-form-item
       field="activityName"
-      :label="$t('stepForm.form.label.activityName')"
+      label="活动名称"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.activityName.required')
+          message: '请输入活动名称'
         },
         {
           match: /^[a-zA-Z0-9\u4e00-\u9fa5]{1,20}$/,
-          message: $t('stepForm.form.error.activityName.pattern')
+          message: '活动名称只能输入中文、英文、数字，且长度不超过20个字符'
         }
       ]"
     >
       <a-input
         v-model="formData.activityName"
-        :placeholder="$t('stepForm.placeholder.activityName')"
+        placeholder="输入汉字、字母或者数字，不超过20个字符"
       />
     </a-form-item>
     <a-form-item
       field="channelType"
-      :label="$t('stepForm.form.label.channelType')"
+      label="渠道类型"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.channelType.required')
+          message: '请选择渠道类型'
         }
       ]"
     >
-      <a-select
-        v-model="formData.channelType"
-        :placeholder="$t('stepForm.placeholder.channelType')"
-      >
+      <a-select v-model="formData.channelType" placeholder="请选择渠道类型">
         <a-option>APP通用渠道</a-option>
       </a-select>
     </a-form-item>
     <a-form-item
       field="promotionTime"
-      :label="$t('stepForm.form.label.promotionTime')"
+      label="推广时间"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.promotionTime.required')
+          message: '请选择推广时间'
         }
       ]"
     >
@@ -56,31 +53,29 @@
     </a-form-item>
     <a-form-item
       field="promoteLink"
-      :label="$t('stepForm.form.label.promoteLink')"
+      label="推广地址"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.promoteLink.required')
+          message: '请输入推广地址'
         },
         {
           type: 'url',
-          message: $t('stepForm.form.error.promoteLink.pattern')
+          message: '请输入正确的推广地址'
         }
       ]"
       row-class="keep-margin"
     >
-      <a-input
-        v-model="formData.promoteLink"
-        :placeholder="$t('stepForm.placeholder.promoteLink')"
-      />
+      <a-input v-model="formData.promoteLink" placeholder="请输入推广地址" />
       <template #help>
-        <span>{{ $t('stepForm.form.tip.promoteLink') }}</span>
+        <span>
+          如 Android 或 iOS 的下载地址、中间跳转URL，网址必须以 http:// 或
+          https:// 开头
+        </span>
       </template>
     </a-form-item>
     <a-form-item>
-      <a-button type="primary" @click="onNextClick">
-        {{ $t('stepForm.button.next') }}
-      </a-button>
+      <a-button type="primary" @click="onNextClick">下一步</a-button>
     </a-form-item>
   </a-form>
 </template>

@@ -48,22 +48,23 @@ messageBox:
   userCenter: 用户中心
   userSettings: 用户设置
 settings:
+  alertContent: 配置之后仅是临时生效，要想真正作用于项目，点击下方的 "复制配置" 按钮，将配置替换到 settings.json 中即可。
   alerts: 消息通知
+  colorWeak: 模式
+  content: 内容区域
+  copySettings: 复制配置
+  footer: 底部
   language: 语言
+  menu: 菜单栏
+  menuWidth: 菜单宽度 (px)
+  navbar: 导航栏
+  otherSettings: 其他设置
   reload: 重新加载
   screenToExit: 退出全屏
   screenToFull: 全屏
   source: 源码地址
+  tabBar: 多页签
   themeToDark: 点击切换为暗黑模式
   themeToLight: 点击切换为亮色模式
   title: 应用配置
-  navbar: 导航栏
-  menu: 菜单栏
   topMenu: 顶部菜单栏
-  footer: 底部
-  tabBar: 多页签
-  menuWidth: 菜单宽度 (px)
-  otherSettings: 其他设置
-  colorWeak: 模式
-  alertContent: 配置之后仅是临时生效，要想真正作用于项目，点击下方的 "复制配置" 按钮，将配置替换到 settings.json 中即可。
-  copySettings: 复制配置

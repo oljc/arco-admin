@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.exception', 'menu.exception.500']" />
+    <Breadcrumb :items="['menu.exception', 'menu.exception500']" />
     <div class="content">
       <a-result
         class="result"

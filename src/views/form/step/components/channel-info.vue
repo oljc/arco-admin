@@ -8,88 +8,75 @@
   >
     <a-form-item
       field="advertisingSource"
-      :label="$t('stepForm.form.label.advertisingSource')"
+      label="广告来源"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingSource.required')
+          message: '请输入广告来源'
         }
       ]"
     >
       <a-input
         v-model="formData.advertisingSource"
-        :placeholder="$t('stepForm.placeholder.advertisingSource')"
+        placeholder="引荐来源地址：douyin"
       />
     </a-form-item>
     <a-form-item
       field="advertisingMedia"
-      :label="$t('stepForm.form.label.advertisingMedia')"
+      label="广告媒介"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingMedia.required')
+          message: '请输入广告媒介'
         }
       ]"
     >
       <a-input
         v-model="formData.advertisingMedia"
-        :placeholder="$t('stepForm.placeholder.advertisingMedia')"
+        placeholder="营销媒介：cpc、banner、edm"
       />
     </a-form-item>
     <a-form-item
       field="keyword"
-      :label="$t('stepForm.form.label.keyword')"
-      :rules="[
-        { required: true, message: $t('stepForm.form.error.keyword.required') }
-      ]"
+      label="关键词"
+      :rules="[{ required: true, message: '请选择关键词' }]"
     >
-      <a-select
-        v-model="formData.keyword"
-        :placeholder="$t('stepForm.placeholder.keyword')"
-        multiple
-      >
+      <a-select v-model="formData.keyword" placeholder="请选择关键词" multiple>
         <a-option>今日头条</a-option>
         <a-option>火山</a-option>
       </a-select>
     </a-form-item>
     <a-form-item
       field="pushNotify"
-      :label="$t('stepForm.form.label.pushNotify')"
+      label="推送提醒"
       :rules="[{ required: true }]"
     >
       <a-switch v-model="formData.pushNotify" />
     </a-form-item>
     <a-form-item
       field="advertisingContent"
-      :label="$t('stepForm.form.label.advertisingContent')"
+      label="广告内容"
       :rules="[
         {
           required: true,
-          message: $t('stepForm.form.error.advertisingContent.required')
+          message: '请输入广告内容'
         },
         {
           maxLength: 200,
-          message: $t('stepForm.form.error.advertisingContent.maxLength')
+          message: '广告内容不超过200字'
         }
       ]"
       row-class="keep-margin"
     >
       <a-textarea
         v-model="formData.advertisingContent"
-        :placeholder="$t('stepForm.placeholder.advertisingContent')"
+        placeholder="请输入广告内容介绍，最多不超过200字。"
       />
     </a-form-item>
     <a-form-item>
-      <!-- <a-button type="primary" @click="onNextClick">
-        {{ $t('stepForm.button.next') }}
-      </a-button> -->
       <a-space>
-        <a-button type="secondary" @click="goPrev">
-          {{ $t('stepForm.button.prev') }}
-        </a-button>
-        <a-button type="primary" @click="onNextClick">
-          {{ $t('stepForm.button.next') }}
-        </a-button>
+        <a-button type="secondary" @click="goPrev">上一步</a-button>
+        <a-button type="primary" @click="onNextClick">下一步</a-button>
       </a-space>
     </a-form-item>
   </a-form>

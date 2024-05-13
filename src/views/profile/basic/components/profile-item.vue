@@ -27,7 +27,6 @@
 
 <script lang="ts" setup>
 import { computed, PropType } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { ProfileBasicRes } from '@/api/profile';
 
 type BlockList = {
@@ -52,13 +51,11 @@ const props = defineProps({
     default: false
   }
 });
-const { t } = useI18n();
 const blockDataList = computed<BlockList>(() => {
   const { renderData } = props;
   const result = [];
   result.push({
-    title:
-      props.type === 'pre' ? t('basicProfile.title.preVideo') : t('现视频参数'),
+    title: props.type === 'pre' ? '原视频参数' : '现视频参数',
     data: [
       {
         label: '匹配模式',
@@ -100,33 +97,26 @@ const blockDataList = computed<BlockList>(() => {
   });
 
   result.push({
-    title:
-      props.type === 'pre'
-        ? t('basicProfile.title.preAudio')
-        : t('basicProfile.title.audio'),
+    title: props.type === 'pre' ? '原音频参数' : '现音频参数',
     data: [
       {
-        label: t('basicProfile.label.audio.mode'),
+        label: '匹配模式',
         value: renderData?.audio?.mode || '-'
       },
       {
-        label: t('basicProfile.label.audio.acquisition.channels'),
-        value: `${renderData?.audio?.acquisition.channels || '-'} ${t(
-          'basicProfile.unit.audio.channels'
-        )}`
+        label: '采集声道数',
+        value: `${renderData?.audio?.acquisition.channels || '-'} 声道`
       },
       {
-        label: t('basicProfile.label.audio.encoding.channels'),
-        value: `${renderData?.audio?.encoding.channels || '-'} ${t(
-          'basicProfile.unit.audio.channels'
-        )}`
+        label: '编码声道数',
+        value: `${renderData?.audio?.encoding.channels || '-'} 声道`
       },
       {
-        label: t('basicProfile.label.audio.encoding.rate'),
+        label: '编码码率',
         value: `${renderData?.audio?.encoding.rate || '-'} kbps`
       },
       {
-        label: t('basicProfile.label.audio.encoding.profile'),
+        label: '编码 profile',
         value: renderData?.audio?.encoding.profile || '-'
       }
     ]
