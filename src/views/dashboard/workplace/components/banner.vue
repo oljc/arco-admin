@@ -2,24 +2,14 @@
   <a-col class="banner">
     <a-col :span="8">
       <a-typography-title :heading="5" style="margin-top: 0">
-        欢迎回来！ {{ userInfo.name }}
+        欢迎回来！
       </a-typography-title>
     </a-col>
     <a-divider class="panel-border" />
   </a-col>
 </template>
 
-<script lang="ts" setup>
-import { computed } from 'vue';
-import { useUserStore } from '@/store';
-
-const userStore = useUserStore();
-const userInfo = computed(() => {
-  return {
-    name: userStore.name
-  };
-});
-</script>
+<script lang="ts" setup></script>
 
 <style scoped lang="less">
 .banner {
