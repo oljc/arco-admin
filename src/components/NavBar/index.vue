@@ -1,21 +1,6 @@
 <template>
   <div class="navbar">
-    <div class="left-side">
-      <a-space>
-        <logoSvg style="width: 36px; color: #165fdd" />
-        <a-typography-title
-          :style="{ margin: 0, fontSize: '18px' }"
-          :heading="5"
-        >
-          Arco Admin
-        </a-typography-title>
-        <icon-menu-fold
-          v-if="!topMenu && appStore.device === 'mobile'"
-          style="font-size: 22px; cursor: pointer"
-          @click="toggleDrawerMenu"
-        />
-      </a-space>
-    </div>
+    <LogoBar class="left-side" />
     <div class="center-side">
       <Menu v-if="topMenu" />
     </div>
@@ -244,8 +229,6 @@ const toggleDrawerMenu = inject('toggleDrawerMenu') as () => void;
 }
 
 .left-side {
-  display: flex;
-  align-items: center;
   padding-left: 20px;
 }
 

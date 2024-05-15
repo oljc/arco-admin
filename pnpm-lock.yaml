@@ -12,8 +12,8 @@ dependencies:
     specifier: ^1.11.0
     version: 1.11.0
   '@visactor/vchart-arco-theme':
-    specifier: ^1.10.4
-    version: 1.10.4(@visactor/vchart@1.11.0)
+    specifier: ^1.11.0
+    version: 1.11.0(@visactor/vchart@1.11.0)
   '@vueuse/core':
     specifier: ^10.9.0
     version: 10.9.0(vue@3.4.27)
@@ -1643,19 +1643,19 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
-  /@visactor/vchart-arco-theme@1.10.4(@visactor/vchart@1.11.0):
-    resolution: {integrity: sha512-NgZLAxYR0SkUMGHtJrnEi6mR+Z5AJkHX8D7CtEDVw+03Yd0IuRjwcT8PS16DfTtYnUN2YwvGMHOKiKCkWpX3HA==}
+  /@visactor/vchart-arco-theme@1.11.0(@visactor/vchart@1.11.0):
+    resolution: {integrity: sha512-yjIXzM4Gd9dSyEmiH4MhwXutHT9I/AMsuzIqTIfwCyVpEEnbZNejjxZutGIidNdEt1qtApQECVZ970TCBJHz7w==}
     peerDependencies:
-      '@visactor/vchart': ~1.10.4
+      '@visactor/vchart': '>=1.10.4'
     dependencies:
       '@visactor/vchart': 1.11.0
-      '@visactor/vchart-theme-utils': 1.10.4(@visactor/vchart@1.11.0)
+      '@visactor/vchart-theme-utils': 1.11.0(@visactor/vchart@1.11.0)
     dev: false
 
-  /@visactor/vchart-theme-utils@1.10.4(@visactor/vchart@1.11.0):
-    resolution: {integrity: sha512-fiXwbIH3Bc2ieCkqHKHJvYayvlJjm/inGP2OayVLhbv4bDt3Smj6QWiLGQVPaFgBCMGdaauMbJpSwBLEDimkdw==}
+  /@visactor/vchart-theme-utils@1.11.0(@visactor/vchart@1.11.0):
+    resolution: {integrity: sha512-GMQeT+X0hI6EQpd2GTdMYBwZbsR4B/NvAURYWzWTFW4KYdefEKHQMZNlq81aagJZTF3M09CZTkg9/uWRuBSqgQ==}
     peerDependencies:
-      '@visactor/vchart': ~1.10.4
+      '@visactor/vchart': '>=1.10.4'
     dependencies:
       '@visactor/vchart': 1.11.0
     dev: false
@@ -2237,7 +2237,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001618
-      electron-to-chromium: 1.4.767
+      electron-to-chromium: 1.4.769
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
     dev: true
@@ -2745,8 +2745,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium@1.4.767:
-    resolution: {integrity: sha512-nzzHfmQqBss7CE3apQHkHjXW77+8w3ubGCIoEijKCJebPufREaFETgGXWTkh32t259F3Kcq+R8MZdFdOJROgYw==}
+  /electron-to-chromium@1.4.769:
+    resolution: {integrity: sha512-bZu7p623NEA2rHTc9K1vykl57ektSPQYFFqQir8BOYf6EKOB+yIsbFB9Kpm7Cgt6tsLr9sRkqfqSZUw7LP1XxQ==}
     dev: true
 
   /emoji-regex@10.3.0:
