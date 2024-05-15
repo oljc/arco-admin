@@ -149,13 +149,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, inject } from 'vue';
+import { computed, ref } from 'vue';
 import { Message } from '@arco-design/web-vue';
 import { useDark, useToggle, useFullscreen } from '@vueuse/core';
 import { useAppStore, useUserStore } from '@/store';
 import useLocale from '@/hooks/useLocale';
 import useUser from '@/hooks/useUser';
-import logoSvg from '@/assets/logo.svg';
 
 const appStore = useAppStore();
 const userStore = useUserStore();
@@ -216,7 +215,6 @@ const switchRoles = async () => {
   const res = await userStore.switchRoles();
   Message.success(res as string);
 };
-const toggleDrawerMenu = inject('toggleDrawerMenu') as () => void;
 </script>
 
 <style scoped lang="less">
