@@ -22,8 +22,6 @@ dist-ssr
 /src/types/components.d.ts
 
 # 编辑器相关的文件
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
