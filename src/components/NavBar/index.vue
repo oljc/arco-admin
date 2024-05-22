@@ -56,7 +56,7 @@
               : $t('settings.themeToLight')
           "
         >
-          <div class="nav-btn" @click="handleToggleTheme">
+          <div class="nav-btn" @click="handleToggleTheme()">
             <icon-moon-fill v-if="theme === 'dark'" />
             <icon-sun-fill v-else />
           </div>
@@ -151,10 +151,11 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { Message } from '@arco-design/web-vue';
-import { useDark, useToggle, useFullscreen } from '@vueuse/core';
+import { useFullscreen } from '@vueuse/core';
 import { useAppStore, useUserStore } from '@/store';
 import useLocale from '@/hooks/useLocale';
 import useUser from '@/hooks/useUser';
+import useThemes from '@/hooks/useThemes';
 
 const appStore = useAppStore();
 const userStore = useUserStore();
@@ -169,21 +170,9 @@ const theme = computed(() => {
   return appStore.theme;
 });
 const topMenu = computed(() => appStore.topMenu && appStore.menu);
-const isDark = useDark({
-  selector: 'body',
-  attribute: 'arco-theme',
-  valueDark: 'dark',
-  valueLight: 'light',
-  storageKey: 'arco-theme',
-  onChanged(dark: boolean) {
-    // overridden default behavior
-    appStore.toggleTheme(dark);
-  }
-});
-const toggleTheme = useToggle(isDark);
-const handleToggleTheme = () => {
-  toggleTheme();
-};
+
+const { toggleTheme: handleToggleTheme } = useThemes();
+
 const setVisible = () => {
   appStore.updateSettings({ globalSettings: true });
 };

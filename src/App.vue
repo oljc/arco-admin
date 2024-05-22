@@ -10,6 +10,7 @@ import { computed } from 'vue';
 import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
 import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
 import useLocale from '@/hooks/useLocale';
+import useThemes from '@/hooks/useThemes';
 
 const { currentLocale } = useLocale();
 const locale = computed(() => {
@@ -22,4 +23,6 @@ const locale = computed(() => {
       return enUS;
   }
 });
+
+useThemes();
 </script>

@@ -239,7 +239,7 @@ const handleSendCode = async () => {
     width: 330px;
     padding: 24px 24px 12px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: var(--color-bg-1);
     border: 1px solid var(--color-border-2);
     border-radius: var(--border-radius-large);
   }
