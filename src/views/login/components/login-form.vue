@@ -128,8 +128,8 @@ const { loading, setLoading } = useLoading();
 
 const loginConfig = useStorage('login-config', {
   rememberPassword: true,
-  username: '', // 演示默认值
-  password: '' // 演示密码
+  username: 'admin', // 演示默认值
+  password: '12345' // 演示密码
 });
 const form = reactive({
   username: loginConfig.value.username,
