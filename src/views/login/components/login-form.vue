@@ -129,7 +129,7 @@ const { loading, setLoading } = useLoading();
 const loginConfig = useStorage('login-config', {
   rememberPassword: true,
   username: 'admin', // 演示默认值
-  password: '12345' // 演示密码
+  password: 'admin123' // 演示密码
 });
 const form = reactive({
   username: loginConfig.value.username,
