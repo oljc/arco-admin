@@ -30,7 +30,7 @@ defineProps({
 
   &-logo {
     width: 36px;
-    color: #165fdd;
+    color: rgb(var(--primary-6));
   }
 
   &-name {
