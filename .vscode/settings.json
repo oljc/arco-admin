@@ -6,5 +6,10 @@
   "i18n-ally.enabledParsers": ["yaml", "json"],
   "i18n-ally.displayLanguage": "zh-CN",
   "i18n-ally.sourceLanguage": "zh-CN",
-  "i18n-ally.enabledFrameworks": ["vue"]
+  "i18n-ally.enabledFrameworks": [
+    "vue"
+  ],
+  "cSpell.words": [
+    "arcoblue"
+  ]
 }
