@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@arco-design/color':
+    specifier: ^0.4.0
+    version: 0.4.0
   '@arco-design/web-vue':
     specifier: ^2.55.2
     version: 2.55.2(vue@3.4.27)

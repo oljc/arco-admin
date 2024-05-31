@@ -17,6 +17,7 @@
     <a-alert type="warning">{{ $t('settings.alertContent') }}</a-alert>
     <Block :options="contentOpts" :title="$t('settings.content')" />
     <Block :options="othersOpts" :title="$t('settings.otherSettings')" />
+    <a-color-picker v-model="color" @change="handleColorChange" />
     <template #footer>
       <a-button type="primary" style="margin: 0" shape="round" long>
         {{ $t('settings.copySettings') }}
@@ -26,12 +27,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { Message } from '@arco-design/web-vue';
 import { useI18n } from 'vue-i18n';
 import { useClipboard } from '@vueuse/core';
 import { useAppStore } from '@/store';
 import Block from './block.vue';
+import useColorTheme from '@/hooks/useColorTheme';
 
 const emit = defineEmits(['cancel']);
 
@@ -79,6 +81,12 @@ const copySettings = async () => {
 };
 const setVisible = () => {
   appStore.updateSettings({ globalSettings: true });
+};
+
+const color = ref(appStore.themeColor);
+const { updateThemeColor } = useColorTheme();
+const handleColorChange = color => {
+  updateThemeColor(color);
 };
 </script>
 
