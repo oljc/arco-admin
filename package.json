@@ -64,7 +64,7 @@
     "@arco-design/web-vue": "^2.55.3",
     "@visactor/vchart": "^1.11.3",
     "@visactor/vchart-arco-theme": "^1.11.1",
-    "@vueuse/core": "^10.10.1",
+    "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",
     "lodash": "^4.17.21",
