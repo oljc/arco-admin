@@ -6,7 +6,7 @@ const LIST: AppRouteRecordRaw = {
   name: 'list',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.list',
+    locale: '列表页',
     requiresAuth: true,
     icon: 'icon-list',
     order: 2
@@ -17,7 +17,7 @@ const LIST: AppRouteRecordRaw = {
       name: 'SearchTable',
       component: () => import('@/views/list/search-table/index.vue'),
       meta: {
-        locale: 'menu.searchTable',
+        locale: '查询表格',
         requiresAuth: true,
         roles: ['*']
       }
@@ -27,7 +27,7 @@ const LIST: AppRouteRecordRaw = {
       name: 'Card',
       component: () => import('@/views/list/card/index.vue'),
       meta: {
-        locale: 'menu.cardList',
+        locale: '卡片列表',
         requiresAuth: true,
         roles: ['*']
       }

@@ -13,14 +13,17 @@
     @ok="copySettings"
     @cancel="cancel"
   >
-    <template #title>{{ $t('settings.title') }}</template>
-    <a-alert type="warning">{{ $t('settings.alertContent') }}</a-alert>
-    <Block :options="contentOpts" :title="$t('settings.content')" />
-    <Block :options="othersOpts" :title="$t('settings.otherSettings')" />
+    <template #title>应用配置</template>
+    <a-alert type="warning">
+      配置之后仅是临时生效，要想真正作用于项目，点击下方的 "复制配置"
+      按钮，将配置替换到 settings.json 中即可。
+    </a-alert>
+    <Block :options="contentOpts" title="内容区域" />
+    <Block :options="othersOpts" title="其他设置" />
     <a-color-picker v-model="color" @change="handleColorChange" />
     <template #footer>
       <a-button type="primary" style="margin: 0" shape="round" long>
-        {{ $t('settings.copySettings') }}
+        复制配置
       </a-button>
     </template>
   </a-drawer>
@@ -29,7 +32,6 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { Message } from '@arco-design/web-vue';
-import { useI18n } from 'vue-i18n';
 import { useClipboard } from '@vueuse/core';
 import { useAppStore } from '@/store';
 import Block from './block.vue';
@@ -38,7 +40,6 @@ import useColorTheme from '@/hooks/useColorTheme';
 const emit = defineEmits(['cancel']);
 
 const appStore = useAppStore();
-const { t } = useI18n();
 const { copy } = useClipboard();
 const visible = computed(() => appStore.globalSettings);
 const contentOpts = computed(() => [
@@ -77,7 +78,7 @@ const cancel = () => {
 const copySettings = async () => {
   const text = JSON.stringify(appStore.$state, null, 2);
   await copy(text);
-  Message.success(t('settings.copySettings.message'));
+  Message.success('已拷贝配置');
 };
 const setVisible = () => {
   appStore.updateSettings({ globalSettings: true });

@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <Breadcrumb :items="['menu.list', 'menu.cardList']" />
+    <Breadcrumb :items="['列表', '卡片列表']" />
     <a-row :gutter="20" align="stretch">
       <a-col :span="24">
-        <a-card class="general-card" :title="$t('menu.cardList')">
+        <a-card class="general-card" title="卡片列表">
           <a-row justify="space-between">
             <a-col :span="24">
               <a-tabs :default-active-tab="1" type="rounded">

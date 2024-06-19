@@ -6,14 +6,14 @@
     :model="form"
     :rules="rules"
   >
-    <div class="login-form-title">{{ $t('login.title') }}</div>
+    <div class="login-form-title">欢迎登录</div>
     <a-tabs v-model:active-key="tabActiveKey" size="mini" animation>
-      <a-tab-pane key="1" :title="$t('login.accountLogin')" destroy-on-hide>
+      <a-tab-pane key="1" title="账号登录" destroy-on-hide>
         <a-form-item field="username" validate-trigger="blur" hide-label>
           <a-input
             v-model="form.username"
             autocomplete="username"
-            :placeholder="$t('login.unamePlaceholder')"
+            placeholder="账号/邮箱"
           >
             <template #prefix>
               <icon-user />
@@ -24,7 +24,7 @@
           <a-input-password
             v-model="form.password"
             autocomplete="current-password"
-            :placeholder="$t('login.passwordPlaceholder')"
+            placeholder="请输入密码"
             allow-clear
           >
             <template #prefix>
@@ -37,16 +37,16 @@
           :model-value="loginConfig.rememberPassword"
           @change="setRememberPassword"
         >
-          {{ $t('login.remember') }}
+          记住密码
         </a-checkbox>
       </a-tab-pane>
-      <a-tab-pane key="2" :title="$t('login.mobileLogin')" destroy-on-hide>
+      <a-tab-pane key="2" title="手机号登录" destroy-on-hide>
         <a-form-item field="phone" validate-trigger="blur" hide-label>
           <a-input-group :style="{ width: '320px' }">
             <country-code-select />
             <a-input
               v-model="form.phone"
-              :placeholder="$t('login.phonePlaceholder')"
+              placeholder="请输入手机号"
               :max-length="11"
               allow-clear
             />
@@ -56,9 +56,9 @@
           <a-input-group :style="{ width: '320px' }">
             <a-input
               v-model="form.captcha"
-              :placeholder="$t('login.captchaPlaceholder')"
+              placeholder="请输入验证码"
               allow-clear
-            ></a-input>
+            />
             <a-button
               style="width: 100px"
               :disabled="codeDisabled"
@@ -77,12 +77,10 @@
       :loading="loading"
       @click="handleSubmit"
     >
-      {{ $t('common.login') }}
+      登录
     </a-button>
-    <a-button type="text" long class="login-form-register-btn">
-      {{ $t('common.register') }}
-    </a-button>
-    <a-divider orientation="center">{{ $t('login.more') }}</a-divider>
+    <a-button type="text" long class="login-form-register-btn">注册</a-button>
+    <a-divider orientation="center">更多方式</a-divider>
     <a-space class="login-form-more" :size="2" fill>
       <icon-alipay-circle style="color: #4b81ff" />
       <icon-wechat style="color: #38ad19" />
@@ -94,12 +92,10 @@
       </template>
     </a-space>
     <div class="login-form-actions">
-      <a-checkbox v-model="form.agreement">
-        {{ $t('login.agreement') }}
-      </a-checkbox>
-      <a-link>{{ $t('login.serviceAgreement') }}</a-link>
-      <span>{{ $t('login.agreementAnd') }}</span>
-      <a-link>{{ $t('login.privacyPolicy') }}</a-link>
+      <a-checkbox v-model="form.agreement">我已阅读并同意</a-checkbox>
+      <a-link>服务协议</a-link>
+      <span>和</span>
+      <a-link>隐私政策</a-link>
     </div>
   </a-form>
 </template>
@@ -107,7 +103,6 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
-import { useI18n } from 'vue-i18n';
 import { useStorage } from '@vueuse/core';
 import { useUserStore } from '@/store';
 import useCountDown from '@/hooks/useCountDown';
@@ -118,10 +113,9 @@ import { pick } from 'lodash';
 import { Message, Notification } from '@arco-design/web-vue';
 
 const router = useRouter();
-const { t } = useI18n();
 const codeDisabled = ref(false);
 const userStore = useUserStore();
-const codeText = ref(t('login.captchaSend'));
+const codeText = ref('获取验证码');
 const formRef = ref();
 const tabActiveKey = ref('1');
 const { loading, setLoading } = useLoading();
@@ -140,8 +134,8 @@ const form = reactive({
 });
 
 const rules = {
-  username: [{ required: true, message: t('login.usernameMsg') }],
-  captcha: [{ required: true, message: t('login.captchaMsg') }],
+  username: [{ required: true, message: '请输入正确账号' }],
+  captcha: [{ required: true, message: '请输入正确验证码' }],
   password: [
     { required: true, message: '请输入密码' },
     {
@@ -164,7 +158,7 @@ const handleSubmit = () => {
     formRef.value.validateField(['username', 'password']).then(async res => {
       if (res) return;
       if (!form.agreement) {
-        return Message.info(t('login.agreementTips'));
+        return Message.info('请阅读并同意服务协议和隐私政策');
       }
       setLoading(true);
       try {
@@ -179,7 +173,7 @@ const handleSubmit = () => {
             ...othersQuery
           }
         });
-        Message.success(t('login.loginSuccess'));
+        Message.success('登录成功');
         const { rememberPassword } = loginConfig.value;
         const { username, password } = userInfoForm;
         // 实际生产环境需要进行加密存储。
@@ -206,12 +200,12 @@ const setRememberPassword = (value: boolean) => {
 };
 
 const { start } = useCountDown({
-  initValue: 9,
+  initValue: 59,
   onEnd: () => {
-    codeText.value = t('login.captchaSend');
+    codeText.value = '获取验证码';
     codeDisabled.value = false;
   },
-  onChange: seconds => (codeText.value = t('login.captchaResend', { seconds }))
+  onChange: seconds => (codeText.value = `重新获取 ${seconds} s`)
 });
 
 // 发送验证码

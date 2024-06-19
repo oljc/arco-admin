@@ -9,14 +9,14 @@
         <a-input-search style="width: 135px" placeholder="搜索" />
       </li>
       <li>
-        <a-tooltip :content="$t('settings.reload')">
+        <a-tooltip content="重新加载">
           <div class="nav-btn" @click="handleReload">
             <icon-sync />
           </div>
         </a-tooltip>
       </li>
       <li>
-        <a-tooltip :content="$t('settings.source')">
+        <a-tooltip content="源码地址">
           <a
             class="nav-btn"
             href="https://github.com/oljc/arco-admin"
@@ -27,7 +27,7 @@
         </a-tooltip>
       </li>
       <li>
-        <a-tooltip :content="$t('settings.language')">
+        <a-tooltip content="语言">
           <div class="nav-btn" @click="setDropDownVisible">
             <icon-language />
           </div>
@@ -51,9 +51,7 @@
       <li>
         <a-tooltip
           :content="
-            theme === 'light'
-              ? $t('settings.themeToDark')
-              : $t('settings.themeToLight')
+            theme === 'light' ? '点击切换为暗黑模式' : '点击切换为亮色模式'
           "
         >
           <div class="nav-btn" @click="handleToggleTheme()">
@@ -63,7 +61,7 @@
         </a-tooltip>
       </li>
       <li>
-        <a-tooltip :content="$t('settings.alerts')">
+        <a-tooltip content="消息通知">
           <a-badge :count="9">
             <div class="nav-btn" @click="setPopoverVisible">
               <icon-notification />
@@ -83,13 +81,7 @@
         </a-popover>
       </li>
       <li>
-        <a-tooltip
-          :content="
-            isFullscreen
-              ? $t('settings.screenToExit')
-              : $t('settings.screenToFull')
-          "
-        >
+        <a-tooltip :content="isFullscreen ? '退出全屏' : '全屏'">
           <div class="nav-btn" @click="toggleFullScreen">
             <icon-fullscreen-exit v-if="isFullscreen" />
             <icon-fullscreen v-else />
@@ -97,7 +89,7 @@
         </a-tooltip>
       </li>
       <li>
-        <a-tooltip :content="$t('settings.title')">
+        <a-tooltip content="应用配置">
           <div class="nav-btn" @click="setVisible">
             <icon-settings />
           </div>
@@ -112,33 +104,25 @@
             <a-doption>
               <a-space @click="switchRoles">
                 <icon-tag />
-                <span>
-                  {{ $t('messageBox.switchRoles') }}
-                </span>
+                <span>切换角色</span>
               </a-space>
             </a-doption>
             <a-doption>
               <a-space @click="$router.push({ name: 'Info' })">
                 <icon-user />
-                <span>
-                  {{ $t('messageBox.userCenter') }}
-                </span>
+                <span>用户中心</span>
               </a-space>
             </a-doption>
             <a-doption>
               <a-space @click="$router.push({ name: 'Setting' })">
                 <icon-settings />
-                <span>
-                  {{ $t('messageBox.userSettings') }}
-                </span>
+                <span>用户设置</span>
               </a-space>
             </a-doption>
             <a-doption>
               <a-space @click="handleLogout">
                 <icon-export />
-                <span>
-                  {{ $t('messageBox.logout') }}
-                </span>
+                <span>退出登录</span>
               </a-space>
             </a-doption>
           </template>

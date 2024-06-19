@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <header class="header">
-      <logoSvg style="width: 36px; color: #165fdd"></logoSvg>
+      <LogoSvg style="width: 36px; color: #165fdd" />
       <div class="header-text">Arco Admin</div>
     </header>
     <div class="content">
@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 import LoginForm from './components/login-form.vue';
-import logoSvg from '@/assets/logo.svg';
+import LogoSvg from '@/assets/logo.svg';
 </script>
 
 <style lang="less" scoped>

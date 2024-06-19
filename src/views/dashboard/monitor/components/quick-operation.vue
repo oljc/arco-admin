@@ -1,26 +1,26 @@
 <template>
-  <a-card class="general-card" :title="$t('monitor.title.quickOperation')">
+  <a-card class="general-card" title="快捷操作">
     <a-space direction="vertical" fill :size="10">
       <a-button long>
-        {{ $t('monitor.quickOperation.changeClarity') }}
+        切换清晰度
         <template #icon>
           <IconTags />
         </template>
       </a-button>
       <a-button long>
-        {{ $t('monitor.quickOperation.switchStream') }}
+        主备流切换
         <template #icon>
           <IconSwap />
         </template>
       </a-button>
       <a-button long>
-        {{ $t('monitor.quickOperation.removeClarity') }}
+        摘除清晰度
         <template #icon>
           <IconStop />
         </template>
       </a-button>
       <a-button long>
-        {{ $t('monitor.quickOperation.pushFlowGasket') }}
+        推流垫片
         <template #icon>
           <IconArrowRight />
         </template>

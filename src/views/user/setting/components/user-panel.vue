@@ -34,13 +34,9 @@
           textAlign: 'left'
         }"
       >
-        <template #label="{ label }">{{ $t(label) }} :</template>
+        <template #label="{ label }">{{ label }} :</template>
         <template #value="{ value, data }">
-          <a-tag
-            v-if="data.label === 'userSetting.label.certification'"
-            color="green"
-            size="small"
-          >
+          <a-tag v-if="data.label === '实名认证'" color="green" size="small">
             已认证
           </a-tag>
           <span v-else>{{ value }}</span>

@@ -1,6 +1,5 @@
 <script lang="tsx">
 import { defineComponent, ref, h, compile, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { useRoute, useRouter, RouteRecordRaw } from 'vue-router';
 import type { RouteMeta } from 'vue-router';
 import { useAppStore } from '@/store';
@@ -11,7 +10,6 @@ import useMenuTree from './useMenuTree';
 export default defineComponent({
   emit: ['collapse'],
   setup() {
-    const { t } = useI18n();
     const appStore = useAppStore();
     const router = useRouter();
     const route = useRoute();
@@ -103,7 +101,7 @@ export default defineComponent({
                   key={element?.name}
                   v-slots={{
                     icon,
-                    title: () => h(compile(t(element?.meta?.locale || '')))
+                    title: () => h(compile(element?.meta?.locale || ''))
                   }}
                 >
                   {travel(element?.children)}
@@ -114,7 +112,7 @@ export default defineComponent({
                   v-slots={{ icon }}
                   onClick={() => goto(element)}
                 >
-                  {t(element?.meta?.locale || '')}
+                  {element?.meta?.locale || ''}
                 </a-menu-item>
               );
             nodes.push(node as never);

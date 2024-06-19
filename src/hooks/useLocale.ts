@@ -1,19 +1,13 @@
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { Message } from '@arco-design/web-vue';
 
 export default function useLocale() {
-  const i18 = useI18n();
   const currentLocale = computed(() => {
-    return i18.locale.value;
+    return localStorage.getItem('arco-locale') || 'zh-CN';
   });
   const changeLocale = (value: string) => {
-    if (i18.locale.value === value) {
-      return;
-    }
-    i18.locale.value = value;
     localStorage.setItem('arco-locale', value);
-    Message.success(i18.t('navbar.action.locale'));
+    Message.success('切换语言成功，即将刷新页面');
   };
   return {
     currentLocale,

@@ -15,9 +15,7 @@
         />
       </a-tab-pane>
       <template #extra>
-        <a-button type="text" @click="emptyList">
-          {{ $t('common.clear') }}
-        </a-button>
+        <a-button type="text" @click="emptyList">清空</a-button>
       </template>
     </a-tabs>
   </a-spin>

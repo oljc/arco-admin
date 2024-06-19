@@ -6,7 +6,7 @@ const RESULT: AppRouteRecordRaw = {
   name: 'result',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.result',
+    locale: '结果页',
     icon: 'icon-check-circle',
     requiresAuth: true,
     order: 5
@@ -17,7 +17,7 @@ const RESULT: AppRouteRecordRaw = {
       name: 'Success',
       component: () => import('@/views/result/success/index.vue'),
       meta: {
-        locale: 'menu.resultSuccess',
+        locale: '成功页',
         requiresAuth: true,
         roles: ['admin']
       }
@@ -27,7 +27,7 @@ const RESULT: AppRouteRecordRaw = {
       name: 'Error',
       component: () => import('@/views/result/error/index.vue'),
       meta: {
-        locale: 'menu.resultError',
+        locale: '失败页',
         requiresAuth: true,
         roles: ['admin']
       }
