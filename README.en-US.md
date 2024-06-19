@@ -35,6 +35,9 @@ English | [简体中文](./README.md)
 + 🧚🏻 Fully adopted the `ESM` standard modular syntax, following the trend in modern frontend development.
 + 📦 Continuously optimized configurations to keep up with updates, deprecations, and merged features of dependencies and `Vite`, ensuring the best bundling optimization.
 
+## Versions
+- International version：[i18n branch](https://github.com/oljc/arco-admin/tree/i18n)
+
 ## Standards
 Enhance code quality, reduce errors, and ensure consistency in the entire project's code style to facilitate easier code quality and style management.
 
