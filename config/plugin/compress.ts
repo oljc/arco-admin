@@ -1,11 +1,11 @@
-/**
- * Used to package and output gzip. Note that this does not work properly in Vite, the specific reason is still being investigated
- * gzip压缩
- * https://github.com/anncwb/vite-plugin-compression
- */
 import type { Plugin } from 'vite';
 import compressPlugin from 'vite-plugin-compression';
 
+/**
+ * gzip压缩
+ * @param compress 压缩类型 'gzip' | 'brotli'
+ * @param deleteOriginFile 是否删除原始文件
+ */
 export default function configCompressPlugin(
   compress: 'gzip' | 'brotli',
   deleteOriginFile = false

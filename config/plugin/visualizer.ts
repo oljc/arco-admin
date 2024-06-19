@@ -1,8 +1,8 @@
+import visualizer from 'rollup-plugin-visualizer';
+
 /**
- * Generation packaging analysis
  * 生成打包分析
  */
-import visualizer from 'rollup-plugin-visualizer';
 export default function configVisualizerPlugin(lifecycle: string) {
   if (lifecycle === 'report') {
     return visualizer({

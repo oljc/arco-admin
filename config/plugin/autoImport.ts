@@ -1,11 +1,10 @@
-/**
- * 按需引入
- * https://github.com/antfu/unplugin-vue-components
- */
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ArcoResolver } from 'unplugin-vue-components/resolvers';
 
+/**
+ * 按需引入/自动导入
+ */
 export default function autoImportPlugin() {
   return [
     AutoImport({
