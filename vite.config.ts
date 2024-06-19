@@ -32,7 +32,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
     plugins: [pluginsList()],
     // 依赖预构建-> https://cn.vitejs.dev/config/dep-optimization-options#dep-optimization-options
     optimizeDeps: {
-      include: ['mitt', 'dayjs', 'axios', 'pinia', '@vueuse/core', 'vue-i18n'],
+      include: ['mitt', 'dayjs', 'axios', 'pinia', '@vueuse/core'],
       exclude: ['@iconify-icons/lets-icons']
     },
     server: {
@@ -67,7 +67,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
           manualChunks: {
             arco: ['@arco-design/web-vue'],
             chart: ['@visactor/vchart'],
-            vue: ['vue', 'vue-router', 'pinia', '@vueuse/core', 'vue-i18n']
+            vue: ['vue', 'vue-router', 'pinia', '@vueuse/core']
           }
         }
       },
