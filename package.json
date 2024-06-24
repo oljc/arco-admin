@@ -74,7 +74,7 @@
     "query-string": "^9.0.0",
     "sortablejs": "^1.15.2",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@arco-plugins/vite-vue": "^1.4.5",
