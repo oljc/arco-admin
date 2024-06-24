@@ -12,11 +12,11 @@ dependencies:
     specifier: ^2.55.3
     version: 2.55.3(vue@3.4.29)
   '@visactor/vchart':
-    specifier: ^1.11.4
-    version: 1.11.4
+    specifier: ^1.11.5
+    version: 1.11.5
   '@visactor/vchart-arco-theme':
     specifier: ^1.11.2
-    version: 1.11.2(@visactor/vchart@1.11.4)
+    version: 1.11.2(@visactor/vchart@1.11.5)
   '@vueuse/core':
     specifier: ^10.11.0
     version: 10.11.0(vue@3.4.29)
@@ -1585,25 +1585,25 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
-  /@visactor/vchart-arco-theme@1.11.2(@visactor/vchart@1.11.4):
+  /@visactor/vchart-arco-theme@1.11.2(@visactor/vchart@1.11.5):
     resolution: {integrity: sha512-b7dJuWuYk/BgSZxqUQDEHPSuFcpfI3LB84GrV33DEAjGbRfCek4cJt4mw+908B3YXy3WBKMALRjzMRCaM638kQ==}
     peerDependencies:
       '@visactor/vchart': '>=1.10.4'
     dependencies:
-      '@visactor/vchart': 1.11.4
-      '@visactor/vchart-theme-utils': 1.11.2(@visactor/vchart@1.11.4)
+      '@visactor/vchart': 1.11.5
+      '@visactor/vchart-theme-utils': 1.11.2(@visactor/vchart@1.11.5)
     dev: false
 
-  /@visactor/vchart-theme-utils@1.11.2(@visactor/vchart@1.11.4):
+  /@visactor/vchart-theme-utils@1.11.2(@visactor/vchart@1.11.5):
     resolution: {integrity: sha512-pkVMuO6XIALHfJsoE9Yj/cpT74WOlFkN/R6qwNH7WnlOMaaggwH7AvQo3cVaPKqZBw/MfXOOWdreScE+Fxg59w==}
     peerDependencies:
       '@visactor/vchart': '>=1.10.4'
     dependencies:
-      '@visactor/vchart': 1.11.4
+      '@visactor/vchart': 1.11.5
     dev: false
 
-  /@visactor/vchart@1.11.4:
-    resolution: {integrity: sha512-PwqvMIwBAN3I5TvL91ug9vRbdI9chMKw/LzjXKTgXMq4PQt2XJ0VY+eovpCFgE/Tb6JQFBrwzxxnxhUzrX4ypg==}
+  /@visactor/vchart@1.11.5:
+    resolution: {integrity: sha512-K9s+uNKVAEZzMXWaCjtNfM/HQ19Y1YKQW2SjE9QJQTN3+Nml6EMGkxrttADK6k5PkLE8Tl7TvXgHxgm/WnIy8A==}
     dependencies:
       '@visactor/vdataset': 0.18.9
       '@visactor/vgrammar-core': 0.13.10
@@ -1619,7 +1619,7 @@ packages:
       '@visactor/vrender-kits': 0.19.11
       '@visactor/vscale': 0.18.9
       '@visactor/vutils': 0.18.9
-      '@visactor/vutils-extension': 1.11.4
+      '@visactor/vutils-extension': 1.11.5
     dev: false
 
   /@visactor/vdataset@0.18.9:
@@ -1761,8 +1761,8 @@ packages:
       '@visactor/vutils': 0.18.9
     dev: false
 
-  /@visactor/vutils-extension@1.11.4:
-    resolution: {integrity: sha512-7803joLO5XYpbUyJZDU3dAygLtpjvCcj1k4+RY6Co3+xH+aJ85qfqU8iKuKCKzjo0j0ls8MUNGJUTVW2nySwTw==}
+  /@visactor/vutils-extension@1.11.5:
+    resolution: {integrity: sha512-FDTFOsEB3AIsXJQJH8reH3FWfNpXkhvTPiaGez4OFy0i7iWBzN74PDvKZmSDImQCWgfVeo4KWz9Jvl3qZO1tSw==}
     dependencies:
       '@visactor/vdataset': 0.18.9
       '@visactor/vutils': 0.18.9
