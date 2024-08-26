@@ -66,7 +66,7 @@
     "@visactor/vchart-arco-theme": "^1.11.2",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",
-    "dayjs": "^1.11.11",
+    "dayjs": "^1.11.13",
     "lodash": "^4.17.21",
     "mitt": "^3.0.1",
     "nprogress": "^0.2.0",
