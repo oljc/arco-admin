@@ -15,8 +15,8 @@ dependencies:
     specifier: ^1.11.4
     version: 1.11.4
   '@visactor/vchart-arco-theme':
-    specifier: ^1.11.2
-    version: 1.11.2(@visactor/vchart@1.11.4)
+    specifier: ^1.12.0
+    version: 1.12.0(@visactor/vchart@1.11.4)
   '@vueuse/core':
     specifier: ^10.11.0
     version: 10.11.0(vue@3.4.29)
@@ -1585,17 +1585,17 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
-  /@visactor/vchart-arco-theme@1.11.2(@visactor/vchart@1.11.4):
-    resolution: {integrity: sha512-b7dJuWuYk/BgSZxqUQDEHPSuFcpfI3LB84GrV33DEAjGbRfCek4cJt4mw+908B3YXy3WBKMALRjzMRCaM638kQ==}
+  /@visactor/vchart-arco-theme@1.12.0(@visactor/vchart@1.11.4):
+    resolution: {integrity: sha512-Ai9Gdc+GsifqqH5Q5rwOJR7F2PL3EgM/ItxuOpU5nmTf67eDJG/i2bA//NDdm+FXafjFMlt9aaefj31cXDwwiw==}
     peerDependencies:
       '@visactor/vchart': '>=1.10.4'
     dependencies:
       '@visactor/vchart': 1.11.4
-      '@visactor/vchart-theme-utils': 1.11.2(@visactor/vchart@1.11.4)
+      '@visactor/vchart-theme-utils': 1.12.0(@visactor/vchart@1.11.4)
     dev: false
 
-  /@visactor/vchart-theme-utils@1.11.2(@visactor/vchart@1.11.4):
-    resolution: {integrity: sha512-pkVMuO6XIALHfJsoE9Yj/cpT74WOlFkN/R6qwNH7WnlOMaaggwH7AvQo3cVaPKqZBw/MfXOOWdreScE+Fxg59w==}
+  /@visactor/vchart-theme-utils@1.12.0(@visactor/vchart@1.11.4):
+    resolution: {integrity: sha512-HAPMT9AK7yqtEwZaj/Q7bGUZQwa5xE3jrWip7S8MeQTWXcrc1XfNRdA5OxO38mET+boA1q9MQw/UmdnTTJhN+w==}
     peerDependencies:
       '@visactor/vchart': '>=1.10.4'
     dependencies:
