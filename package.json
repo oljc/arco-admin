@@ -26,7 +26,7 @@
     "lint:fix": "pnpm eslint:fix && pnpm stylelint:fix && pnpm prettier:fix",
     "lint-staged": "npx lint-staged",
     "clean:cache": "rimraf .eslintcache && rimraf node_modules && pnpm install",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "bumpp"
   },
   "keywords": [
