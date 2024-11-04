@@ -62,7 +62,7 @@
   "dependencies": {
     "@arco-design/color": "^0.4.0",
     "@arco-design/web-vue": "^2.56.2",
-    "@visactor/vchart": "^1.12.5",
+    "@visactor/vchart": "^1.12.10",
     "@visactor/vchart-arco-theme": "^1.12.1",
     "@vueuse/core": "^10.11.1",
     "axios": "^1.7.7",
