@@ -10,7 +10,15 @@ import pluginTypeScript from '@typescript-eslint/eslint-plugin';
 export default defineFlatConfig([
   {
     ...js.configs.recommended,
-    ignores: ['**/.*', '*.d.ts', 'public/*', 'dist/*', 'src/assets/**'],
+    ignores: [
+      '**/.*',
+      '*.d.ts',
+      'public/*',
+      'dist/*',
+      'src/assets/**',
+      '**/auto-imports.d.ts',
+      '**/components.d.ts'
+    ],
     languageOptions: {
       globals: {}
     },
