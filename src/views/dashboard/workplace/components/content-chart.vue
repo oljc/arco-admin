@@ -67,11 +67,10 @@ const { loading, setLoading } = useLoading(true);
 const fetchData = () => {
   setLoading(true);
   queryContentData().then(res => {
-    const { data } = res;
     spec.data = [
       {
         id: 'id0',
-        values: data
+        values: res
       }
     ];
     setLoading(false);

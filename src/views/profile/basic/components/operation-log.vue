@@ -39,7 +39,7 @@ const { loading, setLoading } = useLoading(true);
 const renderData = ref<operationLogRes>([]);
 const fetchData = async () => {
   try {
-    const { data } = await queryOperationLog();
+    const data = await queryOperationLog();
     renderData.value = data;
   } catch (err) {
     // you can report use errorHandler or other

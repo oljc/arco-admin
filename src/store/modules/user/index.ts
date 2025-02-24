@@ -51,14 +51,14 @@ const useUserStore = defineStore('user', {
     async info() {
       const res = await getUserInfo();
 
-      this.setInfo(res.data);
+      this.setInfo(res);
     },
 
     // Login
     async login(loginForm: LoginData) {
       try {
         const res = await userLogin(loginForm);
-        setToken(res.data.token);
+        setToken(res.token);
       } catch (err) {
         clearToken();
         throw err;

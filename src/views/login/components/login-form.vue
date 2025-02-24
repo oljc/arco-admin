@@ -189,14 +189,12 @@ const handleSendCode = async () => {
   if (res || codeDisabled.value) return;
   codeDisabled.value = true;
   getCaptcha({ tel: form.phone }).then(res => {
-    if (res.code === 200) {
-      Notification.success({
-        id: 'captcha',
-        content: `Mock 验证码:${res.data.captcha}`,
-        closable: true,
-        duration: 0
-      });
-    }
+    Notification.success({
+      id: 'captcha',
+      content: `Mock 验证码:${res.captcha}`,
+      closable: true,
+      duration: 0
+    });
   });
   start();
 };

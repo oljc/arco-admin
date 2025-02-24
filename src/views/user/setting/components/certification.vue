@@ -23,7 +23,7 @@ const data = ref<UnitCertification>({
 });
 const fetchData = async () => {
   try {
-    const { data: resData } = await queryCertification();
+    const resData = await queryCertification();
     data.value = resData;
   } catch (err) {
     // you can report use errorHandler or other

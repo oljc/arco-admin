@@ -40,7 +40,7 @@ const preData = ref<ProfileBasicRes>({} as ProfileBasicRes);
 const step = ref(1);
 const fetchCurrentData = async () => {
   try {
-    const { data } = await queryProfileBasic();
+    const data = await queryProfileBasic();
     currentData.value = data;
     step.value = 2;
   } catch (err) {
@@ -51,7 +51,7 @@ const fetchCurrentData = async () => {
 };
 const fetchPreData = async () => {
   try {
-    const { data } = await queryProfileBasic();
+    const data = await queryProfileBasic();
     preData.value = data;
   } catch (err) {
     // you can report use errorHandler or other

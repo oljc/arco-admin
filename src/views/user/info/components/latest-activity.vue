@@ -36,7 +36,7 @@ const { loading, setLoading } = useLoading(true);
 const activityList = ref<LatestActivity[]>(new Array(7).fill({}));
 const fetchData = async () => {
   try {
-    const { data } = await queryLatestActivity();
+    const data = await queryLatestActivity();
     activityList.value = data;
   } catch (err) {
     // you can report use errorHandler or other

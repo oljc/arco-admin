@@ -48,7 +48,7 @@ const { loading, setLoading } = useLoading(true);
 const chatData = ref<ChatRecord[]>([]);
 const fetchData = async () => {
   try {
-    const { data } = await queryChatList();
+    const data = await queryChatList();
     chatData.value = data;
   } catch (err) {
     // you can report use errorHandler or other

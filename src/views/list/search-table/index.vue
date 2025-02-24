@@ -337,7 +337,7 @@ const statusOptions = computed<SelectOptionData[]>(() => [
 const fetchData = async (params: PolicyParams = { current: 1, pageSize: 20 }) => {
   setLoading(true);
   try {
-    const { data } = await queryPolicyList(params);
+    const data = await queryPolicyList(params);
     renderData.value = data.list;
     pagination.current = params.current;
     pagination.total = data.total;
