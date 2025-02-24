@@ -15,7 +15,9 @@
 <img alt="Commit" src="https://img.shields.io/github/last-commit/oljc/arco-admin.svg">
 <img alt="Version" src="https://img.shields.io/github/package-json/v/oljc/arco-admin/main">
 
-*📌项目还在快速开发中敬请期待，目前可当启动模板使用👈🏻*
+
+[![Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foljc%2Farco-admin&project-name=arco-admin&build-command=pnpm%20run%20build&install-command=pnpm%20i&output-directory=dist)
+[![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/oljc/arco-admin)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=725470717&image_size=auto&color_scheme=dark" width="655" height="auto">

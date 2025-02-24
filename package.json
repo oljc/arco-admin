@@ -10,11 +10,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "serve": "vite --mode production",
     "build": "rimraf dist && vite build",
-    "build:staging": "rimraf dist && vite build --mode staging",
     "preview": "vite preview",
-    "preview:build": "pnpm build && vite preview",
     "type:check": "tsc --noEmit && vue-tsc --noEmit --skipLibCheck",
     "eslint": "eslint --max-warnings 0 \"{src,mock,config}/**/*.{vue,js,ts,tsx}\"",
     "eslint:fix": "eslint --max-warnings 0 \"{src,mock,config}/**/*.{vue,js,ts,tsx}\" --fix",
