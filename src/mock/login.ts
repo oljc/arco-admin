@@ -1,5 +1,5 @@
 import Mock from 'mockjs';
-import setupMock, { successResponseWrap, failResponseWrap } from '@/utils/setup-mock';
+import setupMock, { successResponseWrap, failResponseWrap } from './setup-mock';
 import type { MockParams } from '@/types/mock';
 
 setupMock({

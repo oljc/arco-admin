@@ -14,10 +14,18 @@
     >
       <Menu />
     </a-layout-sider>
+
     <a-layout class="layout-content" :style="paddingStyle">
       <TabBar v-if="appStore.tabBar" />
       <a-layout-content>
-        <PageLayout />
+        <router-view v-slot="{ Component, route }">
+          <transition name="fade" mode="out-in" appear>
+            <component :is="Component" v-if="route.meta.ignoreCache" :key="route.fullPath" />
+            <keep-alive v-else :include="cacheList">
+              <component :is="Component" :key="route.fullPath" />
+            </keep-alive>
+          </transition>
+        </router-view>
       </a-layout-content>
       <Footer v-if="footer" />
     </a-layout>
@@ -27,10 +35,9 @@
 <script lang="ts" setup>
 import { ref, computed, watch, provide, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { useAppStore, useUserStore } from '@/store';
+import { useAppStore, useUserStore, useTabBarStore } from '@/store';
 import usePermission from '@/hooks/usePermission';
 import useResponsive from '@/hooks/useResponsive';
-import PageLayout from './page-layout.vue';
 
 const isInit = ref(false);
 const appStore = useAppStore();
@@ -39,6 +46,8 @@ const router = useRouter();
 const route = useRoute();
 const permission = usePermission();
 useResponsive(true);
+const tabBarStore = useTabBarStore();
+const cacheList = computed(() => tabBarStore.getCacheList);
 const renderMenu = computed(() => appStore.menu && !appStore.topMenu);
 const hideMenu = computed(() => appStore.hideMenu);
 const footer = computed(() => appStore.footer);

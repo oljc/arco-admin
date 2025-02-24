@@ -1,5 +1,5 @@
 import Mock from 'mockjs';
-import setupMock, { successResponseWrap } from '@/utils/setup-mock';
+import setupMock, { successResponseWrap } from './setup-mock';
 
 const haveReadIds: number[] = [];
 const getMessageList = () => {
