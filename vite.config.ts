@@ -1,8 +1,8 @@
 import { resolve } from 'path';
 import { pluginsList } from './config';
-import { type UserConfigExport, type ConfigEnv, loadEnv } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 
-export default ({ mode }: ConfigEnv): UserConfigExport => {
+export default defineConfig(({ mode }) => {
   const { VITE_PORT, VITE_BASE } = loadEnv(mode, process.cwd());
 
   return {
@@ -73,4 +73,4 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       chunkSizeWarningLimit: 2000
     }
   };
-};
+});
