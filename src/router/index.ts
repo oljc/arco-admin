@@ -3,14 +3,14 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 import { appRoutes } from './routes';
-import { REDIRECT_MAIN, NOT_FOUND_ROUTE } from './routes/base';
+import { REDIRECT_MAIN } from './routes/base';
 import { DEFAULT_ROUTE_NAME, LOGIN_ROUTE_NAME } from './constants';
 import createRouteGuard from './guard';
 
 NProgress.configure({ showSpinner: false });
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -24,9 +24,13 @@ const router = createRouter({
         requiresAuth: false
       }
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notFound',
+      component: () => import('@/views/not-found/index.vue')
+    },
     ...appRoutes,
-    REDIRECT_MAIN,
-    NOT_FOUND_ROUTE
+    REDIRECT_MAIN
   ],
   scrollBehavior() {
     return { top: 0 };
