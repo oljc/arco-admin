@@ -14,7 +14,7 @@ export function pluginsList(): PluginOption[] {
     vueJsx(), // jsx支持
     removeConsole(), // 移除console
     svgLoader({ svgoConfig: {} }), // svg组件化支持
-    configCompressPlugin('gzip', true), // 压缩
+    configCompressPlugin('gzip', false), // 压缩
     configVisualizerPlugin('none') // 打包分析
   ];
 }
