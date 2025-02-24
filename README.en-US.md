@@ -9,7 +9,7 @@
 
 English | [简体中文](./README.md)
 
-[![Preview](https://img.shields.io/badge/%E9%A2%84%E8%A7%88%E5%9C%B0%E5%9D%80-8A2BE2?color=%2314C9C9)](https://arco-admin.cn)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4177124c-546f-4726-a842-00b72bf864fa/deploy-status)](https://arco-admin.netlify.app)
 <a href="https://nodejs.org/en/about/previous-releases" target="_blank"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
 <img alt="License" src="https://img.shields.io/github/license/oljc/arco-admin">
 <img src="https://img.shields.io/github/last-commit/oljc/arco-admin.svg" alt="node compatibility">

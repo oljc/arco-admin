@@ -9,12 +9,11 @@
 
 简体中文 | [English](./README.en-US.md)
 
-[![Preview](https://img.shields.io/badge/%E9%A2%84%E8%A7%88%E5%9C%B0%E5%9D%80-8A2BE2?color=%2314C9C9)](https://arco-admin.cn)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4177124c-546f-4726-a842-00b72bf864fa/deploy-status)](https://arco-admin.netlify.app)
 <a href="https://nodejs.org/en/about/previous-releases" target="_blank"><img alt="node compatibility" src="https://img.shields.io/node/v/vite.svg"></a>
 <img alt="License" src="https://img.shields.io/github/license/oljc/arco-admin">
 <img alt="Commit" src="https://img.shields.io/github/last-commit/oljc/arco-admin.svg">
 <img alt="Version" src="https://img.shields.io/github/package-json/v/oljc/arco-admin/main">
-
 
 [![Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foljc%2Farco-admin&project-name=arco-admin&build-command=pnpm%20run%20build&install-command=pnpm%20i&output-directory=dist)
 [![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/oljc/arco-admin)
