@@ -1,5 +1,9 @@
 <template>
-  <a-card class="general-card" title="企业实名认证" :header-style="{ padding: '0px 20px 16px 20px' }">
+  <a-card
+    class="general-card"
+    title="企业实名认证"
+    :header-style="{ padding: '0px 20px 16px 20px' }"
+  >
     <template #extra>
       <a-link>修改认证主体</a-link>
     </template>

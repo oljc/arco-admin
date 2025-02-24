@@ -46,7 +46,13 @@
             src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/77d74c9a245adeae1ec7fb5d4539738d.svg~tplv-49unhts6dw-image.image"
           />
         </a-avatar>
-        <a-statistic title="日新增评论" :value="8874" :value-from="0" animation show-group-separator>
+        <a-statistic
+          title="日新增评论"
+          :value="8874"
+          :value-from="0"
+          animation
+          show-group-separator
+        >
           <template #suffix>
             <span class="unit">个</span>
           </template>

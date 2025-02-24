@@ -46,7 +46,11 @@
               </a-col>
               <a-col :span="8">
                 <a-form-item field="status" label="状态">
-                  <a-select v-model="formModel.status" :options="statusOptions" placeholder="请选择状态" />
+                  <a-select
+                    v-model="formModel.status"
+                    :options="statusOptions"
+                    placeholder="请选择状态"
+                  />
                 </a-form-item>
               </a-col>
             </a-row>
@@ -160,7 +164,11 @@
                 src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/581b17753093199839f2e327e726b157.svg~tplv-49unhts6dw-image.image"
               />
             </a-avatar>
-            <a-avatar v-else-if="record.contentType === 'horizontalVideo'" :size="16" shape="square">
+            <a-avatar
+              v-else-if="record.contentType === 'horizontalVideo'"
+              :size="16"
+              shape="square"
+            >
               <img
                 alt="avatar"
                 src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/77721e365eb2ab786c889682cbc721c1.svg~tplv-49unhts6dw-image.image"
@@ -359,7 +367,11 @@ const handleSelectDensity = (val: string | number | Record<string, any> | undefi
   size.value = val as SizeProps;
 };
 
-const handleChange = (checked: boolean | (string | boolean | number)[], column: Column, index: number) => {
+const handleChange = (
+  checked: boolean | (string | boolean | number)[],
+  column: Column,
+  index: number
+) => {
   if (!checked) {
     cloneColumns.value = showColumns.value.filter(item => item.dataIndex !== column.dataIndex);
   } else {

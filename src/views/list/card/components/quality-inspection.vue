@@ -35,7 +35,12 @@
           close-txt="删除"
           :show-tag="false"
         >
-          <a-descriptions style="margin-top: 16px" :data="item.data" layout="inline-horizontal" :column="2" />
+          <a-descriptions
+            style="margin-top: 16px"
+            :data="item.data"
+            layout="inline-horizontal"
+            :column="2"
+          />
           <template #skeleton>
             <a-skeleton :animation="true">
               <a-skeleton-line :widths="['50%', '50%', '100%', '40%']" :rows="4" />
@@ -54,7 +59,10 @@ import useRequest from '@/hooks/useRequest';
 import CardWrap from './card-wrap.vue';
 
 const defaultValue: ServiceRecord[] = new Array(3).fill({});
-const { loading, response: renderData } = useRequest<ServiceRecord[]>(queryInspectionList, defaultValue);
+const { loading, response: renderData } = useRequest<ServiceRecord[]>(
+  queryInspectionList,
+  defaultValue
+);
 </script>
 
 <style scoped lang="less">

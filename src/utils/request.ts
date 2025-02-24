@@ -132,4 +132,5 @@ export const post = <T = unknown>(url: string, data?: unknown, config?: AxiosReq
 export const put = <T = unknown>(url: string, data?: object, config?: AxiosRequestConfig) =>
   http.put<T>(url, data, config);
 
-export const del = <T = unknown>(url: string, config?: AxiosRequestConfig) => http.delete<T>(url, config);
+export const del = <T = unknown>(url: string, config?: AxiosRequestConfig) =>
+  http.delete<T>(url, config);

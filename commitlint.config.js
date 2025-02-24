@@ -25,8 +25,8 @@ export default {
         'enhance',
         'workflow',
         'types',
-        'release',
-      ],
-    ],
-  },
+        'release'
+      ]
+    ]
+  }
 };

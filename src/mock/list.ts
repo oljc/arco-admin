@@ -71,7 +71,8 @@ const theServiceList: ServiceRecord[] = [
     id: 1,
     icon: 'code',
     title: '漏斗分析',
-    description: '用户行为分析之漏斗分析模型是企业实现精细化运营、进行用户行为分析的重要数据分析模型。',
+    description:
+      '用户行为分析之漏斗分析模型是企业实现精细化运营、进行用户行为分析的重要数据分析模型。',
     enable: true,
     actionType: 'button'
   },
@@ -79,7 +80,8 @@ const theServiceList: ServiceRecord[] = [
     id: 2,
     icon: 'edit',
     title: '用户分布',
-    description: '快速诊断用户人群，地域细分情况，了解数据分布的集中度，以及主要的数据分布的区间段是什么。',
+    description:
+      '快速诊断用户人群，地域细分情况，了解数据分布的集中度，以及主要的数据分布的区间段是什么。',
     enable: true,
     actionType: 'button',
     expires: true

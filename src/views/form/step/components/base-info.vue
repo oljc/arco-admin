@@ -20,7 +20,10 @@
         }
       ]"
     >
-      <a-input v-model="formData.activityName" placeholder="输入汉字、字母或者数字，不超过20个字符" />
+      <a-input
+        v-model="formData.activityName"
+        placeholder="输入汉字、字母或者数字，不超过20个字符"
+      />
     </a-form-item>
     <a-form-item
       field="channelType"

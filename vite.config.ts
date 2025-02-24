@@ -19,9 +19,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       preprocessorOptions: {
         less: {
           modifyVars: {
-            hack: `true; @import (reference) "${resolve(
-              'src/assets/style/variables.less'
-            )}";`
+            hack: `true; @import (reference) "${resolve('src/assets/style/variables.less')}";`
           },
           // https://lesscss.org/usage/#less-options
           math: 'parens-division',

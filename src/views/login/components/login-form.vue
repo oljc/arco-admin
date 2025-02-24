@@ -47,7 +47,13 @@
         </a-form-item>
       </a-tab-pane>
     </a-tabs>
-    <a-button type="primary" style="margin: 32px 0 6px" long :loading="loading" @click="handleSubmit">
+    <a-button
+      type="primary"
+      style="margin: 32px 0 6px"
+      long
+      :loading="loading"
+      @click="handleSubmit"
+    >
       登录
     </a-button>
     <a-button type="text" long class="login-form-register-btn">注册</a-button>

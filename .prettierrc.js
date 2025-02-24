@@ -5,7 +5,7 @@ export default {
   // 行尾需要有分号
   semi: true,
   // 一行最多几个字符
-  printWidth: 110,
+  printWidth: 100,
   // 使用单引号
   singleQuote: true,
   // 对象的 key 是否有引号格式保持一致

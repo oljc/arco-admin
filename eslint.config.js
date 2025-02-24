@@ -86,10 +86,7 @@ export default defineFlatConfig([
         { disallowTypeAnnotations: false, fixStyle: 'inline-type-imports' }
       ],
       // 建议优先使用字面量枚举成员
-      '@typescript-eslint/prefer-literal-enum-member': [
-        'error',
-        { allowBitwiseExpressions: true }
-      ],
+      '@typescript-eslint/prefer-literal-enum-member': ['error', { allowBitwiseExpressions: true }],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
