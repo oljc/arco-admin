@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { get } from '@/utils/request';
 
 export interface ProfileBasicRes {
   status: number;
@@ -33,7 +33,7 @@ export interface ProfileBasicRes {
 }
 
 export function queryProfileBasic() {
-  return axios.get<ProfileBasicRes>('/api/profile/basic');
+  return get<ProfileBasicRes>('/api/profile/basic');
 }
 
 export type operationLogRes = Array<{
@@ -45,5 +45,5 @@ export type operationLogRes = Array<{
 }>;
 
 export function queryOperationLog() {
-  return axios.get<operationLogRes>('/api/operation/log');
+  return get<operationLogRes>('/api/operation/log');
 }

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { post } from '@/utils/request';
 import type { UserState } from '@/store/modules/user/types';
 
 export interface LoginData {
@@ -10,18 +10,18 @@ export interface LoginRes {
   token: string;
 }
 export function login(data: LoginData) {
-  return axios.post<LoginRes>('/api/user/login', data);
+  return post<LoginRes>('/api/user/login', data);
 }
 
 export function logout() {
-  return axios.post<LoginRes>('/api/user/logout');
+  return post<LoginRes>('/api/user/logout');
 }
 
 export function getUserInfo() {
-  return axios.post<UserState>('/api/user/info');
+  return post<UserState>('/api/user/info');
 }
 
 // 获取验证码
 export function getCaptcha(data: { tel: string }) {
-  return axios.post<{ captcha?: string }>('/api/login/captcha', data);
+  return post<{ captcha?: string }>('/api/login/captcha', data);
 }

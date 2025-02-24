@@ -1,5 +1,4 @@
-import axios from 'axios';
-
+import { post } from '@/utils/request';
 export interface BaseInfoModel {
   activityName: string;
   channelType: string;
@@ -17,5 +16,5 @@ export interface ChannelInfoModel {
 export type UnitChannelModel = BaseInfoModel & ChannelInfoModel;
 
 export function submitChannelForm(data: UnitChannelModel) {
-  return axios.post('/api/channel-form/submit', { data });
+  return post('/api/channel-form/submit', { data });
 }
