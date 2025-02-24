@@ -1,20 +1,10 @@
 <template>
-  <a-form
-    ref="formRef"
-    class="login-form-wrapper"
-    layout="vertical"
-    :model="form"
-    :rules="rules"
-  >
+  <a-form ref="formRef" class="login-form-wrapper" layout="vertical" :model="form" :rules="rules">
     <div class="login-form-title">欢迎登录</div>
     <a-tabs v-model:active-key="tabActiveKey" size="mini" animation>
       <a-tab-pane key="1" title="账号登录" destroy-on-hide>
         <a-form-item field="username" validate-trigger="blur" hide-label>
-          <a-input
-            v-model="form.username"
-            autocomplete="username"
-            placeholder="账号/邮箱"
-          >
+          <a-input v-model="form.username" autocomplete="username" placeholder="账号/邮箱">
             <template #prefix>
               <icon-user />
             </template>
@@ -44,39 +34,20 @@
         <a-form-item field="phone" validate-trigger="blur" hide-label>
           <a-input-group :style="{ width: '320px' }">
             <country-code-select />
-            <a-input
-              v-model="form.phone"
-              placeholder="请输入手机号"
-              :max-length="11"
-              allow-clear
-            />
+            <a-input v-model="form.phone" placeholder="请输入手机号" :max-length="11" allow-clear />
           </a-input-group>
         </a-form-item>
         <a-form-item field="captcha" hide-label>
           <a-input-group :style="{ width: '320px' }">
-            <a-input
-              v-model="form.captcha"
-              placeholder="请输入验证码"
-              allow-clear
-            />
-            <a-button
-              style="width: 100px"
-              :disabled="codeDisabled"
-              @click="handleSendCode"
-            >
+            <a-input v-model="form.captcha" placeholder="请输入验证码" allow-clear />
+            <a-button style="width: 100px" :disabled="codeDisabled" @click="handleSendCode">
               {{ codeText }}
             </a-button>
           </a-input-group>
         </a-form-item>
       </a-tab-pane>
     </a-tabs>
-    <a-button
-      type="primary"
-      style="margin: 32px 0 6px"
-      long
-      :loading="loading"
-      @click="handleSubmit"
-    >
+    <a-button type="primary" style="margin: 32px 0 6px" long :loading="loading" @click="handleSubmit">
       登录
     </a-button>
     <a-button type="text" long class="login-form-register-btn">注册</a-button>
@@ -140,8 +111,7 @@ const rules = {
     { required: true, message: '请输入密码' },
     {
       // 密码格式：6-32位，包含大小写字母、数字、特殊字符(除空格)两种以上
-      match:
-        /^(?![\d]+$)(?![a-z]+$)(?![A-Z]+$)(?![~!@#$%^&*.]+$)[\da-zA-z~!@#$%^&*.]{6,32}$/,
+      match: /^(?![\d]+$)(?![a-z]+$)(?![A-Z]+$)(?![~!@#$%^&*.]+$)[\da-zA-z~!@#$%^&*.]{6,32}$/,
       message: '密码格式不正确'
     }
   ],
@@ -188,8 +158,7 @@ const handleSubmit = () => {
   if (tabActiveKey.value === '2') {
     formRef.value.validateField(['phone', 'captcha']).then(res => {
       if (res) return;
-      if (!form.agreement)
-        return Message.info('请阅读并同意服务协议和隐私政策');
+      if (!form.agreement) return Message.info('请阅读并同意服务协议和隐私政策');
       //   setLoading(true);
     });
   }
@@ -214,7 +183,7 @@ const handleSendCode = async () => {
   if (res || codeDisabled.value) return;
   codeDisabled.value = true;
   getCaptcha({ tel: form.phone }).then(res => {
-    if (res.code === 20000) {
+    if (res.code === 200) {
       Notification.success({
         id: 'captcha',
         content: `Mock 验证码:${res.data.captcha}`,
