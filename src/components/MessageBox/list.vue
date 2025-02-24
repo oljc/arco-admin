@@ -39,10 +39,7 @@
               >
                 {{ item.content }}
               </a-typography-paragraph>
-              <a-typography-text
-                v-if="item.type === 'message'"
-                class="time-text"
-              >
+              <a-typography-text v-if="item.type === 'message'" class="time-text">
                 {{ item.time }}
               </a-typography-text>
             </div>
@@ -51,11 +48,7 @@
       </div>
     </a-list-item>
     <template #footer>
-      <a-space
-        fill
-        :size="0"
-        :class="{ 'add-border-top': renderList.length < showMax }"
-      >
+      <a-space fill :size="0" :class="{ 'add-border-top': renderList.length < showMax }">
         <div class="footer-wrap">
           <a-link @click="allRead">全部已读</a-link>
         </div>

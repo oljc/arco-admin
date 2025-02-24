@@ -1,8 +1,6 @@
 <template>
   <div class="list-wrap">
-    <a-typography-title class="block-title" :heading="6">
-      开通服务
-    </a-typography-title>
+    <a-typography-title class="block-title" :heading="6">开通服务</a-typography-title>
     <a-row class="list-row" :gutter="24">
       <a-col
         v-for="item in renderData"
@@ -48,10 +46,7 @@ import useRequest from '@/hooks/useRequest';
 import CardWrap from './card-wrap.vue';
 
 const defaultValue: ServiceRecord[] = new Array(4).fill({});
-const { loading, response: renderData } = useRequest<ServiceRecord[]>(
-  queryTheServiceList,
-  defaultValue
-);
+const { loading, response: renderData } = useRequest<ServiceRecord[]>(queryTheServiceList, defaultValue);
 </script>
 
 <style scoped lang="less"></style>

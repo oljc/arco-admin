@@ -7,11 +7,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import {
-  queryCertification,
-  UnitCertification,
-  EnterpriseCertificationModel
-} from '@/api/user-center';
+import { queryCertification, UnitCertification, EnterpriseCertificationModel } from '@/api/user-center';
 import useLoading from '@/hooks/useLoading';
 import EnterpriseCertification from './enterprise-certification.vue';
 import CertificationRecords from './certification-records.vue';

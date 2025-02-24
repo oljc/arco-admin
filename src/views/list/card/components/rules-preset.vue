@@ -1,8 +1,6 @@
 <template>
   <div class="list-wrap">
-    <a-typography-title class="block-title" :heading="6">
-      规则预置
-    </a-typography-title>
+    <a-typography-title class="block-title" :heading="6">规则预置</a-typography-title>
     <a-row class="list-row" :gutter="24">
       <a-col
         v-for="item in renderData"
@@ -42,10 +40,7 @@ import useRequest from '@/hooks/useRequest';
 import CardWrap from './card-wrap.vue';
 
 const defaultValue: ServiceRecord[] = new Array(6).fill({});
-const { loading, response: renderData } = useRequest<ServiceRecord[]>(
-  queryRulesPresetList,
-  defaultValue
-);
+const { loading, response: renderData } = useRequest<ServiceRecord[]>(queryRulesPresetList, defaultValue);
 </script>
 
 <style scoped lang="less"></style>

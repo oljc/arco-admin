@@ -12,7 +12,7 @@ dependencies:
     specifier: ^2.56.3
     version: 2.56.3(vue@3.5.13)
   '@visactor/vchart':
-    specifier: ^1.13.2
+    specifier: ^1.13.5
     version: 1.13.5
   '@visactor/vchart-arco-theme':
     specifier: ^1.12.2
@@ -36,7 +36,7 @@ dependencies:
     specifier: ^0.2.0
     version: 0.2.0
   pinia:
-    specifier: ^2.3.0
+    specifier: ^2.3.1
     version: 2.3.1(typescript@5.7.3)(vue@3.5.13)
   query-string:
     specifier: ^9.1.1
@@ -56,19 +56,19 @@ devDependencies:
     specifier: ^1.4.5
     version: 1.4.5
   '@commitlint/cli':
-    specifier: ^19.6.1
+    specifier: ^19.7.1
     version: 19.7.1(@types/node@22.13.5)(typescript@5.7.3)
   '@commitlint/config-conventional':
-    specifier: ^19.6.0
+    specifier: ^19.7.1
     version: 19.7.1
   '@commitlint/types':
     specifier: ^19.5.0
     version: 19.5.0
   '@eslint/js':
-    specifier: ^9.17.0
+    specifier: ^9.21.0
     version: 9.21.0
   '@types/lodash':
-    specifier: ^4.17.14
+    specifier: ^4.17.15
     version: 4.17.15
   '@types/mockjs':
     specifier: ^1.0.10
@@ -95,10 +95,10 @@ devDependencies:
     specifier: ^10.4.20
     version: 10.4.20(postcss@8.5.3)
   bumpp:
-    specifier: ^9.9.2
+    specifier: ^9.11.1
     version: 9.11.1
   eslint:
-    specifier: ^9.17.0
+    specifier: ^9.21.0
     version: 9.21.0
   eslint-config-prettier:
     specifier: ^9.1.0
@@ -107,7 +107,7 @@ devDependencies:
     specifier: ^2.1.0
     version: 2.1.0
   eslint-plugin-prettier:
-    specifier: ^5.2.1
+    specifier: ^5.2.3
     version: 5.2.3(eslint-config-prettier@9.1.0)(eslint@9.21.0)(prettier@3.5.2)
   eslint-plugin-vue:
     specifier: ^9.32.0
@@ -116,22 +116,22 @@ devDependencies:
     specifier: ^9.1.7
     version: 9.1.7
   less:
-    specifier: ^4.2.1
+    specifier: ^4.2.2
     version: 4.2.2
   lint-staged:
-    specifier: ^15.3.0
+    specifier: ^15.4.3
     version: 15.4.3
   mockjs:
     specifier: ^1.1.0
     version: 1.1.0
   postcss-html:
-    specifier: ^1.7.0
+    specifier: ^1.8.0
     version: 1.8.0
   postcss-less:
     specifier: ^6.0.0
     version: 6.0.0(postcss@8.5.3)
   prettier:
-    specifier: ^3.4.2
+    specifier: ^3.5.2
     version: 3.5.2
   rimraf:
     specifier: ^5.0.10
@@ -140,22 +140,22 @@ devDependencies:
     specifier: ^5.14.0
     version: 5.14.0
   stylelint:
-    specifier: ^16.12.0
+    specifier: ^16.14.1
     version: 16.14.1(typescript@5.7.3)
   stylelint-config-recess-order:
     specifier: ^5.1.1
     version: 5.1.1(stylelint@16.14.1)
   stylelint-config-recommended-vue:
-    specifier: ^1.5.0
+    specifier: ^1.6.0
     version: 1.6.0(postcss-html@1.8.0)(stylelint@16.14.1)
   stylelint-config-standard-less:
     specifier: ^3.0.1
     version: 3.0.1(postcss@8.5.3)(stylelint@16.14.1)
   stylelint-prettier:
-    specifier: ^5.0.2
+    specifier: ^5.0.3
     version: 5.0.3(prettier@3.5.2)(stylelint@16.14.1)
   typescript:
-    specifier: ^5.7.2
+    specifier: ^5.7.3
     version: 5.7.3
   unplugin-auto-import:
     specifier: ^0.17.8
@@ -164,7 +164,7 @@ devDependencies:
     specifier: ^0.27.5
     version: 0.27.5(vue@3.5.13)
   vite:
-    specifier: ^5.4.11
+    specifier: ^5.4.14
     version: 5.4.14(@types/node@22.13.5)(less@4.2.2)
   vite-plugin-compression:
     specifier: ^0.5.1
@@ -179,7 +179,7 @@ devDependencies:
     specifier: ^9.4.3
     version: 9.4.3(eslint@9.21.0)
   vue-tsc:
-    specifier: ^2.2.0
+    specifier: ^2.2.4
     version: 2.2.4(typescript@5.7.3)
 
 packages:

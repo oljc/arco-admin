@@ -27,17 +27,11 @@
             <a-space>
               <a-avatar-group :size="24">
                 {{ project.contributors }}
-                <a-avatar
-                  v-for="(contributor, idx) in project.contributors"
-                  :key="idx"
-                  :size="32"
-                >
+                <a-avatar v-for="(contributor, idx) in project.contributors" :key="idx" :size="32">
                   <img alt="avatar" :src="contributor.avatar" />
                 </a-avatar>
               </a-avatar-group>
-              <a-typography-text type="secondary">
-                等{{ project.peopleNumber }}人
-              </a-typography-text>
+              <a-typography-text type="secondary">等{{ project.peopleNumber }}人</a-typography-text>
             </a-space>
           </a-space>
         </a-card>
@@ -51,10 +45,7 @@ import { queryMyProjectList, MyProjectRecord } from '@/api/user-center';
 import useRequest from '@/hooks/useRequest';
 
 const defaultValue = Array(6).fill({} as MyProjectRecord);
-const { loading, response: projectList } = useRequest<MyProjectRecord[]>(
-  queryMyProjectList,
-  defaultValue
-);
+const { loading, response: projectList } = useRequest<MyProjectRecord[]>(queryMyProjectList, defaultValue);
 </script>
 
 <style scoped lang="less">

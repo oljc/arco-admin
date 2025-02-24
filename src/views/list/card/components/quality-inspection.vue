@@ -1,18 +1,8 @@
 <template>
   <div class="list-wrap">
-    <a-typography-title class="block-title" :heading="6">
-      内容质检
-    </a-typography-title>
+    <a-typography-title class="block-title" :heading="6">内容质检</a-typography-title>
     <a-row class="list-row" :gutter="24">
-      <a-col
-        :xs="12"
-        :sm="12"
-        :md="12"
-        :lg="6"
-        :xl="6"
-        :xxl="6"
-        class="list-col"
-      >
+      <a-col :xs="12" :sm="12" :md="12" :lg="6" :xl="6" :xxl="6" class="list-col">
         <div class="card-wrap empty-wrap">
           <a-card :bordered="false" hoverable>
             <a-result :status="null" title="点击创建质检内容队列">
@@ -45,18 +35,10 @@
           close-txt="删除"
           :show-tag="false"
         >
-          <a-descriptions
-            style="margin-top: 16px"
-            :data="item.data"
-            layout="inline-horizontal"
-            :column="2"
-          />
+          <a-descriptions style="margin-top: 16px" :data="item.data" layout="inline-horizontal" :column="2" />
           <template #skeleton>
             <a-skeleton :animation="true">
-              <a-skeleton-line
-                :widths="['50%', '50%', '100%', '40%']"
-                :rows="4"
-              />
+              <a-skeleton-line :widths="['50%', '50%', '100%', '40%']" :rows="4" />
               <a-skeleton-line :widths="['40%']" :rows="1" />
             </a-skeleton>
           </template>
@@ -72,10 +54,7 @@ import useRequest from '@/hooks/useRequest';
 import CardWrap from './card-wrap.vue';
 
 const defaultValue: ServiceRecord[] = new Array(3).fill({});
-const { loading, response: renderData } = useRequest<ServiceRecord[]>(
-  queryInspectionList,
-  defaultValue
-);
+const { loading, response: renderData } = useRequest<ServiceRecord[]>(queryInspectionList, defaultValue);
 </script>
 
 <style scoped lang="less">

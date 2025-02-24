@@ -8,11 +8,7 @@
         <a-result v-if="!renderList.length" status="404">
           <template #subtitle>暂无内容</template>
         </a-result>
-        <List
-          :render-list="renderList"
-          :unread-count="unreadCount"
-          @item-click="handleItemClick"
-        />
+        <List :render-list="renderList" :unread-count="unreadCount" @item-click="handleItemClick" />
       </a-tab-pane>
       <template #extra>
         <a-button type="text" @click="emptyList">清空</a-button>
@@ -23,12 +19,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, toRefs, computed } from 'vue';
-import {
-  queryMessageList,
-  setMessageStatus,
-  MessageRecord,
-  MessageListType
-} from '@/api/message';
+import { queryMessageList, setMessageStatus, MessageRecord, MessageListType } from '@/api/message';
 import useLoading from '@/hooks/useLoading';
 import List from './list.vue';
 
@@ -78,17 +69,13 @@ async function readMessage(data: MessageListType) {
   fetchSourceData();
 }
 const renderList = computed(() => {
-  return messageData.messageList.filter(
-    item => messageType.value === item.type
-  );
+  return messageData.messageList.filter(item => messageType.value === item.type);
 });
 const unreadCount = computed(() => {
   return renderList.value.filter(item => !item.status).length;
 });
 const getUnreadList = (type: string) => {
-  const list = messageData.messageList.filter(
-    item => item.type === type && !item.status
-  );
+  const list = messageData.messageList.filter(item => item.type === type && !item.status);
   return list;
 };
 const formatUnreadLength = (type: string) => {

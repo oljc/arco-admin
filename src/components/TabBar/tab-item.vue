@@ -1,9 +1,5 @@
 <template>
-  <a-dropdown
-    trigger="contextMenu"
-    :popup-max-height="false"
-    @select="actionSelect"
-  >
+  <a-dropdown trigger="contextMenu" :popup-max-height="false" @select="actionSelect">
     <span
       class="arco-tag arco-tag-size-medium arco-tag-checked"
       :class="{ 'link-activated': itemData.fullPath === $route.fullPath }"
@@ -24,11 +20,7 @@
         <icon-refresh />
         <span>重新加载</span>
       </a-doption>
-      <a-doption
-        class="sperate-line"
-        :disabled="disabledCurrent"
-        :value="Eaction.current"
-      >
+      <a-doption class="sperate-line" :disabled="disabledCurrent" :value="Eaction.current">
         <icon-close />
         <span>关闭当前标签页</span>
       </a-doption>
@@ -36,11 +28,7 @@
         <icon-to-left />
         <span>关闭左侧标签页</span>
       </a-doption>
-      <a-doption
-        class="sperate-line"
-        :disabled="disabledRight"
-        :value="Eaction.right"
-      >
+      <a-doption class="sperate-line" :disabled="disabledRight" :value="Eaction.right">
         <icon-to-right />
         <span>关闭右侧标签页</span>
       </a-doption>

@@ -16,10 +16,7 @@
         }
       ]"
     >
-      <a-input
-        v-model="formData.advertisingSource"
-        placeholder="引荐来源地址：douyin"
-      />
+      <a-input v-model="formData.advertisingSource" placeholder="引荐来源地址：douyin" />
     </a-form-item>
     <a-form-item
       field="advertisingMedia"
@@ -31,26 +28,15 @@
         }
       ]"
     >
-      <a-input
-        v-model="formData.advertisingMedia"
-        placeholder="营销媒介：cpc、banner、edm"
-      />
+      <a-input v-model="formData.advertisingMedia" placeholder="营销媒介：cpc、banner、edm" />
     </a-form-item>
-    <a-form-item
-      field="keyword"
-      label="关键词"
-      :rules="[{ required: true, message: '请选择关键词' }]"
-    >
+    <a-form-item field="keyword" label="关键词" :rules="[{ required: true, message: '请选择关键词' }]">
       <a-select v-model="formData.keyword" placeholder="请选择关键词" multiple>
         <a-option>今日头条</a-option>
         <a-option>火山</a-option>
       </a-select>
     </a-form-item>
-    <a-form-item
-      field="pushNotify"
-      label="推送提醒"
-      :rules="[{ required: true }]"
-    >
+    <a-form-item field="pushNotify" label="推送提醒" :rules="[{ required: true }]">
       <a-switch v-model="formData.pushNotify" />
     </a-form-item>
     <a-form-item
@@ -68,10 +54,7 @@
       ]"
       row-class="keep-margin"
     >
-      <a-textarea
-        v-model="formData.advertisingContent"
-        placeholder="请输入广告内容介绍，最多不超过200字。"
-      />
+      <a-textarea v-model="formData.advertisingContent" placeholder="请输入广告内容介绍，最多不超过200字。" />
     </a-form-item>
     <a-form-item>
       <a-space>

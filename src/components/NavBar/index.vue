@@ -17,11 +17,7 @@
       </li>
       <li>
         <a-tooltip content="源码地址">
-          <a
-            class="nav-btn"
-            href="https://github.com/oljc/arco-admin"
-            target="_blank"
-          >
+          <a class="nav-btn" href="https://github.com/oljc/arco-admin" target="_blank">
             <icon-github />
           </a>
         </a-tooltip>
@@ -35,11 +31,7 @@
         <a-dropdown trigger="click" @select="changeLocale">
           <div ref="triggerBtn" class="trigger-btn"></div>
           <template #content>
-            <a-doption
-              v-for="item in locales"
-              :key="item.value"
-              :value="item.value"
-            >
+            <a-doption v-for="item in locales" :key="item.value" :value="item.value">
               <template #icon>
                 <icon-check v-show="item.value === currentLocale" />
               </template>
@@ -49,11 +41,7 @@
         </a-dropdown>
       </li>
       <li>
-        <a-tooltip
-          :content="
-            theme === 'light' ? '点击切换为暗黑模式' : '点击切换为亮色模式'
-          "
-        >
+        <a-tooltip :content="theme === 'light' ? '点击切换为暗黑模式' : '点击切换为亮色模式'">
           <div class="nav-btn" @click="handleToggleTheme()">
             <icon-moon-fill v-if="theme === 'dark'" />
             <icon-sun-fill v-else />

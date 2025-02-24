@@ -4,17 +4,8 @@
       <a-link>查看全部</a-link>
     </template>
     <a-list :bordered="false">
-      <a-list-item
-        v-for="activity in activityList"
-        :key="activity.id"
-        action-layout="horizontal"
-      >
-        <a-skeleton
-          v-if="loading"
-          :loading="loading"
-          :animation="true"
-          class="skeleton-item"
-        >
+      <a-list-item v-for="activity in activityList" :key="activity.id" action-layout="horizontal">
+        <a-skeleton v-if="loading" :loading="loading" :animation="true" class="skeleton-item">
           <a-row :gutter="6">
             <a-col :span="2">
               <a-skeleton-shape shape="circle" />
@@ -24,11 +15,7 @@
             </a-col>
           </a-row>
         </a-skeleton>
-        <a-list-item-meta
-          v-else
-          :title="activity.title"
-          :description="activity.description"
-        >
+        <a-list-item-meta v-else :title="activity.title" :description="activity.description">
           <template #avatar>
             <a-avatar>
               <img :src="activity.avatar" />

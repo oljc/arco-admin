@@ -70,21 +70,16 @@ export default defineComponent({
     listenerRouteChange(newRoute => {
       const { requiresAuth, activeMenu, hideInMenu } = newRoute.meta;
       if (requiresAuth && (!hideInMenu || activeMenu)) {
-        const menuOpenKeys = findMenuOpenKeys(
-          (activeMenu || newRoute.name) as string
-        );
+        const menuOpenKeys = findMenuOpenKeys((activeMenu || newRoute.name) as string);
 
         const keySet = new Set([...menuOpenKeys, ...openKeys.value]);
         openKeys.value = [...keySet];
 
-        selectedKey.value = [
-          activeMenu || menuOpenKeys[menuOpenKeys.length - 1]
-        ];
+        selectedKey.value = [activeMenu || menuOpenKeys[menuOpenKeys.length - 1]];
       }
     }, true);
     const setCollapse = (val: boolean) => {
-      if (appStore.device === 'desktop')
-        appStore.updateSettings({ menuCollapse: val });
+      if (appStore.device === 'desktop') appStore.updateSettings({ menuCollapse: val });
     };
 
     const renderSubMenu = () => {
@@ -92,9 +87,7 @@ export default defineComponent({
         if (_route) {
           _route.forEach(element => {
             // This is demo, modify nodes as needed
-            const icon = element?.meta?.icon
-              ? () => h(compile(`<${element?.meta?.icon}/>`))
-              : null;
+            const icon = element?.meta?.icon ? () => h(compile(`<${element?.meta?.icon}/>`)) : null;
             const node =
               element?.children && element?.children.length !== 0 ? (
                 <a-sub-menu
@@ -107,11 +100,7 @@ export default defineComponent({
                   {travel(element?.children)}
                 </a-sub-menu>
               ) : (
-                <a-menu-item
-                  key={element?.name}
-                  v-slots={{ icon }}
-                  onClick={() => goto(element)}
-                >
+                <a-menu-item key={element?.name} v-slots={{ icon }} onClick={() => goto(element)}>
                   {element?.meta?.locale || ''}
                 </a-menu-item>
               );

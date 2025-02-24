@@ -92,10 +92,7 @@
       ]"
       row-class="keep-margin"
     >
-      <a-textarea
-        v-model="formData.profile"
-        placeholder="请您输入您的个人简洁，最多不超过200字"
-      />
+      <a-textarea v-model="formData.profile" placeholder="请您输入您的个人简洁，最多不超过200字" />
     </a-form-item>
     <a-form-item>
       <a-space>

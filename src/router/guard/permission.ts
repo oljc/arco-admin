@@ -13,9 +13,7 @@ export default function setupPermissionGuard(router: Router) {
     const permissionsAllow = Permission.accessRouter(to);
     if (permissionsAllow) next();
     else {
-      const destination =
-        Permission.findFirstPermissionRoute(appRoutes, userStore.role) ||
-        NOT_FOUND;
+      const destination = Permission.findFirstPermissionRoute(appRoutes, userStore.role) || NOT_FOUND;
       next(destination);
     }
     NProgress.done();

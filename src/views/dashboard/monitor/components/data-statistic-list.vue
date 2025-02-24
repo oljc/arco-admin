@@ -20,10 +20,7 @@
 
 <script lang="ts" setup>
 import { computed, h, compile } from 'vue';
-import type {
-  TableColumnData,
-  TableData
-} from '@arco-design/web-vue/es/table/interface.d';
+import type { TableColumnData, TableData } from '@arco-design/web-vue/es/table/interface.d';
 
 interface PreviewRecord {
   cover: string;
@@ -53,26 +50,14 @@ const columns = computed(() => {
   return [
     {
       title: '序号',
-      render({
-        rowIndex
-      }: {
-        record: TableData;
-        column: TableColumnData;
-        rowIndex: number;
-      }) {
+      render({ rowIndex }: { record: TableData; column: TableColumnData; rowIndex: number }) {
         const tmp = `<span>${rowIndex + 1}</span>`;
         return h(compile(tmp));
       }
     },
     {
       title: '封面',
-      render({
-        record
-      }: {
-        record: TableData;
-        column: TableColumnData;
-        rowIndex: number;
-      }) {
+      render({ record }: { record: TableData; column: TableColumnData; rowIndex: number }) {
         const tmp = `<div class='data-statistic-list-cover-wrapper'>
               <img src=${record.cover} />
               ${renderTag(record.status)}

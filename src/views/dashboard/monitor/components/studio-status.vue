@@ -14,9 +14,7 @@
         <span v-else>{{ label }}</span>
       </template>
     </a-descriptions>
-    <a-typography-title style="margin-bottom: 16px" :heading="6">
-      画面信息
-    </a-typography-title>
+    <a-typography-title style="margin-bottom: 16px" :heading="6">画面信息</a-typography-title>
     <a-descriptions layout="horizontal" :data="dataPicture" :column="2" />
   </a-card>
 </template>

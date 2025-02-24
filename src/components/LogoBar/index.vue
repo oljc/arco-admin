@@ -2,9 +2,7 @@
   <div class="logo-bar">
     <LogoSvg class="logo-bar-logo" />
     <transition name="fade">
-      <a-typography-title v-if="!hideName" class="logo-bar-name" :heading="5">
-        Arco Admin
-      </a-typography-title>
+      <a-typography-title v-if="!hideName" class="logo-bar-name" :heading="5">Arco Admin</a-typography-title>
     </transition>
     <a-tag color="orange" style="margin-left: 6px">
       <template #icon>

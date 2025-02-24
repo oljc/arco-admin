@@ -1,12 +1,5 @@
 <script lang="ts" setup>
-import {
-  PropType,
-  onBeforeUnmount,
-  onMounted,
-  onUpdated,
-  ref,
-  watch
-} from 'vue';
+import { PropType, onBeforeUnmount, onMounted, onUpdated, ref, watch } from 'vue';
 import { VChart, ISpec } from '@visactor/vchart';
 
 const props = defineProps({

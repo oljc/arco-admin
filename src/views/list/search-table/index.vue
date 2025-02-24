@@ -13,18 +13,12 @@
             <a-row :gutter="16">
               <a-col :span="8">
                 <a-form-item field="number" label="集合编号">
-                  <a-input
-                    v-model="formModel.number"
-                    placeholder="请输入集合编号"
-                  />
+                  <a-input v-model="formModel.number" placeholder="请输入集合编号" />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
                 <a-form-item field="name" label="集合名称">
-                  <a-input
-                    v-model="formModel.name"
-                    placeholder="请输入集合名称"
-                  />
+                  <a-input v-model="formModel.name" placeholder="请输入集合名称" />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
@@ -47,19 +41,12 @@
               </a-col>
               <a-col :span="8">
                 <a-form-item field="createdTime" label="创建时间">
-                  <a-range-picker
-                    v-model="formModel.createdTime"
-                    style="width: 100%"
-                  />
+                  <a-range-picker v-model="formModel.createdTime" style="width: 100%" />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
                 <a-form-item field="status" label="状态">
-                  <a-select
-                    v-model="formModel.status"
-                    :options="statusOptions"
-                    placeholder="请选择状态"
-                  />
+                  <a-select v-model="formModel.status" :options="statusOptions" placeholder="请选择状态" />
                 </a-form-item>
               </a-col>
             </a-row>
@@ -100,10 +87,7 @@
             </a-upload>
           </a-space>
         </a-col>
-        <a-col
-          :span="12"
-          style="display: flex; align-items: center; justify-content: end"
-        >
+        <a-col :span="12" style="display: flex; align-items: center; justify-content: end">
           <a-button>
             <template #icon>
               <icon-download />
@@ -131,28 +115,18 @@
             </template>
           </a-dropdown>
           <a-tooltip content="列设置">
-            <a-popover
-              trigger="click"
-              position="bl"
-              @popup-visible-change="popupVisibleChange"
-            >
+            <a-popover trigger="click" position="bl" @popup-visible-change="popupVisibleChange">
               <div class="action-icon"><icon-settings size="18" /></div>
               <template #content>
                 <div id="tableSetting">
-                  <div
-                    v-for="(item, index) in showColumns"
-                    :key="item.dataIndex"
-                    class="setting"
-                  >
+                  <div v-for="(item, index) in showColumns" :key="item.dataIndex" class="setting">
                     <div style="margin-right: 4px; cursor: move">
                       <icon-drag-arrow />
                     </div>
                     <div>
                       <a-checkbox
                         v-model="item.checked"
-                        @change="
-                          handleChange($event, item as TableColumnData, index)
-                        "
+                        @change="handleChange($event, item as TableColumnData, index)"
                       ></a-checkbox>
                     </div>
                     <div class="title">
@@ -180,21 +154,13 @@
         </template>
         <template #contentType="{ record }">
           <a-space>
-            <a-avatar
-              v-if="record.contentType === 'img'"
-              :size="16"
-              shape="square"
-            >
+            <a-avatar v-if="record.contentType === 'img'" :size="16" shape="square">
               <img
                 alt="avatar"
                 src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/581b17753093199839f2e327e726b157.svg~tplv-49unhts6dw-image.image"
               />
             </a-avatar>
-            <a-avatar
-              v-else-if="record.contentType === 'horizontalVideo'"
-              :size="16"
-              shape="square"
-            >
+            <a-avatar v-else-if="record.contentType === 'horizontalVideo'" :size="16" shape="square">
               <img
                 alt="avatar"
                 src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/77721e365eb2ab786c889682cbc721c1.svg~tplv-49unhts6dw-image.image"
@@ -221,9 +187,7 @@
           {{ record.status === 'online' ? '已上线' : '已下线' }}
         </template>
         <template #operations>
-          <a-button v-permission="['admin']" type="text" size="small">
-            查看
-          </a-button>
+          <a-button v-permission="['admin']" type="text" size="small">查看</a-button>
         </template>
       </a-table>
     </a-card>
@@ -362,9 +326,7 @@ const statusOptions = computed<SelectOptionData[]>(() => [
     value: 'offline'
   }
 ]);
-const fetchData = async (
-  params: PolicyParams = { current: 1, pageSize: 20 }
-) => {
+const fetchData = async (params: PolicyParams = { current: 1, pageSize: 20 }) => {
   setLoading(true);
   try {
     const { data } = await queryPolicyList(params);
@@ -393,22 +355,13 @@ const reset = () => {
   formModel.value = generateFormModel();
 };
 
-const handleSelectDensity = (
-  val: string | number | Record<string, any> | undefined,
-  _e: Event
-) => {
+const handleSelectDensity = (val: string | number | Record<string, any> | undefined, _e: Event) => {
   size.value = val as SizeProps;
 };
 
-const handleChange = (
-  checked: boolean | (string | boolean | number)[],
-  column: Column,
-  index: number
-) => {
+const handleChange = (checked: boolean | (string | boolean | number)[], column: Column, index: number) => {
   if (!checked) {
-    cloneColumns.value = showColumns.value.filter(
-      item => item.dataIndex !== column.dataIndex
-    );
+    cloneColumns.value = showColumns.value.filter(item => item.dataIndex !== column.dataIndex);
   } else {
     cloneColumns.value.splice(index, 0, column);
   }
@@ -423,11 +376,7 @@ const exchangeArray = <T extends Array<any>>(
   const newArray = isDeep ? cloneDeep(array) : array;
   if (beforeIdx > -1 && newIdx > -1) {
     // 先替换后面的，然后拿到替换的结果替换前面的
-    newArray.splice(
-      beforeIdx,
-      1,
-      newArray.splice(newIdx, 1, newArray[beforeIdx]).pop()
-    );
+    newArray.splice(beforeIdx, 1, newArray.splice(newIdx, 1, newArray[beforeIdx]).pop());
   }
   return newArray;
 };

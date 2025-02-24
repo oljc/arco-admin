@@ -25,9 +25,7 @@ export interface CountDownReturnType {
 /**
  * 倒计时Hook
  */
-export default function useCountDown(
-  options: UseCountDownOptions = {}
-): CountDownReturnType {
+export default function useCountDown(options: UseCountDownOptions = {}): CountDownReturnType {
   const { initValue = 60, interval = 1000 } = options;
 
   const count = ref(initValue);

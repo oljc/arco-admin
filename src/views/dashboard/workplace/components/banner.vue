@@ -1,9 +1,7 @@
 <template>
   <a-col class="banner">
     <a-col :span="8">
-      <a-typography-title :heading="5" style="margin-top: 0">
-        欢迎回来！
-      </a-typography-title>
+      <a-typography-title :heading="5" style="margin-top: 0">欢迎回来！</a-typography-title>
     </a-col>
     <a-divider class="panel-border" />
   </a-col>

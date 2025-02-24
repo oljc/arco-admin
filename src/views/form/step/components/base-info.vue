@@ -20,10 +20,7 @@
         }
       ]"
     >
-      <a-input
-        v-model="formData.activityName"
-        placeholder="输入汉字、字母或者数字，不超过20个字符"
-      />
+      <a-input v-model="formData.activityName" placeholder="输入汉字、字母或者数字，不超过20个字符" />
     </a-form-item>
     <a-form-item
       field="channelType"
@@ -68,10 +65,7 @@
     >
       <a-input v-model="formData.promoteLink" placeholder="请输入推广地址" />
       <template #help>
-        <span>
-          如 Android 或 iOS 的下载地址、中间跳转URL，网址必须以 http:// 或
-          https:// 开头
-        </span>
+        <span>如 Android 或 iOS 的下载地址、中间跳转URL，网址必须以 http:// 或 https:// 开头</span>
       </template>
     </a-form-item>
     <a-form-item>

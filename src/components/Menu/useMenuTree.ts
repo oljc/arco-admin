@@ -37,9 +37,7 @@ export default function useMenuTree() {
           return element;
         }
         // 过滤掉 hideInMenu 的路由
-        element.children = element.children.filter(
-          x => x.meta?.hideInMenu !== true
-        );
+        element.children = element.children.filter(x => x.meta?.hideInMenu !== true);
         // 关联子路由
         const subItem = travel(element.children, layer + 1);
 

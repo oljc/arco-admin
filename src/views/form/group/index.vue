@@ -16,10 +16,7 @@
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item
-                label="采集分辨率"
-                field="video.acquisition.resolution"
-              >
+              <a-form-item label="采集分辨率" field="video.acquisition.resolution">
                 <a-select placeholder="请选择">
                   <a-option value="resolution1">分辨率1</a-option>
                   <a-option value="resolution2">分辨率2</a-option>
@@ -50,20 +47,14 @@
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item
-                label="编码码率最小值"
-                field="video.encoding.rate.min"
-              >
+              <a-form-item label="编码码率最小值" field="video.encoding.rate.min">
                 <a-input placeholder="输入范围[150, 1800]" add-after="bps">
                   <template #append>bps</template>
                 </a-input>
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item
-                label="编码码率最大值"
-                field="video.encoding.rate.max"
-              >
+              <a-form-item label="编码码率最大值" field="video.encoding.rate.max">
                 <a-input placeholder="输入范围[150, 1800]">
                   <template #append>bps</template>
                 </a-input>
@@ -72,10 +63,7 @@
           </a-row>
           <a-row :gutter="80">
             <a-col :span="8">
-              <a-form-item
-                label="编码码率默认值"
-                field="video.encoding.rate.default"
-              >
+              <a-form-item label="编码码率默认值" field="video.encoding.rate.default">
                 <a-input placeholder="输入范围[150, 1800]">
                   <template #append>bps</template>
                 </a-input>
@@ -110,10 +98,7 @@
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item
-                label="采集声道数"
-                field="audio.acquisition.channels"
-              >
+              <a-form-item label="采集声道数" field="audio.acquisition.channels">
                 <a-select placeholder="请选择">
                   <a-option value="1">1</a-option>
                   <a-option value="2">2</a-option>
@@ -157,9 +142,7 @@
       <div class="actions">
         <a-space>
           <a-button>重置</a-button>
-          <a-button type="primary" :loading="loading" @click="onSubmitClick">
-            提交
-          </a-button>
+          <a-button type="primary" :loading="loading" @click="onSubmitClick">提交</a-button>
         </a-space>
       </div>
     </a-form>

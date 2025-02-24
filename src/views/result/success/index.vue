@@ -2,12 +2,7 @@
   <div class="container">
     <Breadcrumb :items="['menu.result', 'menu.resultSuccess']" />
     <div class="wrapper">
-      <a-result
-        class="result"
-        status="success"
-        title="提交成功"
-        subtitle="表单提交成功！"
-      >
+      <a-result class="result" status="success" title="提交成功" subtitle="表单提交成功！">
         <template #extra>
           <a-space class="operation-wrap" :size="16">
             <a-button key="again" type="secondary">打印结果</a-button>

@@ -5,12 +5,7 @@
       <a-card class="general-card">
         <template #title>创建渠道表单</template>
         <div class="wrapper">
-          <a-steps
-            v-model:current="step"
-            style="width: 580px"
-            line-less
-            class="steps"
-          >
+          <a-steps v-model:current="step" style="width: 580px" line-less class="steps">
             <a-step description="创建渠道活动">选择基本信息</a-step>
             <a-step description="输入详细的渠道信息">输入渠道信息</a-step>
             <a-step description="创建成功">完成创建</a-step>
@@ -29,12 +24,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import useLoading from '@/hooks/useLoading';
-import {
-  submitChannelForm,
-  BaseInfoModel,
-  ChannelInfoModel,
-  UnitChannelModel
-} from '@/api/form';
+import { submitChannelForm, BaseInfoModel, ChannelInfoModel, UnitChannelModel } from '@/api/form';
 import BaseInfo from './components/base-info.vue';
 import ChannelInfo from './components/channel-info.vue';
 import Success from './components/success.vue';
@@ -54,10 +44,7 @@ const submitForm = async () => {
     setLoading(false);
   }
 };
-const changeStep = (
-  direction: string | number,
-  model: BaseInfoModel | ChannelInfoModel
-) => {
+const changeStep = (direction: string | number, model: BaseInfoModel | ChannelInfoModel) => {
   if (typeof direction === 'number') {
     step.value = direction;
     return;

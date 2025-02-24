@@ -1,9 +1,5 @@
 <template>
-  <a-card
-    class="general-card"
-    title="认证记录"
-    :header-style="{ border: 'none' }"
-  >
+  <a-card class="general-card" title="认证记录" :header-style="{ border: 'none' }">
     <a-table v-if="renderData.length" :data="renderData">
       <template #columns>
         <a-table-column title="认证类型">
