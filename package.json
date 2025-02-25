@@ -2,7 +2,7 @@
   "name": "arco-admin",
   "type": "module",
   "private": true,
-  "version": "0.2.3",
+  "version": "0.3.0",
   "license": "MIT",
   "author": {
     "name": "oljc",
