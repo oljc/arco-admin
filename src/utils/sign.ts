@@ -181,7 +181,7 @@ export default class Signer {
 
   stringToSign(datetime: string): string {
     const parts: string[] = [];
-    parts.push('HMAC-SHA256');
+    parts.push('OLJC-HMAC-SHA256');
     parts.push(datetime);
     parts.push(this.credentialString(datetime));
     parts.push(hexEncodedHash(this.canonicalString()));
@@ -192,11 +192,9 @@ export default class Signer {
   canonicalString(): string {
     const parts: string[] = [];
     const path = (this.request.pathname || "/").split('?')[0];
-    const pathname = path.startsWith('/') ? path : '/' + path;
-
-    parts.push(this.request.method.toUpperCase());
-    parts.push(pathname);
     const queryString = queryParamsToString(this.request.params) || "";
+    parts.push(this.request.method.toUpperCase());
+    parts.push(path.startsWith('/') ? path : `/${path}`);
     parts.push(queryString);
     parts.push(`${this.canonicalHeaders()}\n`);
     parts.push(this.signedHeaders());

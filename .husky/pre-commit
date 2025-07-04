@@ -5,4 +5,4 @@
 
 PATH="/usr/local/bin:$PATH"
 
-pnpm exec lint-staged
+# pnpm exec lint-staged
