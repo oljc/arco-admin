@@ -85,7 +85,7 @@ import { useUserStore } from '@/store';
 import useCountDown from '@/hooks/useCountDown';
 import useLoading from '@/hooks/useLoading';
 import type { LoginData } from '@/api/user';
-import { getCaptcha } from '@/api/user';
+import { getCaptcha, getHello } from '@/api/user';
 import { pick } from 'lodash';
 import { Message, Notification } from '@arco-design/web-vue';
 
@@ -129,6 +129,12 @@ const rules = {
 
 const handleSubmit = () => {
   if (loading.value) return;
+
+  getHello({ name: '张三' }).then(res => {
+    console.log(res);
+  });
+
+  return;
 
   if (tabActiveKey.value === '1') {
     formRef.value.validateField(['username', 'password']).then(async res => {

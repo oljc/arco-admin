@@ -1,13 +1,21 @@
 import axios from 'axios';
-import type { AxiosResponse, AxiosRequestConfig, AxiosAdapter } from 'axios';
+import type { AxiosResponse, AxiosRequestConfig, AxiosAdapter, InternalAxiosRequestConfig } from 'axios';
 import { Message, Modal } from '@arco-design/web-vue';
 import { getToken } from '@/utils/auth';
 import { murmurHash3 } from '@/utils/index';
 import { useUserStore } from '@/store';
+import Signer from '@/utils/sign';
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
     needToken?: boolean; // 是否需要 token
+    needSign?: boolean; // 是否需要签名
+    signCredentials?: {
+      accessKeyId: string;
+      secretKey: string;
+      sessionToken?: string;
+    };
+    signRegion?: string; // 签名区域
   }
   export interface AxiosInstance {
     request<T = any>(config: AxiosRequestConfig): Promise<T>;
@@ -92,6 +100,7 @@ const handleError = (response: any) => {
   return Promise.reject(response.data);
 };
 
+
 const http = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 10000,
@@ -101,6 +110,25 @@ const http = axios.create({
 
 http.interceptors.request.use(
   config => {
+    console.log('config', config);
+
+    // 处理签名
+    console.log('config', config);
+    const signer = new Signer(config);
+
+    signer.addAuthorization({
+      accessKeyId: 'accessKeyId',
+      secretKey: 'secretKey'
+    },
+    new Date()
+  );
+
+    const fingerprint = localStorage.getItem('fingerprint');
+    if (fingerprint) {
+      config.headers['X-Fingerprint'] = fingerprint;
+    }
+
+    // 处理 token
     if (config.needToken === false) return config;
     const token = getToken();
     if (token) {
