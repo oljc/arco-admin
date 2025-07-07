@@ -4,10 +4,12 @@ import { Message, Modal } from '@arco-design/web-vue';
 import { getToken } from '@/utils/auth';
 import { murmurHash3 } from '@/utils/index';
 import { useUserStore } from '@/store';
+import { signer } from '@/utils/sign';
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
     needToken?: boolean; // 是否需要 token
+    needSign?: boolean; // 是否需要签名
   }
   export interface AxiosInstance {
     request<T = any>(config: AxiosRequestConfig): Promise<T>;
@@ -27,7 +29,9 @@ interface ApiResponse<T = any> {
   code: number;
   message: string;
   data: T;
-  success: boolean;
+  status: string;
+  timestamp: number;
+  traceId: string;
 }
 
 /**
@@ -101,12 +105,14 @@ const http = axios.create({
 
 http.interceptors.request.use(
   config => {
-    if (config.needToken === false) return config;
-    const token = getToken();
-    if (token) {
-      config.headers['X-Access-Token'] = token;
-      config.headers.Authorization = token;
+    if (config.needToken !== false) {
+      config.headers['Access-Token'] = getToken();
     }
+
+    if (config.needSign !== false) {
+      signer(config);
+    }
+
     return config;
   },
   error => Promise.reject(error)
@@ -114,8 +120,8 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
   (response: AxiosResponse<ApiResponse>) => {
-    const { code, data, success } = response.data;
-    if (success && (code === 0 || code === 200)) {
+    const { code, data, status } = response.data;
+    if (status === 'success' && (code === 0 || code === 200)) {
       return data;
     }
     return handleError(response);

@@ -1,4 +1,4 @@
-import { post } from '@/utils/request';
+import { post, get } from '@/utils/request';
 import type { UserState } from '@/store/modules/user/types';
 
 export interface LoginData {
@@ -24,4 +24,8 @@ export function getUserInfo() {
 // 获取验证码
 export function getCaptcha(data: { tel: string }) {
   return post<{ captcha?: string }>('/api/login/captcha', data);
+}
+
+export function getHello(data: any) {
+  return get<{ message: string }>('/api/demo/time?test=123', data);
 }
