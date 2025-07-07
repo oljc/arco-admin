@@ -57,8 +57,8 @@ async function fetchSourceData() {
   try {
     const data = await queryMessageList();
     messageData.messageList = data;
-  } catch (err) {
-    // you can report use errorHandler or other
+  } catch {
+    // todo
   } finally {
     setLoading(false);
   }

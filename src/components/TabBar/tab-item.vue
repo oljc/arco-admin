@@ -51,15 +51,6 @@ import { useTabBarStore } from '@/store';
 import type { TagProps } from '@/store/modules/tab-bar/types';
 import { DEFAULT_ROUTE_NAME, REDIRECT_ROUTE_NAME } from '@/router/constants';
 
-enum Eaction {
-  reload = 'reload',
-  current = 'current',
-  left = 'left',
-  right = 'right',
-  others = 'others',
-  all = 'all'
-}
-
 const props = defineProps({
   itemData: {
     type: Object as PropType<TagProps>,
@@ -72,6 +63,15 @@ const props = defineProps({
     default: 0
   }
 });
+
+enum Eaction {
+  reload = 'reload',
+  current = 'current',
+  left = 'left',
+  right = 'right',
+  others = 'others',
+  all = 'all'
+}
 
 const router = useRouter();
 const route = useRoute();

@@ -25,8 +25,8 @@ const fetchData = async () => {
   try {
     const resData = await queryCertification();
     data.value = resData;
-  } catch (err) {
-    // you can report use errorHandler or other
+  } catch {
+    // todo
   } finally {
     setLoading(false);
   }

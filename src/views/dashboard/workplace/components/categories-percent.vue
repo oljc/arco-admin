@@ -72,7 +72,7 @@ const spec: ISpec = {
       content: [
         {
           key: datum => datum['type'],
-          value: datum => datum['value'] + '%'
+          value: datum => `${datum['value']}%`
         }
       ]
     }

@@ -50,8 +50,8 @@ const fetchData = async () => {
   try {
     const data = await queryChatList();
     chatData.value = data;
-  } catch (err) {
-    // you can report use errorHandler or other
+  } catch {
+    // todo
   } finally {
     setLoading(false);
   }
