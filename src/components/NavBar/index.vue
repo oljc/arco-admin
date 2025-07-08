@@ -231,8 +231,8 @@ const switchRoles = async () => {
     text-align: center;
     white-space: nowrap;
     cursor: pointer;
-    border-radius: var(--border-radius-circle);
     outline: none;
+    border-radius: var(--border-radius-circle);
 
     &:hover {
       border: 1px solid rgb(var(--gray-2));

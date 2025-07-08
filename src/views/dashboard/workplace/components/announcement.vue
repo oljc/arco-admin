@@ -61,11 +61,11 @@ const list = [
     flex: 1;
     margin-left: 4px;
     overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 13px;
     color: var(--color-text-2);
-    text-decoration: none;
-    text-overflow: ellipsis;
     white-space: nowrap;
+    text-decoration: none;
     cursor: pointer;
   }
 }
