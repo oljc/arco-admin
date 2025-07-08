@@ -20,7 +20,7 @@ import LogoSvg from '@/assets/logo.svg';
 .container {
   display: flex;
   height: 100vh;
-  background-image: url('../../assets/images/background.png');
+  background-image: url('../../assets/images/background.webp');
   background-repeat: no-repeat;
   background-size: cover;
 
