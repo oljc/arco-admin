@@ -23,13 +23,16 @@ export function signer(config: AxiosRequestConfig) {
   config.headers['X-Date'] = date;
 
   const { method, url, headers, params, data } = config;
-  const api = url.split('?')[0];
+  const u = new URL(url!, 'http://localhost');
+  const api = u.pathname;
+  const queryString = getQueryParams(u, params);
+
   const [signedHeaders, canonicalHeaders] = getSignHeaders(headers as Record<string, string>);
-  const hexHashBody = hexEncodedBodyHash(data, headers['Content-Type']);
+  const hexHashBody = hexEncodedBodyHash(data, headers?.['Content-Type']);
   const canonicalRequest = [
     method.toUpperCase(),
-    api.startsWith('/') ? api : `/${api}`,
-    queryParamsToString(params) || '',
+    api,
+    queryString,
     `${canonicalHeaders}\n`,
     signedHeaders,
     hexHashBody
@@ -40,7 +43,7 @@ export function signer(config: AxiosRequestConfig) {
   const kDate = hexHmac(secretAccessKey, date);
   const kFingerprint = hexHmac(kDate, fingerprint);
   const kSigning = hexHmac(kFingerprint, 'oljc');
-  const signature = hexHmac(kSigning, signString).toString();
+  const signature = hexHmac(kSigning, signString);
 
   config.headers['Authorization'] = [
     'LJC-HMAC-SHA256',
@@ -54,22 +57,40 @@ function toBytes(data: string | Buffer): Uint8Array {
   return typeof data === 'string' ? utf8ToBytes(data) : new Uint8Array(data);
 }
 
-function hexHmac(key: string | Buffer, string: string): string {
-  const keyBytes = toBytes(key);
-  const stringBytes = toBytes(string);
-  const hash = hmac(sha256, keyBytes, stringBytes);
-  return bytesToHex(hash);
+function hexHmac(key: string | Buffer, message: string): string {
+  return bytesToHex(hmac(sha256, toBytes(key), toBytes(message)));
 }
 
 function hexHash(data: string | Buffer): string {
-  const dataBytes = toBytes(data);
-  const hash = sha256(dataBytes);
-  return bytesToHex(hash);
+  return bytesToHex(sha256(toBytes(data)));
 }
 
-function getDateTimeNow() {
-  const now = new Date();
-  return now.toISOString().replace(/[:-]|\.\d{3}/g, '');
+function getDateTimeNow(): string {
+  return new Date().toISOString().replace(/[:-]|\.\d{3}/g, '');
+}
+
+function stableJsonStringify(obj: any): string {
+  if (typeof obj !== 'object' || obj === null) return String(obj);
+  return JSON.stringify(obj, Object.keys(obj).sort());
+}
+
+function getQueryParams(urlObj: URL, params?: Record<string, any>): string {
+  const searchParams = new URLSearchParams(urlObj.search);
+
+  if (params) {
+    for (const [key, value] of Object.entries(params)) {
+      if (Array.isArray(value)) {
+        for (const v of value) searchParams.append(key, v);
+      } else if (value !== undefined && value !== null) {
+        searchParams.set(key, value);
+      }
+    }
+  }
+
+  return [...searchParams.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([k, v]) => `${uriEscape(k)}=${uriEscape(v)}`)
+    .join('&');
 }
 
 function queryParamsToString(params) {
@@ -93,33 +114,30 @@ function queryParamsToString(params) {
     .join('&');
 }
 
-const uriEscape = (str: string): string => {
+function uriEscape(str: string): string {
   try {
-    return encodeURIComponent(str).replace(/[^A-Za-z0-9_.~\-%]/g, char => {
-      const hex = char.charCodeAt(0).toString(16).toUpperCase();
-      return `%${hex.padStart(2, '0')}`;
-    });
+    return encodeURIComponent(str).replace(
+      /[^A-Za-z0-9_.~\-%]/g,
+      c => `%${c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')}`
+    );
   } catch {
     return '';
   }
-};
+}
 
 function getSignHeaders(headers: Record<string, string>) {
-  function trimHeader(header: string) {
-    return header.toString?.().trim().replace(/\s+/g, ' ') ?? '';
-  }
+  const trim = (val: string) => val?.toString()?.trim()?.replace(/\s+/g, ' ') ?? '';
+  const keys = Object.keys(headers).filter(k => !IGNORE_HEADER.has(k.toLowerCase()));
 
-  let h = Object.keys(headers);
-  h = h.filter(k => !IGNORE_HEADER.has(k.toLowerCase()));
-  const signedHeaderKeys = h
-    .slice()
+  const signedHeaderKeys = keys
     .map(k => k.toLowerCase())
     .sort()
     .join(';');
-  const canonicalHeaders = h
-    .sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1))
-    .map(k => `${k.toLowerCase()}:${trimHeader(headers[k])}`)
+  const canonicalHeaders = keys
+    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+    .map(k => `${k.toLowerCase()}:${trim(headers[k])}`)
     .join('\n');
+
   return [signedHeaderKeys, canonicalHeaders];
 }
 
@@ -129,12 +147,12 @@ function hexEncodedBodyHash(data: any, contentType: string = ''): string {
 
   contentType = contentType.toLowerCase();
   if (contentType.includes('application/json')) {
-    return hexHash(JSON.stringify(data, Object.keys(data).sort()));
+    return hexHash(stableJsonStringify(data));
   }
 
   if (contentType.includes('form-urlencoded')) {
     return hexHash(queryParamsToString(data));
   }
 
-  return hexHash(JSON.stringify(data, Object.keys(data).sort()));
+  return hexHash(stableJsonStringify(data));
 }
