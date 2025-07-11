@@ -27,5 +27,5 @@ export function getCaptcha(data: { tel: string }) {
 }
 
 export function getHello(data: any) {
-  return get<{ message: string }>('/api/demo/time?test=123', data);
+  return get<{ message: string }>('/api/demo/time', data);
 }
