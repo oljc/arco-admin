@@ -15,46 +15,42 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "deploy"
+  cancel-in-progress: true
 
 jobs:
   deploy:
-    # 更换了别的服务商所以暂时阻止整个作业执行
-    if: contains(github.event.head_commit.message, '[ci]')
+    if: github.repository == 'oljc/arco-admin'
 
-    # 虚拟机
     runs-on: ubuntu-latest
 
     steps:
-      # 检出代码
       - name: Checkout
         uses: actions/checkout@v4
-      # 安装 pnpm
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-      # 设置 node 环境
+
       - name: Set node version to 18
         uses: actions/setup-node@v4
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
           cache: "pnpm"
-      # 安装依赖
+
       - name: Install dependencies
         run: pnpm install
-      # 打包
+
       - name: Build
         run: pnpm run build
-      # 配置 GitHub Pages
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      # 将打包的 dist 上传
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-      # 部署
+
       - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          source: "dist"
+          target: ${{ secrets.TARGET }}
+          strip_components: 1
