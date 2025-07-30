@@ -55,11 +55,9 @@ const customAdapter: AxiosAdapter = config => {
 
   const request = axios
     .getAdapter(axios.defaults.adapter)(config)
-    .then(response => {
-      cache.set(cacheKey, Promise.resolve(response));
-      // 自动清理-3秒
-      setTimeout(() => cache.delete(cacheKey), 3000);
-      return response;
+    .then(response => response)
+    .finally(() => {
+      setTimeout(() => cache.delete(cacheKey), 1100);
     });
 
   cache.set(cacheKey, request);
@@ -70,8 +68,8 @@ const customAdapter: AxiosAdapter = config => {
  * 处理错误
  */
 const handleError = (response: any) => {
-  const code = response.data.code || response.status;
-  const message = response.data.message || response.statusText;
+  const { data = {}, status, statusText } = response;
+  const code = data.code ?? status;
   if (code === 401) {
     Modal.error({
       title: '登录信息已过期',
@@ -90,10 +88,10 @@ const handleError = (response: any) => {
 
   Message.error({
     id: 'apiTips',
-    content: message || '网络错误，请稍后重试',
+    content: data.message ?? statusText ?? '网络错误，请稍后重试',
     duration: 3000
   });
-  return Promise.reject(response.data);
+  return Promise.reject(data);
 };
 
 const http = axios.create({
@@ -126,7 +124,7 @@ http.interceptors.response.use(
     }
     return handleError(response);
   },
-  error => handleError(error.response)
+  error => handleError(error.response || error.request)
 );
 
 export const get = <T = unknown>(url: string, data?: unknown, config?: AxiosRequestConfig) =>
