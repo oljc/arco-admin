@@ -21,11 +21,16 @@ export function getUserInfo() {
   return post<UserState>('/api/user/info');
 }
 
-// 获取验证码
 export function getCaptcha(data: { tel: string }) {
   return post<{ captcha?: string }>('/api/login/captcha', data);
 }
 
-export function getHello(data: any) {
-  return get<{ message: string }>('/api/demo/time?test=123', data);
+/** 图片验证码 */
+export function getCaptchaImage(data: { type: string }) {
+  return get<{
+    id: string;
+    captcha: string;
+    type: string;
+    ttl: number;
+  }>('/api/auth/captcha', data);
 }

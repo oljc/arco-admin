@@ -22,6 +22,13 @@
             </template>
           </a-input-password>
         </a-form-item>
+        <a-form-item field="password" validate-trigger="blur" hide-label>
+          <a-input v-model="form.captcha" class="captcha" placeholder="请输入验证码" allow-clear>
+            <template #append>
+              <img :src="captchaImage" alt="验证码" @click="fetchCaptchaImage" />
+            </template>
+          </a-input>
+        </a-form-item>
         <a-checkbox
           checked="rememberPassword"
           :model-value="loginConfig.rememberPassword"
@@ -78,14 +85,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStorage } from '@vueuse/core';
 import { useUserStore } from '@/store';
 import useCountDown from '@/hooks/useCountDown';
 import useLoading from '@/hooks/useLoading';
 import type { LoginData } from '@/api/user';
-import { getCaptcha, getHello } from '@/api/user';
+import { getCaptcha, getCaptchaImage } from '@/api/user';
 import { pick } from 'lodash';
 import { Message, Notification } from '@arco-design/web-vue';
 
@@ -110,6 +117,8 @@ const form = reactive({
   agreement: false
 });
 
+const captchaImage = ref('');
+
 const rules = {
   username: [{ required: true, message: '请输入正确账号' }],
   captcha: [{ required: true, message: '请输入正确验证码' }],
@@ -127,15 +136,14 @@ const rules = {
   ]
 };
 
+const fetchCaptchaImage = () => {
+  getCaptchaImage({ type: 'line' }).then(res => {
+    captchaImage.value = res.captcha;
+  });
+};
+
 const handleSubmit = () => {
   if (loading.value) return;
-
-  getHello({ name: '张三' }).then(res => {
-    // eslint-disable-next-line no-console
-    console.log(res);
-  });
-
-  return;
 
   if (tabActiveKey.value === '1') {
     formRef.value.validateField(['username', 'password']).then(async res => {
@@ -204,6 +212,10 @@ const handleSendCode = async () => {
   });
   start();
 };
+
+onMounted(() => {
+  fetchCaptchaImage();
+});
 </script>
 
 <style lang="less" scoped>
@@ -248,6 +260,18 @@ const handleSendCode = async () => {
       &:hover {
         transform: scale(1.3);
       }
+    }
+  }
+}
+
+:deep(.captcha) {
+  .arco-input-append {
+    padding: 0;
+
+    img {
+      height: 30px;
+      cursor: pointer;
+      user-select: none;
     }
   }
 }
