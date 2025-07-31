@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "npm" # 包管理器
     directory: "/"
     schedule:
-      interval: "weekly" # 每周运行一次
+      interval: "monthly" # 每月运行一次
     reviewers:
       - "oljc"
     assignees:
@@ -28,6 +28,6 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily" # 在每个工作日（周一至周五）运行
+      interval: "monthly"
     labels:
       - "🪛 actions"

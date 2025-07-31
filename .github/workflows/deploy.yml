@@ -1,9 +1,10 @@
 name: Deploy
 
 on:
-  # master 分支 push 时触发
-  push:
-    branches: ["main"]
+  workflow_run:
+    workflows: [Check]
+    types: [completed]
+    branches: [main]
 
   # 允许通过手动触发
   workflow_dispatch:
@@ -20,7 +21,15 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.repository == 'oljc/arco-admin'
+    if: |
+      github.repository == 'oljc/arco-admin' &&
+      (
+        github.event_name == 'workflow_dispatch' ||
+        (
+          github.event_name == 'workflow_run' &&
+          github.event.workflow_run.conclusion == 'success'
+        )
+      )
 
     runs-on: ubuntu-latest
 
