@@ -8,8 +8,8 @@ import { signer } from '@/utils/sign';
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
-    needToken?: boolean; // 是否需要 token
-    needSign?: boolean; // 是否需要签名
+    token?: boolean; // 是否需要 token
+    sign?: boolean; // 是否需要签名
   }
   export interface AxiosInstance {
     request<T = any>(config: AxiosRequestConfig): Promise<T>;
@@ -69,7 +69,7 @@ const customAdapter: AxiosAdapter = config => {
  */
 const handleError = (response: any) => {
   const { data = {}, status, statusText } = response;
-  const code = data.code ?? status;
+  const code = data.code || status;
   if (code === 401) {
     Modal.error({
       title: '登录信息已过期',
@@ -88,7 +88,7 @@ const handleError = (response: any) => {
 
   Message.error({
     id: 'apiTips',
-    content: data.message ?? statusText ?? '网络错误，请稍后重试',
+    content: data.message || statusText || '网络错误，请稍后重试',
     duration: 3000
   });
   return Promise.reject(data);
@@ -103,11 +103,11 @@ const http = axios.create({
 
 http.interceptors.request.use(
   config => {
-    if (config.needToken !== false) {
+    if (config.token !== false) {
       config.headers['Access-Token'] = getToken();
     }
 
-    if (config.needSign !== false) {
+    if (config.sign !== false) {
       signer(config);
     }
 

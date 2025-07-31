@@ -32,5 +32,5 @@ export function getCaptchaImage(data: { type: string }) {
     captcha: string;
     type: string;
     ttl: number;
-  }>('/api/auth/captcha', data);
+  }>('/api/auth/captcha', data, { token: false });
 }
