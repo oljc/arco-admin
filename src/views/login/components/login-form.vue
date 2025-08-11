@@ -137,7 +137,7 @@ const rules = {
 };
 
 const fetchCaptchaImage = () => {
-  getCaptchaImage({ type: 'line' }).then(res => {
+  getCaptchaImage().then(res => {
     captchaImage.value = res.captcha;
   });
 };

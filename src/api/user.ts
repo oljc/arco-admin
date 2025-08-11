@@ -26,11 +26,11 @@ export function getCaptcha(data: { tel: string }) {
 }
 
 /** 图片验证码 */
-export function getCaptchaImage(data: { type: string }) {
+export function getCaptchaImage() {
   return get<{
     id: string;
     captcha: string;
     type: string;
     ttl: number;
-  }>('/api/auth/captcha', data, { token: false });
+  }>('/api/auth/captcha', {}, { token: false });
 }
