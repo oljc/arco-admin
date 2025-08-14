@@ -1,7 +1,7 @@
 import { hmac } from '@noble/hashes/hmac';
 import { sha256 } from '@noble/hashes/sha2';
 import { utf8ToBytes, bytesToHex } from '@noble/hashes/utils';
-import { AxiosRequestConfig } from 'axios';
+import { AxiosHeaders, AxiosRequestConfig } from 'axios';
 
 const IGNORE_HEADER = new Set([
   'authorization',
@@ -16,34 +16,36 @@ const accessKeyId = import.meta.env.VITE_ACCESS_ID || '';
 const secretAccessKey = import.meta.env.VITE_ACCESS_SECRET || '';
 
 export function signer(config: AxiosRequestConfig) {
-  const date = getDateTimeNow();
+  const date = new Date().toISOString().replace(/[:-]|\.\d{3}/g, '');
   const shortDate = date.substring(0, 8);
-  const fingerprint = localStorage.getItem('fingerprint');
+  const fingerprint = localStorage.getItem('fingerprint') || '';
+
   config.headers['X-Fingerprint'] = fingerprint;
   config.headers['X-Date'] = date;
 
-  const { method, url, headers, params, data } = config;
+  const { method, url, headers = {}, params, data } = config;
   const u = new URL(url!, 'http://localhost');
-  const api = u.pathname;
-  const queryString = getQueryParams(u, params);
+  const apiPath = u.pathname;
+  const queryString = buildQueryString(u, params);
+  const [signedHeaders, canonicalHeaders] = buildHeaders(headers);
+  const payloadHash = hashBody(data, headers['Content-Type']);
 
-  const [signedHeaders, canonicalHeaders] = getSignHeaders(headers as Record<string, string>);
-  const hexHashBody = hexEncodedBodyHash(data, headers?.['Content-Type']);
   const canonicalRequest = [
     method.toUpperCase(),
-    api,
+    apiPath,
     queryString,
     `${canonicalHeaders}\n`,
     signedHeaders,
-    hexHashBody
+    payloadHash
   ].join('\n');
 
   const credential = [shortDate, fingerprint, 'oljc'].join('/');
-  const signString = ['LJC-HMAC-SHA256', date, credential, hexHash(canonicalRequest)].join('\n');
-  const kDate = hexHmac(secretAccessKey, date);
-  const kFingerprint = hexHmac(kDate, fingerprint);
-  const kSigning = hexHmac(kFingerprint, 'oljc');
-  const signature = hexHmac(kSigning, signString);
+  const stringToSign = ['LJC-HMAC-SHA256', date, credential, hashHex(canonicalRequest)].join('\n');
+
+  const kDate = hmacHex(secretAccessKey, date);
+  const kFingerprint = hmacHex(kDate, fingerprint);
+  const kSigning = hmacHex(kFingerprint, 'oljc');
+  const signature = hmacHex(kSigning, stringToSign);
 
   config.headers['Authorization'] = [
     'LJC-HMAC-SHA256',
@@ -53,106 +55,82 @@ export function signer(config: AxiosRequestConfig) {
   ].join(' ');
 }
 
-function toBytes(data: string | Buffer): Uint8Array {
+function toBytes(data: string | Uint8Array): Uint8Array {
   return typeof data === 'string' ? utf8ToBytes(data) : new Uint8Array(data);
 }
-
-function hexHmac(key: string | Buffer, message: string): string {
+function hmacHex(key: string | Uint8Array, message: string): string {
   return bytesToHex(hmac(sha256, toBytes(key), toBytes(message)));
 }
-
-function hexHash(data: string | Buffer): string {
+function hashHex(data: string | Uint8Array): string {
   return bytesToHex(sha256(toBytes(data)));
 }
-
-function getDateTimeNow(): string {
-  return new Date().toISOString().replace(/[:-]|\.\d{3}/g, '');
-}
-
 function stableJsonStringify(obj: any): string {
-  if (typeof obj !== 'object' || obj === null) return String(obj);
-  return JSON.stringify(obj, Object.keys(obj).sort());
+  if (obj === null || typeof obj !== 'object') return String(obj ?? '');
+  const keys = Object.keys(obj).sort();
+  const result: any = {};
+  for (const k of keys) result[k] = obj[k];
+  return JSON.stringify(result);
 }
 
-function getQueryParams(urlObj: URL, params?: Record<string, any>): string {
-  const searchParams = new URLSearchParams(urlObj.search);
+function buildQueryString(url: URL, params?: Record<string, any>): string {
+  const entries: [string, string][] = [...url.searchParams.entries()];
 
   if (params) {
-    for (const [key, value] of Object.entries(params)) {
-      if (Array.isArray(value)) {
-        for (const v of value) searchParams.append(key, v);
-      } else if (value !== undefined && value !== null) {
-        searchParams.set(key, value);
-      }
-    }
+    Object.entries(params).forEach(([k, v]) => {
+      if (v === undefined || v === null) return;
+      if (Array.isArray(v))
+        v.slice()
+          .sort()
+          .forEach(val => entries.push([k, String(val)]));
+      else entries.push([k, String(v)]);
+    });
   }
 
-  return [...searchParams.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
+  return entries
+    .sort(([aKey, aVal], [bKey, bVal]) => {
+      const keyCompare = aKey.localeCompare(bKey);
+      return keyCompare !== 0 ? keyCompare : aVal.localeCompare(bVal);
+    })
     .map(([k, v]) => `${uriEscape(k)}=${uriEscape(v)}`)
     .join('&');
 }
 
-function queryParamsToString(params) {
-  return Object.keys(params)
-    .sort()
-    .map(key => {
-      const val = params[key];
-      if (typeof val === 'undefined' || val === null) {
-        return undefined;
-      }
-      const escapedKey = uriEscape(key);
-      if (!escapedKey) {
-        return undefined;
-      }
-      if (Array.isArray(val)) {
-        return `${escapedKey}=${val.map(uriEscape).sort().join(`&${escapedKey}=`)}`;
-      }
-      return `${escapedKey}=${uriEscape(val)}`;
-    })
-    .filter(v => v)
-    .join('&');
-}
+function buildHeaders(headers: AxiosHeaders | Record<string, any>) {
+  const trim = (v: string) => v?.trim().replace(/\s+/g, ' ') ?? '';
+  const keys = Object.keys(headers)
+    .filter(k => !IGNORE_HEADER.has(k.toLowerCase()))
+    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
-function uriEscape(str: string): string {
-  try {
-    return encodeURIComponent(str).replace(
-      /[^A-Za-z0-9_.~\-%]/g,
-      c => `%${c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')}`
-    );
-  } catch {
-    return '';
-  }
-}
-
-function getSignHeaders(headers: Record<string, string>) {
-  const trim = (val: string) => val?.toString()?.trim()?.replace(/\s+/g, ' ') ?? '';
-  const keys = Object.keys(headers).filter(k => !IGNORE_HEADER.has(k.toLowerCase()));
-
-  const signedHeaderKeys = keys
-    .map(k => k.toLowerCase())
-    .sort()
-    .join(';');
-  const canonicalHeaders = keys
-    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
-    .map(k => `${k.toLowerCase()}:${trim(headers[k])}`)
-    .join('\n');
+  const signedHeaderKeys = keys.map(k => k.toLowerCase()).join(';');
+  const canonicalHeaders = keys.map(k => `${k.toLowerCase()}:${trim(headers[k])}`).join('\n');
 
   return [signedHeaderKeys, canonicalHeaders];
 }
 
-function hexEncodedBodyHash(data: any, contentType: string = ''): string {
-  if (!data) return hexHash('');
-  if (typeof data === 'string') return hexHash(data);
+function hashBody(data: any, contentType: string = ''): string {
+  if (!data) return hashHex('');
+  contentType = (contentType || '').toLowerCase();
+  if (typeof data === 'string') return hashHex(data);
+  if (contentType.includes('application/json')) return hashHex(stableJsonStringify(data));
+  if (contentType.includes('form-urlencoded')) return hashHex(buildFormQuery(data));
+  return hashHex(stableJsonStringify(data));
+}
 
-  contentType = contentType.toLowerCase();
-  if (contentType.includes('application/json')) {
-    return hexHash(stableJsonStringify(data));
-  }
+function buildFormQuery(params: Record<string, any>): string {
+  return Object.keys(params)
+    .sort()
+    .map(k => {
+      const val = params[k];
+      const escapedKey = uriEscape(k);
+      if (Array.isArray(val)) return val.map(v => `${escapedKey}=${uriEscape(v)}`).join('&');
+      return `${escapedKey}=${uriEscape(val)}`;
+    })
+    .join('&');
+}
 
-  if (contentType.includes('form-urlencoded')) {
-    return hexHash(queryParamsToString(data));
-  }
-
-  return hexHash(stableJsonStringify(data));
+function uriEscape(str: string): string {
+  return encodeURIComponent(str).replace(
+    /[!*'()]/g,
+    c => `%${c.charCodeAt(0).toString(16).toUpperCase()}`
+  );
 }
