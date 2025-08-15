@@ -3,14 +3,7 @@ import { sha256 } from '@noble/hashes/sha2';
 import { utf8ToBytes, bytesToHex } from '@noble/hashes/utils';
 import { AxiosHeaders, AxiosRequestConfig } from 'axios';
 
-const IGNORE_HEADER = new Set([
-  'authorization',
-  'content-type',
-  'content-length',
-  'user-agent',
-  'presigned-expires',
-  'expect'
-]);
+const SIGN_HEADER = new Set(['accept', 'x-date', 'x-fingerprint', 'access-token']);
 
 const accessKeyId = import.meta.env.VITE_ACCESS_ID || '';
 const secretAccessKey = import.meta.env.VITE_ACCESS_SECRET || '';
@@ -28,7 +21,7 @@ export function signer(config: AxiosRequestConfig) {
   const apiPath = u.pathname;
   const queryString = buildQueryString(u, params);
   const [signedHeaders, canonicalHeaders] = buildHeaders(headers);
-  const payloadHash = hashBody(data, headers['Content-Type']);
+  const payloadHash = hashBody(data);
 
   const canonicalRequest = [
     method.toUpperCase(),
@@ -98,7 +91,7 @@ function buildQueryString(url: URL, params?: Record<string, any>): string {
 function buildHeaders(headers: AxiosHeaders | Record<string, any>) {
   const trim = (v: string) => v?.trim().replace(/\s+/g, ' ') ?? '';
   const keys = Object.keys(headers)
-    .filter(k => !IGNORE_HEADER.has(k.toLowerCase()))
+    .filter(k => SIGN_HEADER.has(k.toLowerCase()) && headers[k])
     .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
   const signedHeaderKeys = keys.map(k => k.toLowerCase()).join(';');
@@ -107,25 +100,27 @@ function buildHeaders(headers: AxiosHeaders | Record<string, any>) {
   return [signedHeaderKeys, canonicalHeaders];
 }
 
-function hashBody(data: any, contentType: string = ''): string {
+function hashBody(data: any): string {
   if (!data) return hashHex('');
-  contentType = (contentType || '').toLowerCase();
   if (typeof data === 'string') return hashHex(data);
-  if (contentType.includes('application/json')) return hashHex(stableJsonStringify(data));
-  if (contentType.includes('form-urlencoded')) return hashHex(buildFormQuery(data));
-  return hashHex(stableJsonStringify(data));
-}
-
-function buildFormQuery(params: Record<string, any>): string {
-  return Object.keys(params)
-    .sort()
-    .map(k => {
-      const val = params[k];
-      const escapedKey = uriEscape(k);
-      if (Array.isArray(val)) return val.map(v => `${escapedKey}=${uriEscape(v)}`).join('&');
-      return `${escapedKey}=${uriEscape(val)}`;
-    })
-    .join('&');
+  if (typeof FormData !== 'undefined' && data instanceof FormData) {
+    const entries: string[] = [];
+    data.forEach((value, key) => {
+      entries.push(`${uriEscape(key)}=${uriEscape(String(value))}`);
+    });
+    entries.sort();
+    return hashHex(entries.join('&'));
+  }
+  if (typeof URLSearchParams !== 'undefined' && data instanceof URLSearchParams) {
+    const params = Array.from(data.entries())
+      .map(([k, v]) => [uriEscape(k), uriEscape(v)])
+      .sort(([k1, v1], [k2, v2]) => k1.localeCompare(k2) || v1.localeCompare(v2));
+    return hashHex(params.map(([k, v]) => `${k}=${v}`).join('&'));
+  }
+  if (data instanceof ArrayBuffer) return hashHex(new Uint8Array(data));
+  if (ArrayBuffer.isView(data)) return hashHex(new Uint8Array(data.buffer));
+  if (typeof data === 'object') return hashHex(stableJsonStringify(data));
+  return hashHex(String(data));
 }
 
 function uriEscape(str: string): string {
