@@ -34,3 +34,7 @@ export function getCaptchaImage() {
     ttl: number;
   }>('/auth/captcha', {}, { token: false });
 }
+
+export function postTest(data: any) {
+  return post('/auth/demo', data);
+}

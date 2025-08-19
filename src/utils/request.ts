@@ -10,6 +10,7 @@ declare module 'axios' {
   export interface AxiosRequestConfig {
     token?: boolean; // 是否需要 token
     sign?: boolean; // 是否需要签名
+    cache?: boolean;
   }
   export interface AxiosInstance {
     request<T = any>(config: AxiosRequestConfig): Promise<T>;
@@ -48,6 +49,10 @@ const generateKey = (config: AxiosRequestConfig) => {
  * 自定义适配器-此处主要是处理重复请求
  */
 const customAdapter: AxiosAdapter = config => {
+  if (config.cache === false) {
+    return axios.getAdapter(axios.defaults.adapter)(config);
+  }
+
   const cacheKey = generateKey(config);
   if (cache.has(cacheKey)) {
     return cache.get(cacheKey)!;
@@ -57,7 +62,7 @@ const customAdapter: AxiosAdapter = config => {
     .getAdapter(axios.defaults.adapter)(config)
     .then(response => response)
     .finally(() => {
-      setTimeout(() => cache.delete(cacheKey), 1100);
+      setTimeout(() => cache.delete(cacheKey), 900);
     });
 
   cache.set(cacheKey, request);

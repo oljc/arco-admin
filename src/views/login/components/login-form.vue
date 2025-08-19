@@ -25,7 +25,9 @@
         <a-form-item field="password" validate-trigger="blur" hide-label>
           <a-input v-model="form.captcha" class="captcha" placeholder="请输入验证码" allow-clear>
             <template #append>
-              <img :src="captchaImage" alt="验证码" @click="fetchCaptchaImage" />
+              <a-spin :loading="captchaLoading">
+                <img :src="captchaImage" alt="验证码" @click="fetchCaptchaImage" />
+              </a-spin>
             </template>
           </a-input>
         </a-form-item>
@@ -103,6 +105,7 @@ const codeText = ref('获取验证码');
 const formRef = ref();
 const tabActiveKey = ref('1');
 const { loading, setLoading } = useLoading();
+const { loading: captchaLoading, setLoading: setCaptchaLoading } = useLoading();
 
 const loginConfig = useStorage('login-config', {
   rememberPassword: true,
@@ -137,9 +140,14 @@ const rules = {
 };
 
 const fetchCaptchaImage = () => {
-  getCaptchaImage().then(res => {
-    captchaImage.value = res.captcha;
-  });
+  setCaptchaLoading(true);
+  getCaptchaImage()
+    .then(res => {
+      captchaImage.value = res.captcha;
+    })
+    .finally(() => {
+      setCaptchaLoading(false);
+    });
 };
 
 const handleSubmit = () => {
@@ -267,6 +275,12 @@ onMounted(() => {
 :deep(.captcha) {
   .arco-input-append {
     padding: 0;
+    border-left: none;
+
+    .arco-spin {
+      min-width: 60px;
+      height: 30px;
+    }
 
     img {
       height: 30px;
