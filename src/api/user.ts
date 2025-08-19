@@ -32,7 +32,7 @@ export function getCaptchaImage() {
     captcha: string;
     type: string;
     ttl: number;
-  }>('/auth/captcha', {}, { token: false });
+  }>('/auth/captcha', {}, { token: false, cache: false });
 }
 
 export function postTest(data: any) {
