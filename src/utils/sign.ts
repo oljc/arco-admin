@@ -27,12 +27,12 @@ export function signer(config: AxiosRequestConfig) {
     method.toUpperCase(),
     apiPath,
     queryString,
-    `${canonicalHeaders}\n`,
+    canonicalHeaders,
     signedHeaders,
     payloadHash
   ].join('\n');
 
-  const credential = [shortDate, fingerprint, 'oljc'].join('/');
+  const credential = [accessKeyId, shortDate, fingerprint, 'oljc'].join('/');
   const stringToSign = ['LJC-HMAC-SHA256', date, credential, hashHex(canonicalRequest)].join('\n');
 
   const kDate = hmacHex(secretAccessKey, date);
@@ -42,7 +42,7 @@ export function signer(config: AxiosRequestConfig) {
 
   config.headers['Authorization'] = [
     'LJC-HMAC-SHA256',
-    `Credential=${accessKeyId}/${credential},`,
+    `Credential=${credential},`,
     `SignedHeaders=${signedHeaders},`,
     `Signature=${signature}`
   ].join(' ');
