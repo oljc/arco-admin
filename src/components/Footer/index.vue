@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <slot>
-      Arco Admin 版权所有 © 2024 李江辰｜
+      Arco Admin 版权所有 © 2025 李江辰｜
       <a-link
         style="font-size: 12px"
         href="https://github.com/oljc/arco-admin/blob/main/LICENSE"

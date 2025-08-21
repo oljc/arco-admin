@@ -54,9 +54,13 @@ import LogoSvg from '@/assets/logo.svg';
       margin-left: 4px;
       font-size: 26px;
       font-weight: 500;
-      color: rgb(var(--color-text-1));
+      color: var(--color-text-1);
     }
   }
+}
+
+body[arco-theme='dark'] .container {
+  background-image: url('../../assets/images/background-black.webp');
 }
 
 @media (max-height: @screen-md) {
