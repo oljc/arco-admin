@@ -63,7 +63,7 @@
     "@noble/hashes": "^1.8.0",
     "@visactor/vchart": "^1.13.16",
     "@visactor/vchart-arco-theme": "^1.12.2",
-    "@vueuse/core": "^13.7.0",
+    "@vueuse/core": "^13.9.0",
     "axios": "^1.11.0",
     "crypto-js": "^4.2.0",
     "dayjs": "^1.11.13",
