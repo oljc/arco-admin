@@ -9,6 +9,11 @@
       >
         MIT 使用条款
       </a-link>
+      ｜
+      <a-link style="font-size: 12px" href="https://beian.miit.gov.cn" target="_blank">
+        <!-- <img src="@/assets/images/icp.png" alt="" style="width: 14px; height: 14px" /> -->
+        闽ICP备2025085819号-2
+      </a-link>
     </slot>
   </footer>
 </template>
