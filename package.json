@@ -61,7 +61,7 @@
     "@arco-design/web-vue": "^2.57.0",
     "@fingerprintjs/fingerprintjs": "^4.6.2",
     "@noble/hashes": "^1.8.0",
-    "@visactor/vchart": "^1.13.16",
+    "@visactor/vchart": "^2.0.5",
     "@visactor/vchart-arco-theme": "^1.12.2",
     "@vueuse/core": "^13.7.0",
     "axios": "^1.11.0",
